@@ -64,7 +64,6 @@ URL:        http://www.rankhacker.com
 body {
     background: #ffffff;
     color: #ffffff;
-    font-family: 'Nixie One', cursive;
     font-weight: 400;
     font-size: 16px;
     overflow-x: hidden;
@@ -98,7 +97,6 @@ h3,
 h4,
 h5 {
     font-weight: 300;
-    font-family: 'Nixie One', cursive;
 }
 
 h2 {
@@ -278,7 +276,6 @@ h6 {
 
 /*     3.2. Forms     */
 input {
-    height: 64px !important;
     border-color: #ffffff;
     font-weight: 400;
 }
@@ -951,7 +948,7 @@ fieldset[disabled] .btn {
     background-size: 100% 0.6rem;
     border-radius: 2rem;
     opacity: .2;
-    position: absolute;
+    position: fixed;
     z-index: 4;
 }
 .glow {
@@ -975,7 +972,7 @@ fieldset[disabled] .btn {
         );
     opacity: .25;
     pointer-events: none;
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     z-index: 5;
@@ -1147,7 +1144,7 @@ fieldset[disabled] .btn {
 .output::before {
     content: " ";
     display: block;
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     background: -webkit-linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), -webkit-linear-gradient(0deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
@@ -2113,7 +2110,7 @@ fieldset[disabled] .btn {
 
 #header #background-image {
     height: 100vh;
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     z-index: 3;
@@ -2122,12 +2119,12 @@ fieldset[disabled] .btn {
 }
 
 #header .overlay {
-    height: 100vh;
-    position: relative;
-    top: 0;
-    left: 0;
-    z-index: 6;
-    color: #fff;
+  color: #fff;
+  height: 100vh;
+  left: 0;
+  position: relative;
+  top: 70px;
+  z-index: 6;
 }
 
 #header .color-overlay {

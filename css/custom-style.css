@@ -1,0 +1,1245 @@
+@charset "utf-8";
+/* CSS Document */
+
+body {
+  float: left;
+  font-family: 'PT Sans';
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
+.page-loading {
+  overflow-x: hidden !important;
+  overflow-y: visible !important;
+}
+
+ul , ol {list-style:none; margin:0; padding:0}
+
+* {margin:0 ; padding:0;}
+
+
+
+.interface-outer {
+
+display: table;
+float: left;
+margin: 0;
+padding: 0;
+vertical-align: middle;
+width: 100%;
+} 
+
+.vertical-middle {
+display: table-cell;
+float: none;
+height: 100%;
+vertical-align: middle;
+} 
+
+
+/*---------------------- header css ------------------------*/
+
+.account-links-outer {
+margin: 16px 0 0;
+min-width: 160px;
+padding-right: 15px;
+text-align: right;
+}
+
+.logo-outer {
+float: left;
+margin: 0;
+padding: 0;
+width: auto;
+}
+
+#rank-header-outer {
+  background-color: #000;
+  float: left;
+  height: auto;
+  padding: 0;
+  width: 100%;
+}
+
+#rank-header-outer nav {
+  padding: 10px 15px;
+}
+
+.account-links-outer ul {margin:0; padding:0;}
+
+.account-links-outer ul li {
+border-right: 1px solid #fff;
+display: inline-block;
+font-size: 14px;
+line-height: 14px;
+margin: 0;
+padding: 0 10px;
+}
+
+.account-links-outer ul li:last-child {
+border-right: 1px solid transparent;
+}
+
+
+.account-links-outer ul li a{
+color:#fff;
+}
+
+
+.get-rankhacker-form {
+background-color: #1a1b1d;
+box-sizing: border-box;
+margin: 0 40px 0 0;
+padding: 8px 20px 5px;
+}
+
+.rank-form-left, .rank-form-right {
+float: left;
+margin: 0;
+padding: 0;
+}
+
+.rank-form-left h2 {
+background-color: #fff;
+color: #333;
+display: block;
+float: none;
+font-size: 16px;
+font-weight: bold;
+letter-spacing: 5px;
+line-height: normal;
+margin: 0;
+padding: 0 15px;
+text-align: center;
+text-transform: uppercase;
+width: 100%;
+font-family: 'Nixie One', cursive;
+}
+
+.rank-form-left .check-box-outer {
+color: #fff;
+float: left;
+font-size: 14px;
+margin: 0;
+padding: 0;
+width: 50%;
+}
+
+.rank-form-left .check-box-outer {
+color: #fff;
+float: left;
+font-size: 14px;
+margin: 0;
+padding: 0;
+text-align: center;
+width: 100%;
+}
+
+.check-box-outer ul {
+float: left;
+margin: 0;
+padding: 0;
+width: 100%;
+}
+
+.header-right-side {
+margin-top: 5px;
+}
+
+.check-box-outer ul li input[type="checkbox"] {
+display: inline-block !important;
+margin-right: 6px;
+position: static !important;
+}
+
+.check-box-outer ul li {
+  display: inline-block;
+  margin: 0;
+  min-width: 70px;
+  padding: 0;
+  text-align: left;
+}
+
+
+.rank-form-input {
+background-color: #808080;
+border: medium none;
+color: #000;
+display: inline-block;
+font-size: 14px;
+height: 35px;
+margin: 0;
+padding: 0 10px;
+width: 200px;
+}
+
+
+.rank-form-btn {
+background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
+color: #fff;
+font-size: 18px;
+height: 28px;
+letter-spacing: 2px;
+margin: 0 0 0 10px;
+padding: 0 10px;
+position: relative;
+text-transform: uppercase;
+top: 1px;
+border:none;
+border-left:1px solid #fff;
+border-right:1px solid #fff;
+font-family: 'Nixie One', cursive;
+}
+
+
+.rank-form-left {
+padding-right: 15px;
+padding-top: 1px;
+}
+
+
+.rank-form-input:focus {border:none !important;}
+
+.rank-form-btn:hover , .rank-form-btn:focus {
+background-color: #fff;
+color: #333;
+}
+
+/*---------------------- content css ------------------------*/
+
+.feed-headding {
+  background-color: #231f20;
+  color: #fff;
+  float: left;
+  font-family: "Nixie One",cursive;
+  font-size: 5em;
+  letter-spacing: 10px;
+  line-height: normal;
+  margin: 50px 0 0;
+  padding: 15px 0;
+  text-align: center;
+  text-transform: uppercase;
+  width: 100%;
+}
+
+.competitor-url-input-outer {
+border: 1px solid #000;
+border-radius: 8px;
+clear: both;
+display: inline-block;
+height: 75px;
+margin: 46px auto 0;
+position: relative;
+width: 60%;
+}
+
+.project-cards-outer {
+  float: left;
+  width: 100%;
+}
+
+.competitor-url-input-outer input {
+background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
+border: medium none;
+float: left;
+font-family: 'Nixie One', cursive;
+font-size: 34px;
+height: 100%;
+margin: 0;
+padding: 0 0 0 110px;
+width: 100%;
+color:#333;
+}
+
+.submit-url-btn {
+background-color: rgba(255, 255, 255, 0.3);
+border: 1px solid #242021;
+clear: both;
+color: #242021;
+display: table;
+float: none;
+font-size: 40px;
+font-weight: normal;
+height: 65px;
+line-height: 65px;
+margin: 40px auto 0;
+padding: 0 25px;
+text-align: center;
+width: auto;
+}
+
+.competitor-url-input-outer input:focus {
+border-bottom: medium none;
+box-shadow: 0 1px 0 0 transparent;
+}
+
+.competitor-url-input-outer label {
+background-color: #000;
+border-bottom-left-radius: 5px;
+border-top-left-radius: 5px;
+float: left;
+height: 100%;
+left: 0;
+margin: 0;
+padding: 0;
+position: absolute;
+text-align: center;
+top: 0;
+vertical-align: middle;
+width: 80px;
+z-index: 99;
+}
+
+.competitor-url-input-outer label i {
+color: #808185;
+font-size: 45px;
+line-height: 70px;
+}
+
+
+.submit-url-btn:hover, .submit-url-btn:focus {
+background-color: #ec1c24;
+color: #fff;
+border-color: #ec1c24;
+}
+
+.competitor-url-input-outer.focus-effect label i , .competitor-url-input-outer.focus-effect input{ color: #ec1c24;}
+
+.competitor-url-input-outer.focus-effect input::-webkit-input-placeholder {
+color: transparent;
+}
+
+.competitor-url-input-outer.focus-effect input:-moz-placeholder { /* Firefox 18- */
+color: transparent;  
+}
+
+.competitor-url-input-outer.focus-effect input::-moz-placeholder {  /* Firefox 19+ */
+color: transparent;  
+}
+
+.competitor-url-input-outer.focus-effect input:-ms-input-placeholder {  
+color: transparent;  
+}
+
+.competitor-url-input-outer.focus-effect input {
+font-family: arial;
+}
+
+
+
+
+
+
+
+
+
+
+/*---------------------- storefront-steps css ------------------------*/
+
+/** ANIMATIONS ***/
+
+@keyframes clockwise{
+to {transform: rotate(360deg) translatez(0);}
+}
+
+
+/****************************
+MAGIC SPINNER
+*****************************/
+
+.magic { 
+background-color: transparent;width:10px;height: 10px;border-radius: 100%; box-shadow:12px -12px 0      hsla(198, 77%, 52%, 0.125),17px    0 0 -1px hsla(198,77%, 52%, 0.250),12px 12px 0 -2px hsla(198, 77%, 52%, 0.375),0  17px 0 -3px hsla(198, 77%, 52%, 0.500),-12px  12px 0 -4px hsla(198, 77%, 52%, 0.625),-17px     0 0 -5px hsla(198, 77%, 52%, 0.750),-12px -12px 0 -6px hsla(198, 77%, 52%, 0.875),0 -17px 0 -7px hsla(198, 77%, 52%, 1.000);animation:clockwise 0.75s steps(8, end) infinite;float:none;margin:30px auto 0;}
+
+
+/****************************
+DOT SPINNER
+*****************************/
+.spin {background-color: transparent;width:10px;height: 10px;border-radius: 100%;box-shadow:12px -12px  hsla(198, 77%, 52%, 0.125),17px     0 hsla(198, 77%, 52%, 0.250),12px  12px hsla(198, 77%, 52%, 0.375),0  17px hsla(198, 77%, 52%, 0.500),-12px  12px hsla(198, 77%, 52%, 0.625),-17px     0 hsla(198, 77%, 52%, 0.750),-12px -12px hsla(198, 77%, 52%, 0.875),0 -17px hsla(198, 77%, 52%, 1.000);animation: clockwise 0.75s steps(8, end) infinite;float:none;margin:30px auto 0;}
+
+
+
+
+.storefront-steps-outer li {
+display: inline-flex;
+float: left;
+justify-content: flex-start;
+overflow: hidden;
+padding: 0 15px;
+position: relative;
+}
+
+.storefront-steps-outer li:nth-child(2) {
+justify-content: center;
+}
+
+.storefront-steps-outer li:nth-child(3) {
+justify-content: flex-end;
+}
+
+.storefront-steps-outer li span {
+color: #333;
+float: left;
+font-size: 20px;
+max-width: 80%;
+padding:20px 0 0 5px;
+text-align: left;
+width: auto;
+}
+
+.check-icon {
+color: #27a8e1;
+font-size: 45px;
+font-weight: normal;
+line-height: 65px;
+padding: 0;
+}
+
+
+.storefront-steps-headding {
+background-color: #231f20;
+color: #fff;
+display: table;
+float: none;
+font-family: 'Nixie One', cursive;
+font-size: 3.5em;
+letter-spacing: 10px;
+line-height: normal;
+margin: 0 auto;
+min-width: 65%;
+padding: 10px 25px;
+text-align: center;
+text-transform: uppercase;
+width: auto;
+}
+
+.storefront-steps-outer li .step-icon {
+float: left;
+height: 65px;
+margin: 0;
+padding: 0;
+text-align: center;
+width: 65px;
+}
+
+
+.storefront-steps-outer .row {
+margin:0 -15px 0;
+}
+
+.storefront-steps-outer {
+margin-top: 25px;
+}
+
+
+
+.mail-note {
+  color: #333;
+  float: left;
+  font-size: 28px;
+  font-weight: 600;
+  margin: 1em 0 0;
+  text-align: center;
+  text-transform: uppercase;
+  width: 100%;
+}
+
+.red-text {color:#FF0000 !important;}
+
+
+
+/*---------- cart css ------------*/
+
+.card-header a {color:#2b6f93;}
+
+
+.eagle-icon {background-image: url("../images/eggle-icon.png");background-position: center 4px;background-repeat: no-repeat;background-size: 100% auto;height: 25px;margin-right: 8px !important;width: 25px;float:left;}
+
+.project-cards-outer .row {margin-bottom: 0;margin-left: -15px;margin-right: -15px;clear:both;}
+
+.project-cart-box {background: #fff none repeat scroll 0 0;float: left;margin: 0;padding: 20px 0 ;width: 100%;}
+
+.card-header, .cart-small-headding {color: #000;float: left;font-size: 13px;margin: 0 0 15px;padding: 0;width: 100%;}
+
+.card-header {border-bottom: 1px solid #eff1f0;padding: 0 25px 15px;}
+
+.card-header label {float: left;top: 2px;}
+
+.card-header h1 {color: #2b6f93;float: left;font-size: 20px;font-weight: 600;line-height: normal;margin: 0;padding: 0;}
+
+.card-header .project-count {background-color: #e3272a;border-radius: 100%;color: #fff;display: inline-block;font-size: 12px;font-weight: 600;height: 28px;line-height: 28px;margin: 0 0 0 2px;position: relative;text-align: center;top: -1px;width: 28px;}
+
+.cart-info {color: #44708e;float: left;font-size: 18px;margin: 0;padding: 0;width: 100%;}
+
+.card-contact-info , .card-contact-info-right {float: left;font-size: 13px;font-weight: normal;line-height: normal;margin: 0 0 5px;padding: 0;width: 100%;}
+
+.card-contact-info-right {color: #b2b2b2;}
+
+.cart-contact-section {color: #000;float: left;font-size: 13px;margin: 0 0 15px;padding: 0;width: 100%;}
+
+.cart-contact-section .cart-small-headding {margin-bottom: 5px;padding: 0;}
+
+.card-contact-input {border: medium none;float: left;font-size: 13px;line-height: normal;margin: 0 0 5px;padding: 0;width: 100%;}
+
+.card-box-detail-outer {float: left;margin: 0;padding: 0 25px;width: 100%;}
+
+.card-box-bottom {float: left;margin: 10px 0 0;padding: 0;width: 100%;}
+
+.project-date-card {color: rgb(128, 128, 131);float: left;font-size: 14px;font-weight: 600;line-height: 20px;width: auto;}
+
+.project-status-card {background-color: rgba(33, 150, 243, 0.4);color: #000;float: right;margin: 0;padding: 1px 10px;text-transform: uppercase;width: auto;color: #000;font-size: 13px;font-weight: 600;letter-spacing: 2px;text-decoration:none;border-radius:3px;}
+
+.project-status-card.paused {background-color: #d1d2d3;}
+
+.project-status-card:hover {text-decoration:none;}
+
+.card-box-menus {color: #a5a5a5;float: right;font-size: 28px;margin: -5px 0;padding: 0;width: auto;}
+
+.project-cards-outer ul li {margin-bottom: 30px;}
+
+.green-circle {background-color:#188f48 !important;}
+
+.sort-btns {background: rgba(0, 0, 0, 0) none repeat scroll 0 0;border: medium none;color: #bbb;float: left;font-size: 14px;line-height: 25px;margin: 0;padding: 0;text-transform: uppercase;}
+
+button.sort-btns:focus {
+  background-color: transparent;
+  outline: medium none;
+}
+
+span.date-attribute {
+    display: none;
+}
+
+
+
+/****************************
+TWO TONE SPINNER
+*****************************/
+.two {
+height: 190px;
+width:  190px;
+border-width: 30px;
+border-style: solid;
+border-color: hsla(0, 0%, 100%, 0.75)
+hsla(0, 0%, 100%, 0.75) hsla(0, 0%, 100%, 0.25) hsla(0, 0%, 100%, 0.25);
+border-radius: 100%;
+animation: clockwise .5s linear infinite;
+margin:0 auto;
+}
+
+.loadding-bar {
+float: left;
+margin: 3em 0 0;
+text-align: center;
+width: 100%;
+}
+
+
+.storefront-steps-headding.blue-bg , .blue-bg {
+background-color: #005cb9;
+}
+
+
+
+/* verify email */
+
+
+.verify-bottom-section  h1{
+font-size: 22px;
+font-weight: bold;
+margin: 0;
+text-transform: uppercase;
+color:#333;
+line-height:normal;
+}
+
+.verify-bottom-section  .verify-note a{
+color:#333;
+text-decoration:none;
+}
+
+.verify-bottom-section  .verify-note a:hover{
+color:#005cb9;
+}
+
+.verify-bottom-section {
+clear: both;
+display: block;
+margin-top: 1.2em;
+}
+
+.verify-content-outer {
+float: left;
+margin: 2em 0 0;
+padding: 0;
+width: 100%;
+}
+
+
+
+/* Proceed to the Dashboard */
+
+
+.proceed-to-dashboard-btn {
+background-color: #005cb9;
+border: medium none;
+color: #fff;
+font-size: 5.5em;
+font-weight: normal;
+line-height: normal;
+margin-top:1em;
+padding: 5px 20px;
+text-align: center;
+text-transform: uppercase;
+}
+
+
+/*------------- Dashboard css ---------------*/
+
+#dashboard-header .row {
+margin: 0 -15px;
+}
+
+.user-info {
+  color: #333;
+  float: left;
+  font-size: 28px;
+  font-weight: bold;
+  line-height: normal;
+  margin: 0 0 25px;
+  text-align: left;
+  text-transform: none;
+}
+
+.row-v-spacing {
+  margin: 1.82rem 0 1.656rem;
+}
+
+.user-info a{
+color: #333;
+}
+.user-info span {
+  color: #333;
+  float: left;
+  font-size: 16px;
+  font-weight: 300;
+  line-height: normal;
+  margin: 0 0 10px;
+  padding: 0;
+  text-transform: uppercase;
+  width: 100%;
+}
+
+#dashboard-header {
+margin-bottom: 25px;
+padding-bottom: 15px;
+}
+
+#dashboard-header .view-option-outer ul li a ,#dashboard-header .rh-sort-menu ul li a,#dashboard-header .rh-views-menu ul li a,#dashboard-header .rh-actions-menu ul li a {color:#333;}
+
+.box-shadow-ot {
+box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.rt-box-competitors {
+background-color: #808185;
+border: 3px solid transparent;
+color: #fff;
+float: left;
+font-family: 'Nixie One', cursive;
+font-size: 30px;
+font-weight: bold;
+height: 40px;
+line-height: 35px;
+margin: 0 0 2px;
+overflow: hidden;
+padding: 0;
+white-space: nowrap;
+width: 100%;
+}
+
+.heading-ct {
+color: #333;
+float: left;
+font-size: 12px;
+margin: 0;
+padding: 0;
+width: 100%;
+}
+
+.competitors-rt-section ul {
+margin: 0 -5px;
+}
+
+.competitors-rt-section ul li {
+margin: 0;
+padding: 0 5px;
+}
+
+.competitors-rt-section h2 {
+color: #333;
+float: left;
+font-size: 16px;
+line-height: normal;
+margin: 0 0 15px;
+padding: 0;
+text-align: center;
+text-transform: uppercase;
+width: 100%;
+}
+
+
+.competitors-rt-section {
+float: left;
+margin: 0 0 25px;
+padding: 0;
+width: 100%;
+}	
+
+
+.competitors-rt-section.content-section h2 {
+color: #1874bd;
+}
+
+.content-section .rt-box-competitors {
+background-color: transparent;
+border: 3px solid red;
+color: #333;
+}
+
+.card-box-menus i {
+color: #7e7e7e;
+}
+
+.dashboard-status {
+color: #fff;
+float: left;
+font-size: 1em;
+font-weight: normal;
+margin: 22px 0 0 30px;
+}
+
+.dashboard-status a{
+color: #fff;
+}
+
+.report-dash-menu-outer {
+  border-radius: 0;
+  padding: 5px !important;
+  text-align: center;
+  width: 200px !important;
+}
+
+.report-dash-menu-outer li {
+  display: inline-block;
+  float: none;
+  margin: 0 !important;
+  padding: 0 !important;
+  text-align: center;
+  width: 58px;
+}
+
+.report-dash-menu-outer li i {
+color: #808185;
+font-size: 20px;
+line-height: 20px;
+padding: 0;
+}
+
+.report-dash-menu-outer li a{
+padding:5px 0 !important;
+}
+
+.dashboard-status i {
+float: left;
+}
+
+.bread-comb-outer {
+  color: #333;
+  float: left;
+  font-size: 16px;
+  font-weight: normal;
+  margin: 0 0 25px;
+  padding: 0;
+  text-align: left;
+  text-transform: uppercase;
+  width: 100%;
+}
+
+.bread-comb-outer span {
+  display: inline-block;
+  float: none;
+  font-size: 16px;
+  font-weight: normal;
+  margin: 0 0 0 5px;
+  padding: 0;
+  text-align: left;
+  text-transform: uppercase;
+}
+
+.black_eagle-rh {
+background-image: url("../images/black-eagle-icon.png");
+background-position: center 4px;
+background-repeat: no-repeat;
+background-size: 100% auto;
+border: medium none !important;
+height: 40px;
+margin-right: 0px !important;
+margin-top: -13px !important;
+padding: 0 !important;
+position: relative;
+width: 45px;
+}
+
+.white_eagle-rh {
+background-image: url("../images/white-eagle-icon.png");
+background-position: center 4px;
+background-repeat: no-repeat;
+background-size: 100% auto;
+border: medium none;
+height: 40px;
+margin-right: 5px !important;
+margin-top: -9px;
+padding: 0;
+position: relative;
+width: 45px;
+}
+
+.rt-bottom-section {
+  margin-bottom: 5%;
+  margin-top: 5%;
+}
+
+.rh-actions-menu ul {
+  float: right;
+  width: auto;
+}
+
+.setting-block i, .rh-actions-menu ul .setting-block i {
+  color: #333;
+  font-size: 35px;
+  margin: -10px 0 0;
+  padding: 0;
+}
+
+.report-dash-menu-outer {border-top: 2px solid #1c75bc;}
+
+.report-dash-menu-outer:after {
+  border-color: transparent transparent #1c75bc;
+  border-style: solid;
+  border-width: 0 8px 8px;
+  content: "";
+  height: 0;
+  left: 5px;
+  margin: auto;
+  position: absolute;
+  top: -8px;
+  width: 0;
+  z-index: 2147483647;
+}
+
+/* drop-shadow-style1 */
+
+.drop-shadow-style1
+{
+position:relative;
+-webkit-box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+-moz-box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+}
+.drop-shadow-style1:before, .drop-shadow-style1:after
+{
+content:"";
+position:absolute;
+z-index:-1;
+-webkit-box-shadow:0 0 20px rgba(0,0,0,0.8);
+-moz-box-shadow:0 0 20px rgba(0,0,0,0.8);
+box-shadow:0 0 20px rgba(0,0,0,0.8);
+top:50%;
+bottom:0;
+left:10px;
+right:10px;
+-moz-border-radius:100px / 10px;
+border-radius:100px / 10px;
+}
+.drop-shadow-style1:after
+{
+right:10px;
+left:auto;
+-webkit-transform:skew(8deg) rotate(3deg);
+-moz-transform:skew(8deg) rotate(3deg);
+-ms-transform:skew(8deg) rotate(3deg);
+-o-transform:skew(8deg) rotate(3deg);
+transform:skew(8deg) rotate(3deg);
+}
+
+
+/*---------------------- report view css ------------------------*/
+
+
+.report-view-outer {
+  background-color: #fff;
+  float: left;
+  margin: 0;
+  padding: 30px 30px 0;
+  width: 100%;
+}
+
+.user-name-block {
+  color: #333;
+  font-family: "Nixie One",cursive;
+  font-size: 2em;
+  line-height: normal;
+  margin: 1.2em 0 0;
+  padding: 0;
+  text-align: right;
+  text-transform: uppercase;
+}
+
+.user-name-block a {
+  color: #333;
+  text-decoration: underline !important;
+}
+
+.report-created-date {
+  color: #333;
+  float: left;
+  font-family: "Nixie One",cursive;
+  font-size: 3em;
+  line-height: normal;
+  margin: 15px 0 0;
+  padding: 0;
+  width: 100%;
+}
+
+.site-url {
+  color: #1c75bc !important;
+  float: left;
+  font-size: 3.5em;
+  font-weight: bold;
+  letter-spacing: 5px;
+  line-height: normal;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  text-transform: uppercase;
+  width: 100%;
+}
+
+
+
+.competitors-urlbox-outer {
+  background-color: #c9e4ef;
+  float: left;
+  margin: 10px 0;
+  padding: 20px 30px;
+  width: 100%;
+}
+
+.competitors-urlbox-outer h2 {
+  color: #333;
+  float: left;
+  font-size: 2.5em;
+  line-height: normal;
+  margin: 0;
+  padding: 0;
+  text-transform: uppercase;
+  width: 100%;
+  font-family: 'Nixie One', cursive;
+  letter-spacing: 5px;
+}
+
+.report-section-1 .row {
+  clear: both;
+  margin: 0 -15px;
+}
+
+.url-boxes {
+  background-color: #808185;
+  border-radius: 10px;
+  color: #fff;
+  float: left;
+  font-size: 34px;
+  font-weight: normal;
+  line-height: normal;
+  padding: 0 0 5px;
+  position: relative;
+  text-align: center;
+  width: 100%;
+}
+
+.links-main-box {
+  float: left;
+  margin: 15px 0;
+  padding: 0;
+  width: 100%;
+}
+
+.links-main-box:last-child {
+  margin-bottom:5px;
+}
+
+.add-more-url {
+  background-color: transparent;
+  border-radius: 0;
+  color: #808185 !important;
+  float: left;
+  font-size: 34px;
+  font-weight: bold;
+  line-height: normal;
+  padding: 2px 0 2px 5%;
+  text-align: left;
+  text-transform: uppercase;
+  width: 100%;
+}
+
+.report-boxs {
+  float: left;
+  margin: 35px 0;
+  padding: 0;
+  width: 100%;
+}
+
+.report-heading {
+  float: left;
+  font-size: 2.8em;
+  font-weight:bold;
+  line-height: normal;
+  margin: 0 0 20px;
+  padding: 0;
+  text-align: center;
+  text-transform: uppercase;
+  width: 100%;
+  color:#333;
+}
+
+.report-heading span {
+  color: #333;
+  float: left;
+  font-family: "Nixie One",cursive;
+  font-size: 28px;
+  margin: 2px 0 0;
+  text-transform: none;
+  width: 100%;
+}
+
+.report-graph-outer {
+  float: left;
+  width: 100%;
+}
+
+.report-graph-outer img{
+  float: left;
+  width: 100%;
+  height:auto;
+}
+
+.report-boxs .rt-box-competitors {
+  font-size: 6.5em;
+  height: 110px;
+  line-height: 105px;
+}
+
+.report-boxs  .heading-ct {
+  font-size: 1.5em;
+  margin: 5px 0 0;
+}
+
+
+
+
+
+/*-------- old css ---------*/
+
+.rh-actions-menu, .view-option-outer {
+  padding: 1.2em 0 0;
+}
+
+.view-option-outer ul li {
+  border-right: 1px solid #908e91;
+  display: inline-block;
+  float: left;
+  font-size: 14px;
+  line-height: 14px;
+  margin: 0;
+  padding: 0 10px;
+}
+
+.black_eagle-rh {
+  background-image: url("../images/black-eagle-icon.png");
+  background-position: center 4px;
+  background-repeat: no-repeat;
+  background-size: 100% auto;
+  border: medium none !important;
+  height: 40px;
+  margin-right: 0 !important;
+  margin-top: -13px !important;
+  padding: 0 !important;
+  position: relative;
+  width: 45px;
+}
+
+.view-option-outer ul li:last-child {
+  border-right: medium none;
+}
+
+.rh-actions-menu ul li {
+  font-size: 14px;
+  line-height: 14px;
+}
+
+.rh-actions-menu ul li a{
+ color: #333;
+}
+
+.btn-round {
+  border-radius: 30px;
+}
+
+
+.btn-orange {
+  background-color: #f7941d;
+  border: 1px solid transparent;
+  color: #fff;
+  padding: 8px 25px 8px 20px;
+}
+
+#create-new-project {
+  margin-top: -8px;
+}
+
+#create-new-blueprint i, #create-new-blueprint i::before, #create-new-blueprint.icon-rh_add::before, #create-new-project i, #create-new-project i::before, #create-new-project.icon-rh_add::before {
+  display: inline-block;
+  float: left;
+  font-size: 14px;
+  padding: 0 10px 0 0;
+  text-align: center;
+  width: auto;
+}
+
+#create-new-blueprint span, #create-new-project span {
+  display: inline-block;
+  float: left;
+  font-weight: 900;
+  line-height: 1em;
+}
+
+.rh-actions-menu ul li {
+  display: inline-block;
+  float: left;
+  padding: 0 10px;
+}
+
+
+
+
+/*---------------------- footer css ------------------------*/
+
+#interface-footer {
+background-color: #3d3d3d;
+float: left;
+margin: 0;
+padding: 25px 0;
+width: 100%;
+}
+
+#interface-footer .row {
+margin: 0 -15px;
+}
+
+.footer-link ul li {
+border-right: 1px solid #b2b2b2;
+color: #bcbdbf;
+display: inline-block;
+float: left;
+font-size: 16px;
+line-height: 16px;
+margin: 0;
+padding: 0 10px;
+font-family: 'Nixie One', cursive;
+}
+
+.footer-link ul li  a , .footer-socail-icon ul li   a{
+color: #bcbdbf;
+
+
+}
+
+
+.footer-link li:first-child {
+padding-left: 0;
+}
+
+.footer-link ul li:last-child {
+padding-right: 0;
+border:none;
+}
+
+.footer-link a {
+position: relative;
+top: -1px;
+}
+
+
+.footer-socail-icon ul , .footer-link ul  {margin:0;padding:0;}
+
+.footer-socail-icon ul li {
+display: inline-block;
+font-size: 16px;
+line-height: 16px;
+margin: 0;
+padding: 0;
+}
+
+.footer-socail-icon ul li i {
+margin: 0;
+padding: 0 15px;
+text-align: center;
+}
+
+
+.copy-right-section {
+color: #bcbdbf;
+float: right;
+font-family: "Conv_Helvetica-Bold";
+font-size: 18px;
+line-height: 18px;
+margin: 0;
+padding: 0 0;
+}
+
+
+/**/
+
+.report-tags {
+  color: #333;
+  float: left;
+  list-style: outside none none;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  text-align:center;
+}
+
+.report-tags li {
+  display: inline-block;
+  font-size: 24px;
+  font-weight: bold;
+  line-height: 50px;
+  margin: 10px 20px 20px;
+  text-transform: uppercase;
+}
+
+.report-tags li span {
+  background: #808185 none repeat scroll 0 0;
+  color: #fff;
+  float: left;
+  font-size: 50px;
+  font-weight: normal;
+  height: 50px;
+  line-height: 44px;
+  margin: 0 15px 0 0;
+  min-width: 50px;
+  text-align: center;
+  font-family:"Nixie One",cursive;
+}
