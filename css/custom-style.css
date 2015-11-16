@@ -3,7 +3,7 @@
 
 body {
   float: left;
-  font-family: 'PT Sans';
+  font-family: 'Montserrat', sans-serif;
   margin: 0;
   padding: 0;
   width: 100%;
@@ -102,7 +102,7 @@ padding: 0;
 
 .rank-form-left h2 {
 background-color: #fff;
-color: #333;
+color: #231f20;
 display: block;
 float: none;
 font-size: 16px;
@@ -203,7 +203,7 @@ padding-top: 1px;
 
 .rank-form-btn:hover , .rank-form-btn:focus {
 background-color: #fff;
-color: #333;
+color: #231f20;
 }
 
 /*---------------------- content css ------------------------*/
@@ -249,7 +249,7 @@ height: 100%;
 margin: 0;
 padding: 0 0 0 110px;
 width: 100%;
-color:#333;
+color:#231f20;
 }
 
 .submit-url-btn {
@@ -378,7 +378,7 @@ justify-content: flex-end;
 }
 
 .storefront-steps-outer li span {
-color: #333;
+color: #231f20;
 float: left;
 font-size: 20px;
 max-width: 80%;
@@ -434,7 +434,7 @@ margin-top: 25px;
 
 
 .mail-note {
-  color: #333;
+  color: #231f20;
   float: left;
   font-size: 28px;
   font-weight: 600;
@@ -444,13 +444,13 @@ margin-top: 25px;
   width: 100%;
 }
 
-.red-text {color:#FF0000 !important;}
+.red-text {color:#ec1c24 !important;}
 
 
 
 /*---------- cart css ------------*/
 
-.card-header a {color:#2b6f93;}
+.card-header a {color:#005cb9;}
 
 
 .eagle-icon {background-image: url("../images/eggle-icon.png");background-position: center 4px;background-repeat: no-repeat;background-size: 100% auto;height: 25px;margin-right: 8px !important;width: 25px;float:left;}
@@ -465,7 +465,7 @@ margin-top: 25px;
 
 .card-header label {float: left;top: 2px;}
 
-.card-header h1 {color: #2b6f93;float: left;font-size: 20px;font-weight: 600;line-height: normal;margin: 0;padding: 0;}
+.card-header h1 {color: #005cb9;float: left;font-size: 20px;font-weight: 600;line-height: normal;margin: 0;padding: 0;}
 
 .card-header .project-count {background-color: #e3272a;border-radius: 100%;color: #fff;display: inline-block;font-size: 12px;font-weight: 600;height: 28px;line-height: 28px;margin: 0 0 0 2px;position: relative;text-align: center;top: -1px;width: 28px;}
 
@@ -481,13 +481,32 @@ margin-top: 25px;
 
 .card-contact-input {border: medium none;float: left;font-size: 13px;line-height: normal;margin: 0 0 5px;padding: 0;width: 100%;}
 
-.card-box-detail-outer {float: left;margin: 0;padding: 0 25px;width: 100%;}
+.card-box-detail-outer {
+  float: left;
+  margin: 0;
+  min-height: 305px;
+  padding: 0 25px;
+  width: 100%;
+}
 
 .card-box-bottom {float: left;margin: 10px 0 0;padding: 0;width: 100%;}
 
 .project-date-card {color: rgb(128, 128, 131);float: left;font-size: 14px;font-weight: 600;line-height: 20px;width: auto;}
 
-.project-status-card {background-color: rgba(33, 150, 243, 0.4);color: #000;float: right;margin: 0;padding: 1px 10px;text-transform: uppercase;width: auto;color: #000;font-size: 13px;font-weight: 600;letter-spacing: 2px;text-decoration:none;border-radius:3px;}
+.project-status-card {
+  background-color: #c9e4ef;
+  border-radius: 3px;
+  color: #231f20 !important;
+  float: right;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  margin: 0;
+  padding: 2px 10px 4px;
+  text-decoration: none;
+  text-transform: uppercase;
+  width: auto;
+}
 
 .project-status-card.paused {background-color: #d1d2d3;}
 
@@ -549,12 +568,12 @@ font-size: 22px;
 font-weight: bold;
 margin: 0;
 text-transform: uppercase;
-color:#333;
+color:#231f20;
 line-height:normal;
 }
 
 .verify-bottom-section  .verify-note a{
-color:#333;
+color:#231f20;
 text-decoration:none;
 }
 
@@ -601,14 +620,15 @@ margin: 0 -15px;
 }
 
 .user-info {
-  color: #333;
+  color: #231f20;
   float: left;
-  font-size: 28px;
+  font-size: 32px;
   font-weight: bold;
   line-height: normal;
   margin: 0 0 25px;
   text-align: left;
   text-transform: none;
+  font-family: 'Montserrat', sans-serif !important;
 }
 
 .row-v-spacing {
@@ -616,33 +636,35 @@ margin: 0 -15px;
 }
 
 .user-info a{
-color: #333;
+color: #231f20;
 }
 .user-info span {
-  color: #333;
+  color: #231f20;
   float: left;
-  font-size: 16px;
-  font-weight: 300;
+  font-size: 18px;
+  font-weight: 400;
   line-height: normal;
   margin: 0 0 10px;
   padding: 0;
-  text-transform: uppercase;
+  text-transform: uppercase !important;
   width: 100%;
+  font-family: 'Montserrat', sans-serif !important;
 }
 
 #dashboard-header {
-margin-bottom: 25px;
-padding-bottom: 15px;
+  margin-bottom: 25px;
+  margin-top: 60px;
+  padding-bottom: 15px;
 }
 
-#dashboard-header .view-option-outer ul li a ,#dashboard-header .rh-sort-menu ul li a,#dashboard-header .rh-views-menu ul li a,#dashboard-header .rh-actions-menu ul li a {color:#333;}
+#dashboard-header .view-option-outer ul li a ,#dashboard-header .rh-sort-menu ul li a,#dashboard-header .rh-views-menu ul li a,#dashboard-header .rh-actions-menu ul li a {color:#231f20;}
 
 .box-shadow-ot {
 box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
 
 .rt-box-competitors {
-background-color: #808185;
+background-color: #6d6e70;
 border: 3px solid transparent;
 color: #fff;
 float: left;
@@ -659,12 +681,14 @@ width: 100%;
 }
 
 .heading-ct {
-color: #333;
-float: left;
-font-size: 12px;
-margin: 0;
-padding: 0;
-width: 100%;
+  color: #231f20;
+  float: left;
+  font-family: "Montserrat",sans-serif;
+  font-size: 12px;
+  font-weight: bold;
+  margin: 0;
+  padding: 0;
+  width: 100%;
 }
 
 .competitors-rt-section ul {
@@ -677,7 +701,7 @@ padding: 0 5px;
 }
 
 .competitors-rt-section h2 {
-color: #333;
+color: #231f20;
 float: left;
 font-size: 16px;
 line-height: normal;
@@ -703,12 +727,12 @@ color: #1874bd;
 
 .content-section .rt-box-competitors {
 background-color: transparent;
-border: 3px solid red;
-color: #333;
+border: 3px solid #ec1c24 ;
+color: #231f20;
 }
 
 .card-box-menus i {
-color: #7e7e7e;
+color: #b2b3b7;
 }
 
 .dashboard-status {
@@ -740,7 +764,7 @@ color: #fff;
 }
 
 .report-dash-menu-outer li i {
-color: #808185;
+color: #b2b3b7;
 font-size: 20px;
 line-height: 20px;
 padding: 0;
@@ -755,15 +779,16 @@ float: left;
 }
 
 .bread-comb-outer {
-  color: #333;
+  color: #231f20;
   float: left;
   font-size: 16px;
-  font-weight: normal;
+  font-weight: 400;
   margin: 0 0 25px;
   padding: 0;
   text-align: left;
   text-transform: uppercase;
   width: 100%;
+  font-family: 'Montserrat', sans-serif;
 }
 
 .bread-comb-outer span {
@@ -816,16 +841,16 @@ width: 45px;
 }
 
 .setting-block i, .rh-actions-menu ul .setting-block i {
-  color: #333;
+  color: #231f20;
   font-size: 35px;
-  margin: -10px 0 0;
+  margin: -6px 0 0;
   padding: 0;
 }
 
-.report-dash-menu-outer {border-top: 2px solid #1c75bc;}
+.report-dash-menu-outer {border-top: 2px solid #005cb9;}
 
 .report-dash-menu-outer:after {
-  border-color: transparent transparent #1c75bc;
+  border-color: transparent transparent #005cb9;
   border-style: solid;
   border-width: 0 8px 8px;
   content: "";
@@ -886,7 +911,7 @@ transform:skew(8deg) rotate(3deg);
 }
 
 .user-name-block {
-  color: #333;
+  color: #231f20;
   font-family: "Nixie One",cursive;
   font-size: 2em;
   line-height: normal;
@@ -897,12 +922,12 @@ transform:skew(8deg) rotate(3deg);
 }
 
 .user-name-block a {
-  color: #333;
+  color: #231f20;
   text-decoration: underline !important;
 }
 
 .report-created-date {
-  color: #333;
+  color: #231f20;
   float: left;
   font-family: "Nixie One",cursive;
   font-size: 3em;
@@ -913,10 +938,10 @@ transform:skew(8deg) rotate(3deg);
 }
 
 .site-url {
-  color: #1c75bc !important;
+  color: #005cb9 !important;
   float: left;
   font-size: 3.5em;
-  font-weight: bold;
+  font-weight: 400;
   letter-spacing: 5px;
   line-height: normal;
   margin: 0;
@@ -924,6 +949,7 @@ transform:skew(8deg) rotate(3deg);
   text-align: center;
   text-transform: uppercase;
   width: 100%;
+  font-family: 'Montserrat', sans-serif;
 }
 
 
@@ -937,16 +963,16 @@ transform:skew(8deg) rotate(3deg);
 }
 
 .competitors-urlbox-outer h2 {
-  color: #333;
+  color: #231f20;
   float: left;
+  font-family: "Nixie One",cursive;
   font-size: 2.5em;
+  letter-spacing: 5px;
   line-height: normal;
   margin: 0;
   padding: 0;
   text-transform: uppercase;
   width: 100%;
-  font-family: 'Nixie One', cursive;
-  letter-spacing: 5px;
 }
 
 .report-section-1 .row {
@@ -959,10 +985,11 @@ transform:skew(8deg) rotate(3deg);
   border-radius: 10px;
   color: #fff;
   float: left;
-  font-size: 34px;
+  font-family: "Montserrat",sans-serif;
+  font-size: 25px;
   font-weight: normal;
   line-height: normal;
-  padding: 0 0 5px;
+  padding: 5px 0 8px;
   position: relative;
   text-align: center;
   width: 100%;
@@ -984,7 +1011,7 @@ transform:skew(8deg) rotate(3deg);
   border-radius: 0;
   color: #808185 !important;
   float: left;
-  font-size: 34px;
+  font-size: 28px;
   font-weight: bold;
   line-height: normal;
   padding: 2px 0 2px 5%;
@@ -1010,11 +1037,12 @@ transform:skew(8deg) rotate(3deg);
   text-align: center;
   text-transform: uppercase;
   width: 100%;
-  color:#333;
+  color:#231f20;
+  font-family: 'Montserrat', sans-serif;
 }
 
 .report-heading span {
-  color: #333;
+  color: #231f20;
   float: left;
   font-family: "Nixie One",cursive;
   font-size: 28px;
@@ -1059,10 +1087,11 @@ transform:skew(8deg) rotate(3deg);
   border-right: 1px solid #908e91;
   display: inline-block;
   float: left;
-  font-size: 14px;
-  line-height: 14px;
+  font-size: 16px;
+  line-height: 16px;
   margin: 0;
   padding: 0 10px;
+  font-family: 'Montserrat', sans-serif;
 }
 
 .black_eagle-rh {
@@ -1073,7 +1102,7 @@ transform:skew(8deg) rotate(3deg);
   border: medium none !important;
   height: 40px;
   margin-right: 0 !important;
-  margin-top: -13px !important;
+  margin-top: -10px !important;
   padding: 0 !important;
   position: relative;
   width: 45px;
@@ -1084,12 +1113,13 @@ transform:skew(8deg) rotate(3deg);
 }
 
 .rh-actions-menu ul li {
-  font-size: 14px;
-  line-height: 14px;
+  font-size: 16px;
+  line-height: 16px;
+  font-family: 'Montserrat', sans-serif;
 }
 
 .rh-actions-menu ul li a{
- color: #333;
+ color: #231f20;
 }
 
 .btn-round {
@@ -1098,10 +1128,10 @@ transform:skew(8deg) rotate(3deg);
 
 
 .btn-orange {
-  background-color: #f7941d;
+  background-color: #f7921e;
   border: 1px solid transparent;
   color: #fff;
-  padding: 8px 25px 8px 20px;
+  padding: 8px 25px 8px 15px;
 }
 
 #create-new-project {
@@ -1112,7 +1142,7 @@ transform:skew(8deg) rotate(3deg);
   display: inline-block;
   float: left;
   font-size: 14px;
-  padding: 0 10px 0 0;
+  padding: 1px 6px 0 0;
   text-align: center;
   width: auto;
 }
@@ -1120,8 +1150,10 @@ transform:skew(8deg) rotate(3deg);
 #create-new-blueprint span, #create-new-project span {
   display: inline-block;
   float: left;
-  font-weight: 900;
-  line-height: 1em;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 16px;
+  white-space: nowrap;
 }
 
 .rh-actions-menu ul li {
@@ -1136,11 +1168,13 @@ transform:skew(8deg) rotate(3deg);
 /*---------------------- footer css ------------------------*/
 
 #interface-footer {
-background-color: #3d3d3d;
-float: left;
-margin: 0;
-padding: 25px 0;
-width: 100%;
+  background-color: #3d3d3d;
+  float: left;
+  margin: 0;
+  padding: 25px 0;
+  position: relative;
+  width: 100%;
+  z-index: 99;
 }
 
 #interface-footer .row {
@@ -1212,7 +1246,7 @@ padding: 0 0;
 /**/
 
 .report-tags {
-  color: #333;
+  color: #231f20;
   float: left;
   list-style: outside none none;
   margin: 0;
@@ -1228,18 +1262,179 @@ padding: 0 0;
   line-height: 50px;
   margin: 10px 20px 20px;
   text-transform: uppercase;
+  font-family: 'Montserrat', sans-serif;
 }
 
 .report-tags li span {
-  background: #808185 none repeat scroll 0 0;
+  background: #6d6e70 none repeat scroll 0 0;
   color: #fff;
   float: left;
+  font-family: "Nixie One",cursive;
   font-size: 50px;
   font-weight: normal;
   height: 50px;
-  line-height: 44px;
+  line-height: 50px;
   margin: 0 15px 0 0;
   min-width: 50px;
   text-align: center;
-  font-family:"Nixie One",cursive;
+}
+
+
+
+.report-bottom-links {
+    color: #231f20;
+    float: left;
+    padding: 15px 40px;
+    width: 100%;
+}
+
+
+.report-bottom-links ul {
+    float: left;
+    list-style: outside none none;
+    width: auto;
+}
+
+.report-bottom-links ul li {
+    display: inline-block;
+    margin: 0 40px 0 0;
+}
+
+.report-bottom-links ul li:last-child {
+    margin-right:0;
+}
+
+.rh-actions-menu ul li:hover a {
+  text-decoration: underline !important;
+}
+
+.report-bottom-links ul li i {
+  color: #afafaf;
+  font-size: 30px;
+  margin: 0;
+  padding: 0;
+}
+
+.close-link {
+  color: #afafaf !important;
+  float: right;
+  font-size: 20px;
+  font-weight: normal;
+  text-transform: uppercase;
+  width: auto;
+}
+
+
+/* create new report page css */
+
+.create-new-report .proceed-to-dashboard-btn {
+  font-size: 4em;
+}
+
+
+#shadow {
+  background-image: url("../images/shadow.png");
+  background-position: center top;
+  background-repeat: no-repeat;
+  background-size: 110% auto;
+  float: left;
+  height: 30px;
+  position: absolute;
+  top: 100%;
+  width: 100%;
+}
+
+
+
+#header #report-bg {
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 3;
+   background: #B8B8BA url("../images/background-image2.png") no-repeat fixed center 100px !important;
+    opacity: .15;
+}
+
+.rt-bottom-section h2 {
+  color: #cccccc;
+  float: left;
+  font-size: 3.5em;
+  font-weight: normal;
+  margin: 0;
+  padding: 0;
+  text-align: left;
+  text-transform: none;
+  width: 100%;
+}
+
+.rt-bottom-section {
+  display: table;
+  margin:0 auto !important;
+  max-width: 1200px;
+  width: 100%;
+}
+
+.rt-bottom-outer {
+  float: left;
+  margin: 5% 0 10%;
+  width: 100%;
+}
+
+.rt-bottom-section h2 span {
+  background-color: #a2bfdc;
+  color: #fff;
+  font-size: 1em;
+  font-weight: 400;
+  line-height: normal;
+  margin: 0 10px;
+  padding: 0 15px 4px;
+  text-transform: uppercase !important;
+}
+
+.rt-bottom-section p {
+  color: #cccccc;
+  float: left;
+  font-size: 26px;
+  font-weight: 400;
+  line-height: normal;
+  margin: 25px 0 0;
+  padding: 0;
+  text-align: left;
+  width: 100%;
+}
+
+.egle-icon-2 {
+  background-image: url("../images/egle-icon-2.png");
+  background-repeat: no-repeat;
+  display: inline-block;
+  float: left;
+  height: 108px;
+  margin-right: 4%;
+  margin-top: -15px;
+  width: 122px;
+}
+
+.project_status_sort.inactive {
+  background-color: #6d6e70;
+  color: #fff !important;
+}
+
+.report-view-outer {
+  position: relative;
+}
+
+.close-btn {
+  color: #cfcfcf;
+  float: left;
+  font-size: 2.5em;
+  line-height: normal;
+  position: absolute;
+  right: 15px;
+  top: 0;
+  width: auto;
+}
+
+.report-header {
+  margin-top: 20px;
 }

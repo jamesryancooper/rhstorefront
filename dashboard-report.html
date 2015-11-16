@@ -35,6 +35,7 @@
     <link href="fonts/entypo/css/entypo.css" rel='stylesheet' type='text/css'>
     <link href="fonts/font-awesome/css/font-awesome.min.css" rel='stylesheet' type='text/css'>
     <link href="fonts/font-family.css" rel='stylesheet' type='text/css'>
+	<link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
 	
 
     <!-- =========================
@@ -89,6 +90,23 @@ jQuery(document).ready(function() {
 });
 
 </script>
+
+
+<script>
+jQuery(document).ready(function() {
+    $(".project-status-card").click(function(){
+        $(this).toggleClass("inactive");
+		if($(".project-status-card").hasClass("inactive")) {
+		 $(this).text("Paused");
+		 } else{
+		 $(this).text("Active");
+		 }
+		
+		
+    });
+});
+
+</script>
     
     
 </head>
@@ -100,7 +118,7 @@ jQuery(document).ready(function() {
      MAIN MENU
 ============================== -->
 <div id="rank-header-outer">
-<nav id="mainmenu" class="navbar navbar-fixed-top main-menu head-menu auto-height" role="navigation">
+<nav id="mainmenu" class="navbar navbar-fixed-top main-menu" role="navigation">
         <!-- LOGO CONTAINER -->
         <div class="logo-cont logo-outer"><a class="navbar-brand" data-text="RANKHACKER" href="#header"><img src="images/logo-main.png" alt="site-logo"> </a></div>
 		<div class="dashboard-status"> <i class="white_eagle-rh"></i><a href="#">Dashboard Activated</a></div>
@@ -139,10 +157,10 @@ jQuery(document).ready(function() {
 ============================== -->
 <section id="header" class="blurable">
 
-    <div id="background-image" class="piece"></div>
-    <div class="piece scanlines noclick"></div>
+    <div id="report-bg" class="piece "></div>
+    <!--div class="piece scanlines noclick"></div>
     <div id="hacker-text" class="piece glow noclick"></div>
-    <div id="crt-output" class="piece output noopacity"></div>
+    <div id="crt-output" class="piece output noopacity"></div-->
 
     <div class="overlay interface-outer">
 		  
@@ -174,6 +192,7 @@ jQuery(document).ready(function() {
                 </div>
 
       </div>
+	  <div id="shadow"> </div>
       </div>
           <div class="row">
         <div class="col-lg-10 col-md-offset-1">
@@ -235,19 +254,108 @@ jQuery(document).ready(function() {
                       </div>
                           <div class="card-box-bottom">
                         <div class="project-date-card date_sort"><i class="eagle-icon"></i>December 2012 </div>
-                        <a href="#" class="project-status-card  project_status_sort "> ACTIVE </a> </div>
+                        <a href="javascript:void(0);" class="project-status-card  project_status_sort "> ACTIVE </a> </div>
+                        </div>
+                  </div>
+                    </li>
+					
+					 <li class="col-lg-4">
+                      <div class="project-cart-box box-shadow-ot">
+                    <div class="card-header">
+                          <h1 class="project_name_sort"><a href="#">www.fairmarketing.com</a></h1>
+			<div class="card-box-menus dropdown" role="presentation">
+				<a  aria-expanded="false" aria-haspopup="true" role="button" href="#" data-toggle="dropdown" class="dropdown-toggle" ><i class="fa fa-bars"></i> </a>
+				<ul class="dropdown-menu report-dash-menu-outer">
+				<li> <a href="#"><i class="fa fa-eye"></i> </a> </li>                                                         
+				<li> <a href="#"><i class="fa fa-share-square-o"></i></a></li>                                                         
+				<li> <a href="#"> <i class="fa fa-print"></i></a></li>    
+				</ul>
+				</div>
+						 
+						 
+						 </div>
+                    <div class="card-box-detail-outer">
+					 <div class="competitors-rt-section">
+					 <h2>Competitors Average Content inventory </h2>
+                          <ul class="">
+                        <li class="col-lg-4 text-center">
+						<div class="rt-box-competitors">3,168</div>
+                              <span class="heading-ct">Avg.Content pcs.per year* </span>
+                            </li>
+                        <li class="col-lg-4 text-center">
+						<div class="rt-box-competitors">264</div>
+                              <span class="heading-ct">Avg.Content pcs.per month* </span>
+                            </li>
+							<li class="col-lg-4 text-center">
+							<div class="rt-box-competitors">66</div>
+                              <span class="heading-ct">Avg.Content pcs.per week* </span>
+                            </li>
+							
+                      </ul>
+                      </div>
+					  
+					  <div class="competitors-rt-section content-section">
+					 <h2>Your Coresponding Content Deficiencies</h2>
+                          <ul class="">
+                        <li class="col-lg-4 text-center">
+						<div class="rt-box-competitors">-2,640</div>
+                              <span class="heading-ct">you post <span class="red-text">528</span> pcs. per year*</span>
+                            </li>
+                        <li class="col-lg-4 text-center">
+						<div class="rt-box-competitors">-220</div>
+                              <span class="heading-ct">you post an avg. <span class="red-text">44</span> pcs. per month*</span>
+                            </li>
+							<li class="col-lg-4 text-center">
+							<div class="rt-box-competitors">-55</div>
+                              <span class="heading-ct">you post an avg. <span class="red-text">11</span> pcs. per week* </span>
+                            </li>
+							
+                      </ul>
+                      </div>
+                          <div class="card-box-bottom">
+                        <div class="project-date-card date_sort"><i class="eagle-icon"></i>December 2012 </div>
+                        <a href="javascript:void(0);" class="project-status-card  project_status_sort "> ACTIVE </a> </div>
+                        </div>
+                  </div>
+                    </li>
+					
+					 <li class="col-lg-4">
+                      <div class="project-cart-box box-shadow-ot">
+                    <div class="card-header">
+                          <h1 class="project_name_sort"><a href="#">www.fairmarketing.com</a></h1>
+			<div class="card-box-menus dropdown" role="presentation">
+				<a  aria-expanded="false" aria-haspopup="true" role="button" href="#" data-toggle="dropdown" class="dropdown-toggle" ><i class="fa fa-bars"></i> </a>
+				<ul class="dropdown-menu report-dash-menu-outer">
+				<li> <a href="#"><i class="fa fa-eye"></i> </a> </li>                                                         
+				<li> <a href="#"><i class="fa fa-share-square-o"></i></a></li>                                                         
+				<li> <a href="#"> <i class="fa fa-print"></i></a></li>    
+				</ul>
+				</div>
+						 
+						 
+						 </div>
+                    <div class="card-box-detail-outer">
+					
+					  
+					 
+                         
                         </div>
                   </div>
                     </li>
                 
               </ul>
                 </div>
-      
+   
+	  
             </div>
       </div>
         </div>
 
-		<div class="col-lg-10 col-lg-offset-1 text-center rt-bottom-section"><img src="images/rh-bottom-img.png" alt=""> </div>
+		<div class="rt-bottom-outer"><div class="rt-bottom-section">
+           <h2><i class="egle-icon-2"> </i> your <b>mission [<span>Coming soon</span>]</b></h2>
+			<p>The Rank Hacker Mission Module allows user to follow hightly detailed, strategic content marketing blueprints based on their competitors digital marketing efforts.</p>
+			</div>
+			</div>
 
 	</div>  
 
