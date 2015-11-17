@@ -3,7 +3,7 @@
 
 body {
   float: left;
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Montserrat', sans-serif !important;
   margin: 0;
   padding: 0;
   width: 100%;
@@ -31,17 +31,19 @@ width: 100%;
 } 
 
 .vertical-middle {
-display: table-cell;
-float: none;
-height: 100%;
-vertical-align: middle;
-} 
+  display: table-cell;
+  float: none;
+  height: 100%;
+  position: relative;
+  vertical-align: middle;
+  z-index: 99;
+}
 
 
 /*---------------------- header css ------------------------*/
 
 .account-links-outer {
-margin: 16px 0 0;
+margin: 13px 0 0;
 min-width: 160px;
 padding-right: 15px;
 text-align: right;
@@ -224,14 +226,14 @@ color: #231f20;
 }
 
 .competitor-url-input-outer {
-border: 1px solid #000;
-border-radius: 8px;
-clear: both;
-display: inline-block;
-height: 75px;
-margin: 46px auto 0;
-position: relative;
-width: 60%;
+  border: 1px solid #000;
+  border-radius: 8px;
+  clear: both;
+  display: inline-block;
+  height: 75px;
+  margin: 46px auto 0;
+  position: relative;
+  width: 60%;
 }
 
 .project-cards-outer {
@@ -240,16 +242,17 @@ width: 60%;
 }
 
 .competitor-url-input-outer input {
-background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
-border: medium none;
-float: left;
-font-family: 'Nixie One', cursive;
-font-size: 34px;
-height: 100%;
-margin: 0;
-padding: 0 0 0 110px;
-width: 100%;
-color:#231f20;
+  background: #fff none repeat scroll 0 0;
+  border: medium none;
+  border-radius: 8px;
+  color: #231f20;
+  float: left;
+  font-family: "Nixie One",cursive;
+  font-size: 34px;
+  height: 100%;
+  margin: 0;
+  padding: 0 0 0 110px;
+  width: 100%;
 }
 
 .submit-url-btn {
@@ -267,6 +270,7 @@ margin: 40px auto 0;
 padding: 0 25px;
 text-align: center;
 width: auto;
+font-family: "Montserrat",sans-serif;
 }
 
 .competitor-url-input-outer input:focus {
@@ -276,8 +280,8 @@ box-shadow: 0 1px 0 0 transparent;
 
 .competitor-url-input-outer label {
 background-color: #000;
-border-bottom-left-radius: 5px;
-border-top-left-radius: 5px;
+border-bottom-left-radius: 0;
+border-top-left-radius: 0;
 float: left;
 height: 100%;
 left: 0;
@@ -323,7 +327,7 @@ color: transparent;
 }
 
 .competitor-url-input-outer.focus-effect input {
-font-family: arial;
+font-family: 'Montserrat', sans-serif;
 }
 
 
@@ -385,6 +389,7 @@ max-width: 80%;
 padding:20px 0 0 5px;
 text-align: left;
 width: auto;
+white-space:nowrap;
 }
 
 .check-icon {
@@ -577,8 +582,9 @@ color:#231f20;
 text-decoration:none;
 }
 
-.verify-bottom-section  .verify-note a:hover{
-color:#005cb9;
+.verify-bottom-section .verify-note a:hover {
+  color: #005cb9;
+  text-decoration: underline !important;
 }
 
 .verify-bottom-section {
@@ -1437,4 +1443,76 @@ padding: 0 0;
 
 .report-header {
   margin-top: 20px;
+}
+
+  /* code for animated blinking cursor */
+       /*  .typed-cursor{
+            opacity: 1;
+            font-weight: 100;
+            -webkit-animation: blink 0.7s infinite;
+            -moz-animation: blink 0.7s infinite;
+            -ms-animation: blink 0.7s infinite;
+            -o-animation: blink 0.7s infinite;
+            animation: blink 0.7s infinite;
+        } */
+		.typed-cursor {
+			visibility: hidden;
+		}
+        @-keyframes blink{
+            0% { opacity:1; }
+            50% { opacity:0; }
+            100% { opacity:1; }
+        }
+        @-webkit-keyframes blink{
+            0% { opacity:1; }
+            50% { opacity:0; }
+            100% { opacity:1; }
+        }
+        @-moz-keyframes blink{
+            0% { opacity:1; }
+            50% { opacity:0; }
+            100% { opacity:1; }
+        }
+        @-ms-keyframes blink{
+            0% { opacity:1; }
+            50% { opacity:0; }
+            100% { opacity:1; }
+        }
+        @-o-keyframes blink{
+            0% { opacity:1; }
+            50% { opacity:0; }
+            100% { opacity:1; }
+        }
+
+		
+
+		
+.blur_bg::after {
+  background-color: rgba(197, 212, 220,1);
+  background-image: url("../images/background-blur.png");
+  background-position: center top;
+  background-repeat: no-repeat;
+  background-size: auto auto;
+}
+
+.blur_bg::after {
+  content: "";
+  filter: blur(8px);
+  -ms-filter: blur(8px);
+  -webkit-filter: blur(8px);
+  height: 100%;
+  left: 0;
+  overflow: hidden;
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+.blur_bg {
+  overflow: hidden;
+  position: relative;
+}
+
+.proceed-to-dashboard-btn:hover {
+  background-color: #ec1c24;
 }

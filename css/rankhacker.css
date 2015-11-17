@@ -2115,7 +2115,7 @@ fieldset[disabled] .btn {
     left: 0;
     z-index: 3;
     background: transparent url("../img/background.png") no-repeat fixed center 100px;
-    opacity: .15;
+    opacity: 0.7;
 }
 
 #header .overlay {

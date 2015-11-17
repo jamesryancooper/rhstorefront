@@ -101,10 +101,10 @@ jQuery(document).ready(function() {
      MAIN MENU
 ============================== -->
 <div id="rank-header-outer">
-<nav id="mainmenu" class="navbar navbar-fixed-top main-menu " role="navigation">
+<nav id="mainmenu" class="navbar navbar-fixed-top main-menu head-menu auto-height" role="navigation">
         <!-- LOGO CONTAINER -->
         <div class="logo-cont logo-outer"><a class="navbar-brand" data-text="RANKHACKER" href="#header"><img src="images/logo-main.png" alt="site-logo"> </a></div>
-
+<div class="dashboard-status"> <i class="white_eagle-rh"></i><a href="#">Dashboard Activated</a></div>
 		
 		 <!-- header_right side start here -->
           <div class="pull-right header-right-side">
@@ -125,8 +125,7 @@ jQuery(document).ready(function() {
             </div>
         <div class="account-links-outer pull-right ">
               <ul>
-            <li> <a href=""> Register </a></li>
-            <li> <a href=""> Log in </a></li>
+            <li> <a href=""> Log Out </a></li>
           </ul>
             </div>
       </div>
@@ -142,29 +141,60 @@ jQuery(document).ready(function() {
 
     <div id="background-image" class="piece"></div>
     <div class="piece scanlines noclick"></div>
+    <div id="hacker-text" class="piece glow noclick"></div>
+    <div id="crt-output" class="piece output noopacity"></div>
 
     <div class="overlay interface-outer">
 		  
-		 <div class="text-center vertical-middle">
-		  <!--h1 class="feed-headding">Content Strategies Revealed</h1-->
+		  <div class="projects">
+          <div class="row row-v-spacing"></div>
+         
+		 <div id="dashboard-header" class="col-lg-10 col-md-offset-1 ">
+		 <div class="row">
+          <h2 class="user-info col-lg-12"><span>Welcome</span> <a href="#">Ima Sailsmacheen </a></h2>  
 		  
-		   <div class="feed-headding">
-            <div id="typed-strings">
-                <p>Content Strategies Revealed</p>
-            </div>
-            <span id="typed" style="white-space:pre;"></span>
+		  
+		  
+            <div class="col-lg-12">
+			<div class="col-lg-6 view-option-outer">
+                  <ul>
+                <li class="black_eagle-rh"></li>
+                <li><a href="">RANK HACKER DASHBOARD</a></li>
+              </ul>
+                </div>
+            <div class="col-lg-6 rh-actions-menu pull-right">
+                  <ul>
+                  <li><a title="" data-original-title="" data-content="Download selected projects" data-placement="top" data-trigger="hover" data-toggle="popover" data-container="body" href="">Download</a></li>
+                <li>
+                      <button class="btn btn-orange btn-round" id="create-new-project"> <i class="fa fa-plus"></i><span>Create New Project</span> </button>
+                    </li>
+                <li class="setting-block rh-hover-effect"><a href="#"><i class="fa fa-cog"></i></a></li>
+              </ul>
+                </div>
+                </div>
+
+      </div>
+      </div>
+          <div class="row">
+        <div class="col-lg-10 col-md-offset-1">
+           <h3 class="bread-comb-outer">YOUR REPORTS  <span>>  New report</span></h3>
+		   
+		   <div class="row-v-spacing create-new-report">
+		   <h2 class="text-center">Create a new comparison report</h2>
+		   
+		   <button class="col-lg-10 col-lg-offset-1 proceed-to-dashboard-btn" type="button">	Initiate tank hack	</button>
+		   
+		   </div>
+     
+      </div>
         </div>
-		 
-        <form>		 
-		  <div class="competitor-url-input-outer"><label><i class="fa fa-globe"></i> </label><input type="url" class="input" placeholder="ENTER COMPETITOR URL" required></div>
-		  <button class="submit-url-btn" type="button">INITIATE RANK HACK</button>
-		  </form>
-		  
-		  </div>
+		
+		
+
+		<div class="col-lg-10 col-lg-offset-1 text-center rt-bottom-section"><img src="images/rh-bottom-img.png" alt=""> </div>
 
 	</div>  
-	
-	
+	</div>  
 
 </section>
 
@@ -242,9 +272,6 @@ jQuery(document).ready(function() {
 <!--CUSTOM THEME SCRIPTS & SETTINGS -->
 <script type="text/javascript" src="js/rankhacker.scripts.js"></script>
 
-<!--Text typing effect js -->
-<script type="text/javascript" src="js/typed.min.js"></script>
-
 <!-- FIFTEEN TWENTY HOLDINGS SCRIPTS
 <script type="text/javascript" src="js/1520.js"></script>
 <script type="text/javascript" src="https://api.userinfo.io/userinfos?jsonp_callback=userInfoCallback"></script>-->
@@ -254,34 +281,6 @@ jQuery(document).ready(function() {
         drawChart1();
     });
 </script>
-
-<script>
-    $(function(){
-
-        $("#typed").typed({
-            // strings: ["Typed.js is a <strong>jQuery</strong> plugin.", "It <em>types</em> out sentences.", "And then deletes them.", "Try it out!"],
-            stringsElement: $('#typed-strings'),
-            typeSpeed: 80,
-            backDelay: 500,
-            loop: false,
-            contentType: 'html', // or text
-            // defaults to false for infinite loop
-            loopCount: false,
-            callback: function(){ foo(); },
-            resetCallback: function() { newTyped(); }
-        });
-
-        $(".reset").click(function(){
-            $("#typed").typed('reset');
-        });
-
-    });
-
-    function newTyped(){ /* A new typed object */ }
-
-    function foo(){ console.log("Callback"); }
-
-    </script>
 
 </body>
 </html>
