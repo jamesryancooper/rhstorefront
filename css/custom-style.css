@@ -256,7 +256,7 @@ color: #231f20;
 }
 
 .submit-url-btn {
-background-color: rgba(255, 255, 255, 0.3);
+background-color: rgba(255, 255, 255, 0.7);
 border: 1px solid #242021;
 clear: both;
 color: #242021;
@@ -1515,4 +1515,348 @@ padding: 0 0;
 
 .proceed-to-dashboard-btn:hover {
   background-color: #ec1c24;
+}
+
+
+/*--------------------- Competitive Content inventory ---------------------*/
+
+#cc-inventory-header {
+  margin-bottom: 40px;
+  margin-top: 10em;
+}
+
+
+.competitive-headding {
+    background-color: #231f20;
+    display: table;
+    float: none;
+    font-family: "Nixie One",cursive;
+    font-size: 3em;
+    line-height: normal;
+    margin: 0 auto;
+    padding: 10px 25px;
+    text-align: center;
+    text-transform: uppercase;
+    width: auto;
+}
+
+.revealed-link {
+  color: #005cb9 !important;
+  float: left;
+  font-size: 3.5em;
+  line-height: normal;
+  margin: 10px 0 20px;
+  padding: 0;
+  text-align: center;
+  text-transform: uppercase;
+  width: 100%;
+}
+
+.competitive-details-outer {
+  margin-top: 2em;
+}
+
+.revealed-link:hover {color:#26a9e0 !important;}
+
+.competitive_inventory_outer .report-header {
+  margin-top: 0;
+}
+
+
+.competitive_inventory_outer {
+  margin-bottom: 10%;
+}
+
+
+.inventory-heading2 {
+    color: #231f20;
+    float: left;
+    font-size: 2.5em;
+    line-height: normal;
+    margin: 15px 0 25px;
+    padding: 0;
+    text-align: center;
+    text-transform: uppercase;
+    width: 100%;
+}
+
+
+.rt-info-outer .left-side-cci .rt-box-competitors {
+  background-color: #231f20;
+  font-family: "Nixie One",cursive;
+  font-size: 12em;
+  height: auto;
+  line-height: normal;
+  margin: 0 0 2px;
+}
+
+.rt-info-outer .right-side-cci .rt-box-competitors {
+  font-family: "Nixie One",cursive;
+  font-size: 6em;
+  height: auto;
+  line-height: normal;
+  margin: 0 0 2px;
+}
+
+.rt-info-outer .left-side-cci  .heading-ct {
+  font-size: 2.2em;
+  text-transform: uppercase;
+  font-weight:normal;
+}
+
+.right-side-cci {
+  padding-left: 6%;
+}
+
+.score-outer {
+  float: left;
+  margin: 0;
+  padding: 0 0 15px;
+  width: 100%;
+}
+
+.rt-info-outer .right-side-cci .heading-ct {
+  font-size: 1.4em;
+  font-weight: normal;
+  text-transform: uppercase;
+}
+
+.inventory-small-heading {
+  color: #231f20;
+  float: left;
+  font-family: "Nixie One",cursive;
+  font-size: 22px;
+  margin: 15px 0 5%;
+  text-transform: none;
+  width: 100%;
+}
+
+.competitive-inventory-form-outer {
+  float: left;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
+.competitive-inventory-form-outer h2 {
+  background-color: #eb1c24;
+  color: #fff;
+  float: left;
+  font-size: 2.1em;
+  line-height: normal;
+  margin: 0;
+  padding: 10px;
+  width: 100%;
+}
+
+
+.inventory-inputs-outer {
+    float: left;
+    margin: 0;
+    padding: 0 5%;
+    width: 100%;
+}
+
+.inventory-inputs-outer li  , .inventory-inputs-outer ul{
+  float: left;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
+.inventory-inputs-outer .them-inputs ul{
+    margin-bottom: 50px;
+}
+
+.inventory-inputs-outer li  {
+  margin: 0 0 30px;
+  position:relative;
+}
+
+.inventory-inputs-outer input {
+  background: #fff none repeat scroll 0 0;
+  border: 1px solid #3e3e3e;
+  border-radius: 5px;
+  color: #a6a7ab;
+  float: left;
+  font-size: 22px;
+  height: 55px;
+  line-height: 55px;
+  margin: 0;
+  padding: 0 10px 0 90px;
+  width: 100%;
+}
+
+
+.inventory-inputs-outer li   label {
+    background-color: #000000;
+    border-bottom-left-radius: 5px;
+    border-top-left-radius: 5px;
+    float: left;
+    height: 55px;
+    left: 0;
+    position: absolute;
+    text-align: center;
+    top: 0;
+    vertical-align: middle;
+    width: 65px;
+	z-index:9;
+}
+
+.you-inputs {
+  padding-right: 5%;
+}
+
+.them-inputs {
+  padding-left: 5%;
+}
+
+.wrap-img {
+  clear: both;
+  margin: 0;
+}
+
+.wrap-img img {
+  height: auto;
+  vertical-align: middle;
+  width: 100%;
+}
+
+.competitive_inventory_outer .report-created-date {
+  font-size: 2.5em;
+  margin: 0;
+  padding: 75px 8% 0 0;
+}
+
+
+.inventory-inputs-outer li .valida-note {
+    color: #231f20;
+    float: left;
+    font-size: 18px;
+    margin: 5px 0 0;
+    padding: 0;
+    text-transform: uppercase;
+    width: 100%;
+}
+
+.get_declassified-btn {
+  background-color: #005cb9;
+  border: medium none;
+  color: #fff;
+  cursor: pointer;
+  display: table;
+  float: none;
+  font-size: 3.5em;
+  font-weight: normal;
+  line-height: normal;
+  margin: 0 auto;
+  padding: 10px 5%;
+  position: relative;
+  text-align: center;
+  text-transform: uppercase;
+  width: 90%;
+}
+
+.get_declassified-btn span {
+  background: red none repeat scroll 0 0;
+  bottom: -25px;
+  font-family: "Nixie One",cursive;
+  font-size: 30px;
+  padding: 5px 15px;
+  position: absolute;
+  right: -25px;
+  transform: rotate(-2.5deg);
+  -webkit-transform: rotate(-2.5deg);
+}
+
+
+.inventory-inputs-outer .you-inputs , .inventory-inputs-outer .them-inputs{
+  background-image: url("../images/hr-line.png");
+  background-position: 75% top;
+  background-repeat: repeat-y;
+}
+
+.hr-line {
+  background-image: url("../images/hr-line.png");
+  background-position: 15% top;
+  background-repeat: repeat-y;
+  float: left;
+  height: 4.5em;
+  width: 100%;
+}
+.them-inputs li:last-child {
+  margin-bottom: 0;
+}
+
+.vs-icon {
+  background-color: #000;
+  float: left;
+  height: 1px;
+  left: 45%;
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  top: 25px;
+  width: 10%;
+  z-index: 99;
+}
+
+.vs-icon span {
+  background: #e71c23 none repeat scroll 0 0;
+  border-radius: 100%;
+  color: #fff;
+  display: table;
+  font-size: 20px;
+  height: 45px;
+  line-height: 45px;
+  margin: -22px auto 0;
+  position: relative;
+  text-align: center;
+  width: 45px;
+  z-index: 99;
+}
+
+.form-in {
+  float: left;
+  margin: 0;
+  padding: 0;
+  position: relative;
+  width: 100%;
+}
+
+.cut-section-note {
+  background: #231f20 none repeat scroll 0 0;
+  float: left;
+  margin: 0;
+  padding: 0 0;
+  text-align: center;
+  width: 100%;
+}
+
+.cut-section-note h1 {
+  color: #ed1b24;
+  font-size: 2.8em;
+  font-weight: normal;
+  line-height: normal;
+  margin: 0 auto;
+  max-width: 2000px;
+  padding: 25px  5%;
+  text-transform: uppercase;
+  width: 100%;
+  display:table;
+}
+
+.cut-section-note h1 span {
+  color: #d1d2d4;
+  float: left;
+  text-align: right;
+  width: 100%;
+  font-size: 24px;
+}
+
+.img-outer img {
+  height: auto;
+  margin: 0;
+  padding: 0;
+  width: 100%;
 }
