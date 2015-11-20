@@ -90,6 +90,23 @@ jQuery(document).ready(function() {
 });
 
 </script>
+
+
+<script>
+jQuery(document).ready(function() {
+    $(".project-status-card").click(function(){
+        $(this).toggleClass("inactive");
+		if($(".project-status-card").hasClass("inactive")) {
+		 $(this).text("Paused");
+		 } else{
+		 $(this).text("Active");
+		 }
+		
+		
+    });
+});
+
+</script>
     
     
 </head>
@@ -101,10 +118,11 @@ jQuery(document).ready(function() {
      MAIN MENU
 ============================== -->
 <div id="rank-header-outer">
-<nav id="mainmenu" class="navbar navbar-fixed-top main-menu head-menu auto-height" role="navigation">
+<nav id="mainmenu" class="navbar navbar-fixed-top main-menu" role="navigation">
         <!-- LOGO CONTAINER -->
         <div class="logo-cont logo-outer"><a class="navbar-brand" data-text="RANKHACKER" href="#header"><img src="images/logo-main.png" alt="site-logo"> </a></div>
-<div class="dashboard-status"> <i class="white_eagle-rh"></i><a href="#">Dashboard Activated</a></div>
+		<div class="dashboard-status"> <i class="white_eagle-rh"></i><a href="#">Dashboard Activated</a></div>
+
 		
 		 <!-- header_right side start here -->
           <div class="pull-right header-right-side">
@@ -139,14 +157,14 @@ jQuery(document).ready(function() {
 ============================== -->
 <section id="header" class="blurable">
 
-    <div id="background-image" class="piece"></div>
-    <div class="piece scanlines noclick"></div>
+    <div id="report-bg" class="piece "></div>
+    <!--div class="piece scanlines noclick"></div>
     <div id="hacker-text" class="piece glow noclick"></div>
-    <div id="crt-output" class="piece output noopacity"></div>
+    <div id="crt-output" class="piece output noopacity"></div-->
 
     <div class="overlay interface-outer">
 		  
-		  <div class="projects">
+		 <div class="projects">
           <div class="row row-v-spacing"></div>
          
 		 <div id="dashboard-header" class="col-lg-10 col-md-offset-1 ">
@@ -164,9 +182,9 @@ jQuery(document).ready(function() {
                 </div>
             <div class="col-lg-6 rh-actions-menu pull-right">
                   <ul>
-                  <li><a title="" data-original-title="" data-content="Download selected projects" data-placement="top" data-trigger="hover" data-toggle="popover" data-container="body" href="">Download</a></li>
+                  <li><a href="" data-container="body" data-toggle="popover" data-trigger="hover" data-placement="top" data-content="Download selected projects" data-original-title="" title="">Download</a></li>
                 <li>
-                      <button class="btn btn-orange btn-round" id="create-new-project"> <i class="fa fa-plus"></i><span>Create New Project</span> </button>
+                      <button id="create-new-project" class="btn btn-orange btn-round"> <i class="fa fa-plus"></i><span>Create New Project</span> </button>
                     </li>
                 <li class="setting-block rh-hover-effect"><a href="#"><i class="fa fa-cog"></i></a></li>
               </ul>
@@ -174,26 +192,78 @@ jQuery(document).ready(function() {
                 </div>
 
       </div>
+	  <div id="shadow"> </div>
       </div>
           <div class="row">
         <div class="col-lg-10 col-md-offset-1">
-           <h3 class="bread-comb-outer">YOUR REPORTS  <span>>  New report</span></h3>
+           <h3 class="bread-comb-outer">YOUR REPORTS  <span>&gt;  NEW REPORT</span></h3>
 		   
 		   <div class="row-v-spacing create-new-report">
-		   <h2 class="text-center">Create a new comparison report</h2>
+		   <div class="close-btn"> <i class="fa fa-times"></i></div>
+		   <h2 class="text-center new-report-heading">Create a new comparison report</h2>
 		   
-		   <button class="col-lg-10 col-lg-offset-1 proceed-to-dashboard-btn" type="button">	Initiate tank hack	</button>
+		   <div class="inventory-inputs-outer">
+	   
+	   <div class="form-in">
+	   <div class="col-lg-6 you-inputs" >
+	   <ul class="matchheight">
+	   <li><input type="url" required="" placeholder="ENTER YOUR URL"> <label> <i class="globe-icon active"> <span class="name-tag-g">you</span> </i> </label> </li>
+	   
+	   <!--li><input type="text" required="" placeholder="Ima Sailsmacheen"> <label> <i class="user-icon"> </i> </label> </li>
+	   
+	   <li><input type="email" required="" placeholder="sailsmacheen@fairmarketing.com"> <label> <i class="mail-icon"> </i> </label>
+        <span class="valida-note">Email verification required</span> </li-->
+	   
+	   </ul>
+	    <div class="hr-line"> </div>
+	   
+	   </div>
+	   
+	   <div class="col-lg-6 them-inputs" >
+	   
+	    <ul class="matchheight">
+	   <li><input type="url" required="" placeholder="WWW.THISWEBSITE.COM"> <label> <i class="globe-icon"> <span class="name-tag-g">THEM</span></i> </label> </li>
+	   
+	   <li><input type="url" required="" placeholder="WWW.THISOTHERWEBSITE.COM"> <label> <i class="globe-icon"><span class="name-tag-g">and</span> </i> </label> </li>
+	   
+	   <li><input type="url" required="" placeholder="ADD ANOTHER COMPETITOR"> <label>  <i class="globe-icon"> <span class="name-tag-g">and</span> </i> </label></li>
+	   
+	   <li><input type="url" required="" placeholder="ADD ANOTHER COMPETITOR"> <label>  <i class="globe-icon"> <span class="name-tag-g">and</span> </i> </label></li>
+	   
+	   <li><input type="url" required="" placeholder="ADD ANOTHER COMPETITOR"> <label>  <i class="globe-icon"> <span class="name-tag-g">and</span> </i>  </label>
+	
+	   </li>
+	   
+	   </ul>
+
+ <div class="hr-line"> </div>
+  
+
+	   
+	   </div>
+	   
+	   <div class="vs-icon"> <span>VS.</span> </div>
+	   </div>
+	   
+	   <a class="get_declassified-btn">Initiate Rank hack</a>
+	   
+	  
+	   
+	   </div>
 		   
 		   </div>
-     
+  
+	  
+            </div>
       </div>
         </div>
-		
-		
 
-		<div class="col-lg-10 col-lg-offset-1 text-center rt-bottom-section"><img src="images/rh-bottom-img.png" alt=""> </div>
+		<div class="rt-bottom-outer"><div class="rt-bottom-section">
+           <h2><i class="egle-icon-2"> </i> your <b>mission [<span>Coming soon</span>]</b></h2>
+			<p>The Rank Hacker Mission Module allows user to follow hightly detailed, strategic content marketing blueprints based on their competitors digital marketing efforts.</p>
+			</div>
+			</div>
 
-	</div>  
 	</div>  
 
 </section>
@@ -280,6 +350,14 @@ jQuery(document).ready(function() {
     $(window).on("throttledresize", function () {
         drawChart1();
     });
+</script>
+
+<script src="js/jquery.matchHeight-min.js"></script>
+
+<script type="text/javascript">
+jQuery(function($){
+    $('.matchheight').matchHeight();
+});
 </script>
 
 </body>

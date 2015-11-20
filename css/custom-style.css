@@ -1626,7 +1626,7 @@ padding: 0 0;
   float: left;
   font-family: "Nixie One",cursive;
   font-size: 22px;
-  margin: 15px 0 5%;
+  margin: 15px 0 0%;
   text-transform: none;
   width: 100%;
 }
@@ -1665,7 +1665,7 @@ padding: 0 0;
 }
 
 .inventory-inputs-outer .them-inputs ul{
-    margin-bottom: 50px;
+    margin-bottom: 0;
 }
 
 .inventory-inputs-outer li  {
@@ -1687,20 +1687,51 @@ padding: 0 0;
   width: 100%;
 }
 
+.inventory-inputs-outer input {
+  background: #fff none repeat scroll 0 0;
+  border: 1px solid #3e3e3e;
+  border-radius: 8px;
+  color: #808185;
+  float: left;
+  font-size: 22px;
+  height: 55px;
+  line-height: 55px;
+  margin: 0;
+  padding: 0 10px 0 90px;
+  width: 100%;
+}
 
-.inventory-inputs-outer li   label {
-    background-color: #000000;
-    border-bottom-left-radius: 5px;
-    border-top-left-radius: 5px;
-    float: left;
-    height: 55px;
-    left: 0;
-    position: absolute;
-    text-align: center;
-    top: 0;
-    vertical-align: middle;
-    width: 65px;
-	z-index:9;
+.inventory-inputs-outer input::-webkit-input-placeholder {
+   color: #a6a7ac;
+}
+
+.inventory-inputs-outer input:-moz-placeholder { /* Firefox 18- */
+   color: #a6a7ac;  
+}
+
+.inventory-inputs-outer input::-moz-placeholder {  /* Firefox 19+ */
+   color: #a6a7ac;  
+}
+
+.inventory-inputs-outer input:-ms-input-placeholder {  
+   color: #a6a7ac;  
+}
+
+
+.inventory-inputs-outer li label {
+  background-color: #000000;
+  border-bottom-left-radius: 8px;
+  border-top-left-radius: 8px;
+  float: left;
+  height: 55px;
+  left: 0;
+  position: absolute;
+  text-align: center;
+  top: 0;
+  vertical-align: middle;
+  width: 65px;
+  z-index: 9;
+  margin: 0;
 }
 
 .you-inputs {
@@ -1757,6 +1788,10 @@ padding: 0 0;
   width: 90%;
 }
 
+.get_declassified-btn:hover {
+background-color:#26a9e0;
+}
+
 .get_declassified-btn span {
   background: red none repeat scroll 0 0;
   bottom: -25px;
@@ -1770,11 +1805,23 @@ padding: 0 0;
 }
 
 
-.inventory-inputs-outer .you-inputs , .inventory-inputs-outer .them-inputs{
+.inventory-inputs-outer .you-inputs  ul, .inventory-inputs-outer .them-inputs ul{
   background-image: url("../images/hr-line.png");
   background-position: 75% top;
   background-repeat: repeat-y;
+/*   height:100%; */
 }
+
+/* .inventory-inputs-outer .them-inputs ul{
+  height:100%;
+} */
+
+
+.you-inputs  .hr-line{
+    background-position: 75% top;
+}
+
+
 
 .hr-line {
   background-image: url("../images/hr-line.png");
@@ -1835,23 +1882,22 @@ padding: 0 0;
 
 .cut-section-note h1 {
   color: #ed1b24;
+  display: table;
   font-size: 2.8em;
   font-weight: normal;
   line-height: normal;
   margin: 0 auto;
-  max-width: 2000px;
-  padding: 25px  5%;
+  padding: 25px 5%;
   text-transform: uppercase;
-  width: 100%;
-  display:table;
+  width: auto;
 }
 
 .cut-section-note h1 span {
-  color: #d1d2d4;
+  color: #a5a9ac;
   float: left;
-  text-align: right;
-  width: 100%;
   font-size: 24px;
+  text-align: left;
+  width: 100%;
 }
 
 .img-outer img {
@@ -1859,4 +1905,85 @@ padding: 0 0;
   margin: 0;
   padding: 0;
   width: 100%;
+}
+
+.globe-icon {
+  background-image: url("../images/globe-gray.png");
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: 100% auto;
+  float: left;
+  height: 55px;
+  margin: 0 4px;
+  width: 55px;
+}
+
+.you-inputs .globe-icon.active {
+  background-image: url("../images/globe-blue.png");
+}
+
+.globe-icon.active {
+  background-image: url("../images/globe-red.png");
+}
+
+
+.mail-icon {
+  background-image: url("../images/mail-icon.png");
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: 100% auto;
+  float: left;
+  height: 55px;
+  margin: 0 4px;
+  width: 55px;
+}
+
+.mail-icon.active {
+  background-image: url("../images/mail-icon-blue.png");
+}
+
+.user-icon {
+  background-image: url("../images/user-icon.png");
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: 100% auto;
+  float: left;
+  height: 55px;
+  margin: 0 4px;
+  width: 55px;
+}
+
+.user-icon.active {
+  background-image: url("../images/user-icon-blue.png");
+}
+
+
+
+.name-tag-g {
+  background-color: #000;
+  float: left;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: normal;
+  line-height: 18px;
+  margin-top: 18px;
+  padding: 1px 0 3px;
+  text-transform: uppercase;
+  width: 100%;
+}
+
+.create-new-report {
+  float: left;
+  position: relative;
+  width: 100%;
+}
+
+.new-report-heading {
+    color: #231f20;
+    float: left;
+    font-size: 3.5em;
+    line-height: normal;
+    margin: 25px 0 40px;
+    padding: 0;
+    width: 100%;
 }
