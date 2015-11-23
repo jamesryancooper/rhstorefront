@@ -1,4 +1,4 @@
-<!doctype html>
+`<!doctype html>
 <html lang="en">
 <head>
 
@@ -184,9 +184,9 @@ jQuery(document).ready(function() {
                   <ul>
                   <li><a href="" data-container="body" data-toggle="popover" data-trigger="hover" data-placement="top" data-content="Download selected projects" data-original-title="" title="">Download</a></li>
                 <li>
-                      <button id="create-new-project" class="btn btn-orange btn-round"> <i class="fa fa-plus"></i><span>Create New Project</span> </button>
+                      <button id="create-new-project" class="btn btn-orange btn-round"> <i class="fa fa-plus"></i><span>Create New Report</span> </button>
                     </li>
-                <li class="setting-block rh-hover-effect"><a href="#"><i class="fa fa-cog"></i></a></li>
+                <li class="setting-block rh-hover-effect"><a href="#"><i class="rh_add_settings"></i></a></li>
               </ul>
                 </div>
                 </div>
@@ -199,7 +199,7 @@ jQuery(document).ready(function() {
            <h3 class="bread-comb-outer">YOUR REPORTS</h3>
             <div class="row-v-spacing project-cards-outer">
                   <ul class="row">
-                <li class="col-lg-4">
+                <li class="col-lg-4 matchheight">
                       <div class="project-cart-box box-shadow-ot">
                     <div class="card-header">
                           <h1 class="project_name_sort"><a href="#">www.fairmarketing.com</a></h1>
@@ -259,7 +259,7 @@ jQuery(document).ready(function() {
                   </div>
                     </li>
 					
-					 <li class="col-lg-4">
+					 <li class="col-lg-4 matchheight">
                       <div class="project-cart-box box-shadow-ot">
                     <div class="card-header">
                           <h1 class="project_name_sort"><a href="#">www.fairmarketing.com</a></h1>
@@ -319,7 +319,7 @@ jQuery(document).ready(function() {
                   </div>
                     </li>
 					
-					 <li class="col-lg-4">
+					 <li class="col-lg-4 matchheight">
                       <div class="project-cart-box box-shadow-ot">
                     <div class="card-header">
                           <h1 class="project_name_sort"><a href="#">www.fairmarketing.com</a></h1>
@@ -334,9 +334,16 @@ jQuery(document).ready(function() {
 						 
 						 
 						 </div>
-                    <div class="card-box-detail-outer">
+                    <div class="report-processing blink">
 					
-					  
+					  <img src="images/eagle-holder.png" alt="">
+					  <h2> PROCESSING</h2>
+					   <div class="progress">
+  <div class="progress-bar" role="progressbar" aria-valuenow="70"
+  aria-valuemin="0" aria-valuemax="100" style="width:70%">
+    <span class="sr-only">70% Complete</span>
+  </div>
+</div>
 					 
                          
                         </div>
@@ -443,6 +450,15 @@ jQuery(document).ready(function() {
     $(window).on("throttledresize", function () {
         drawChart1();
     });
+</script>
+
+
+<script src="js/jquery.matchHeight-min.js"></script>
+
+<script type="text/javascript">
+jQuery(function($){
+    $('.matchheight').matchHeight();
+});
 </script>
 
 </body>

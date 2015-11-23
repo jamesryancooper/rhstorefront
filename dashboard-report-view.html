@@ -87,8 +87,31 @@ jQuery(document).ready(function() {
 		$(this).parent().addClass('focus-effect');
 		}
 	});
+	
+	
 });
 
+function insRow()
+{
+    //alert( 'hi');
+    var x=document.getElementById('POITable');
+    var new_row = x.rows[1].cloneNode(true);
+    var len = x.rows.length;
+	//alert(len);
+	if(len<5){
+		new_row.cells[0].innerHTML = len;
+		
+		var inp1 = new_row.cells[1].getElementsByTagName('input')[0];
+		inp1.id += len;
+		inp1.value = '';
+		var inp2 = new_row.cells[2].getElementsByTagName('input')[0];
+		inp2.id += len;
+		inp2.value = '';
+		x.appendChild( new_row );
+	}
+    
+	
+}
 </script>
     
     
@@ -166,9 +189,9 @@ jQuery(document).ready(function() {
                   <ul>
                   <li><a title="" data-original-title="" data-content="Download selected projects" data-placement="top" data-trigger="hover" data-toggle="popover" data-container="body" href="">Download</a></li>
                 <li>
-                      <button class="btn btn-orange btn-round" id="create-new-project"> <i class="fa fa-plus"></i><span>Create New Project</span> </button>
+                      <button class="btn btn-orange btn-round" id="create-new-project"> <i class="fa fa-plus"></i><span>Create New Report</span> </button>
                     </li>
-                <li class="setting-block rh-hover-effect"><a href="#"><i class="fa fa-cog"></i></a></li>
+                <li class="setting-block rh-hover-effect"><a href="#"><i class="rh_add_settings"></i></a></li>
               </ul>
                 </div>
                 </div>
@@ -198,23 +221,48 @@ jQuery(document).ready(function() {
 			<div class="competitors-urlbox-outer">
              <h2>Hacked Competitors </h2>
 			 
-			 <div class="row">
-			 <ul class="links-main-box">			 
-			 <li class="col-lg-4"><div class="url-boxes">www.thisisaurl.com </div></li>
-			 <li class="col-lg-4"><div class="url-boxes"> www.thisisacompetitor.com</div></li>
-			 <li class="col-lg-4"><a href="#" class="add-more-url"> + Add more</a></li>
-			 </ul>
-			 </div>
+			 <div class="row" id="">
+			 <!--div id="POItablediv">
+		
+		
+		 <table id="POITable" border="1">
+        <tr style="display:none;">
+		 <td>POI</td>
+            <td>Latitude</td>
+            <td>Longitude</td>
+             <td>Add Rows?</td>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td><input size=25 type="text" id="latbox"/></td>
+            <td><input size=25 type="text" id="lngbox" readonly=true/></td>
+         
+            <td><input type="button" id="addmorePOIbutton" value="Add More POIs" onclick="insRow()"/></td>
+        </tr>
+    </table>
+</div-->
+	<ul class="links-main-box">			 
+		<li class="col-lg-4"><div class="url-boxes">www.thisisaurl.com </div></li>
+		<li class="col-lg-4"><div class="url-boxes"> www.thisisacompetitor.com</div></li><!--<input type="url" placeholder="" class="url-boxes"> <a href="#" class="tag-close"> X</a></li>
+		<li class="col-lg-4"><div class="url-boxes"> www.thisisacompetitor.com</div><input type="url" placeholder="" class="url-boxes"> <a href="#" class="tag-close"> X</a> </li>
+		<li class="col-lg-4"><div class="url-boxes"> www.thisisacompetitor.com</div><input type="url" placeholder="" class="url-boxes"> <a href="#" class="tag-close"> X</a></li>
+		<li class="col-lg-4"><div class="url-boxes"> www.thisisacompetitor.com</div><input type="url" placeholder="" class="url-boxes"> <a href="#" class="tag-close"> X</a></li>-->
+
+		<li class="col-lg-4"><a href="#" class="add-more-url" > + Add more</a></li>
+	</ul>
 			 </div>
 			 
+			 </div>
+
+	 
 			  <div class="report-boxs">
 					 <h2 class="report-heading">Offsite content comparison - you vs. them
 					 <span>Your posted content vs. theirs + suggested mission to beat their rank</span></h2>
-                      <div class="text-center report-graph-outer"><img src="images/report-graph.png" alt=""> </div>
+                      <div class="text-center report-graph-outer"><img src="images/report-graph.png" alt="">   <!--div id="chart_div"></div--></div>
                       </div>
 			 
 					 <div class="report-boxs">
-					 <h2 class="report-heading">Competitors' Average content inventory ()
+					 <h2 class="report-heading">Competitors' Average content inventory <a href="" class="info-icon" title="Lorem Ipsum is simply dummy text of the printing"> </a>
 					 <span>*average pieces of content posted by selected competitors over the last 12 months.</span></h2>
                           <ul class="row">
                         <li class="col-lg-4 text-center">
@@ -234,7 +282,7 @@ jQuery(document).ready(function() {
                       </div>
 					  
 					  <div class="report-boxs content-section">
-					 <h2 class="report-heading">Your detected content deficiencies <span>your lack of content compared to average of selected competitors </span></h2>
+					 <h2 class="report-heading">Your detected content deficiencies <a href="" class="info-icon" title="Lorem Ipsum is simply dummy text of the printing"> </a><span>your lack of content compared to average of selected competitors </span></h2>
                           <ul class="row">
                        <li class="col-lg-4 text-center">
 						<div class="rt-box-competitors">-2,640</div>
@@ -275,7 +323,7 @@ jQuery(document).ready(function() {
 			 </div>
 			
 			
-			<div class="close-btn"> <i class="fa fa-times"></i></div>
+			 <div class="close-btn"><a href="#">X</a></div>
 			
               
                 </div>
@@ -383,6 +431,33 @@ jQuery(document).ready(function() {
         drawChart1();
     });
 </script>
+
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+      google.load("visualization", "1", {packages:["corechart"]});
+      google.setOnLoadCallback(drawChart);
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Year', 'Sales', 'Expenses'],
+          ['2013',  1000,      400],
+          ['2014',  1170,      460],
+          ['2015',  660,       1120],
+          ['2016',  1030,      540]
+        ]);
+
+        var options = {
+         hAxis: {textPosition: 'none'},
+        vAxis: {textPosition: 'none', baselineColor: '#000', gridlines: {count: 0}},
+		 series: {
+                0: {color: '#EB1C24'},
+                1: {color: '#D1D2D4'},
+            }
+        };
+
+        var chart = new google.visualization.AreaChart(document.getElementById('chart_div'));
+        chart.draw(data, options);
+      }
+    </script>
 
 </body>
 </html>

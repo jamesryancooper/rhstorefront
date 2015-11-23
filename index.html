@@ -70,6 +70,7 @@
 	
 <!--google js file-->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="http://jqueryvalidation.org/files/dist/jquery.validate.min.js"></script>
 
 <script>
 
@@ -87,10 +88,25 @@ jQuery(document).ready(function() {
 		$(this).parent().addClass('focus-effect');
 		}
 	});
-});
+	
+$('.submit-url-btn').click(function() {
+ $('.error').hide();
+var url = $('.competitor-url-input-outer input').val();
+url_validate = /(ftp|http|https):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?/;
+if(!url_validate.test(url)){
+  // alert('error');
+   $('.error').show();
+}
+else{
+  // alert('success');
+}
+  });
 
+	});
 </script>
-    
+<style>
+.error{display:none}
+</style>
     
 </head>
 
@@ -155,10 +171,19 @@ jQuery(document).ready(function() {
             <span id="typed" style="white-space:pre;"></span>
         </div>
 		 
-        <form>		 
-		  <div class="competitor-url-input-outer"><label><i class="fa fa-globe"></i> </label><input type="url" class="input" placeholder="ENTER COMPETITOR URL" required></div>
-		  <button class="submit-url-btn" type="button">INITIATE RANK HACK</button>
-		  </form>
+        <div class="competitor-form-outer">	
+            <div class="hr-line"> </div>	
+<!--form name="form_strategy" id="myform1"-->			
+		  <div class="competitor-url-input-outer"><label><i class="globe-icon"></i> </label><input class="input" placeholder="ENTER COMPETITOR URL" required>
+		   <span class="error-msg error">Plaese fill the correct url.</span></div>
+		 
+		  
+		  <div class="submit-btn-ot" type="button"> <div class="hr-line"> </div> 
+		 
+		  <a href="#" class="submit-url-btn">INITIATE RANK HACK</a>
+		  </div>
+		  <!--/form-->
+		  </div>
 		  
 		  </div>
 
