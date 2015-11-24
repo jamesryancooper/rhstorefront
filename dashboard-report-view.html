@@ -241,15 +241,22 @@ function insRow()
         </tr>
     </table>
 </div-->
-	<ul class="links-main-box">			 
-		<li class="col-lg-4"><div class="url-boxes">www.thisisaurl.com </div></li>
-		<li class="col-lg-4"><div class="url-boxes"> www.thisisacompetitor.com</div></li><!--<input type="url" placeholder="" class="url-boxes"> <a href="#" class="tag-close"> X</a></li>
-		<li class="col-lg-4"><div class="url-boxes"> www.thisisacompetitor.com</div><input type="url" placeholder="" class="url-boxes"> <a href="#" class="tag-close"> X</a> </li>
-		<li class="col-lg-4"><div class="url-boxes"> www.thisisacompetitor.com</div><input type="url" placeholder="" class="url-boxes"> <a href="#" class="tag-close"> X</a></li>
-		<li class="col-lg-4"><div class="url-boxes"> www.thisisacompetitor.com</div><input type="url" placeholder="" class="url-boxes"> <a href="#" class="tag-close"> X</a></li>-->
-
-		<li class="col-lg-4"><a href="#" class="add-more-url" > + Add more</a></li>
-	</ul>
+	<ul id="url-list">			 
+		<li><div class="url-box-fixed">www.thisisaurl.com </div></li>
+		<li class="url-box">
+			<div class="url-label"><span>www.thisisacompetitor.com</span><a href="#delete-url" class="url-delete">X</a></div>
+			<input class="url-input" value="www.thisisacompetitor.com" type="url" placeholder="" style="display:none;">
+		</li>
+		<li><a href="#add-more-url" class="add-more-url" id="button-add-url"> + Add more</a></li>
+ 	</ul>
+	
+	<div id="url-box-template">
+		<li class="url-box">
+			<div class="url-label" style="display:none;"><span></span><a href="#delete-url" class="url-delete">X</a></div>
+			<input class="url-input" value="" type="url" placeholder=""  >
+		</li>
+	</div>
+	
 			 </div>
 			 
 			 </div>
@@ -258,7 +265,7 @@ function insRow()
 			  <div class="report-boxs">
 					 <h2 class="report-heading">Offsite content comparison - you vs. them
 					 <span>Your posted content vs. theirs + suggested mission to beat their rank</span></h2>
-                      <div class="text-center report-graph-outer"><img src="images/report-graph.png" alt="">   <!--div id="chart_div"></div--></div>
+                      <div class="text-center report-graph-outer"><!--img src="images/report-graph.png" alt=""-->   <div id="chart_div"></div></div>
                       </div>
 			 
 					 <div class="report-boxs">
@@ -459,5 +466,56 @@ function insRow()
       }
     </script>
 
+
+
+<script type="text/javascript">
+
+$(document).ready(function() {
+
+   //hide url-label and show url-input
+    $('#url-list').on('click','.url-label', function() {
+        $(this).hide();     
+    	$(this).next('.url-input').show().focus();
+    });
+	
+    //hide url-input and show url-label
+    $('#url-list').on('focusout', '.url-input',function() {
+        $(this).hide();     
+    	$(this).parents('li').find('.url-label').show();
+    });
+	
+	//put  url-input value in url-label
+    $('#url-list').on('keyup','.url-input', function() {
+		var url_val = $(this).val();
+    	$(this).parents('li').find('.url-label span').html(url_val);
+    });
+	
+    // Delete parent li on click 
+	$("#url-list").on('click','.url-delete',function(event) {
+		event.preventDefault();
+        $(this).parents('li').remove();
+		toggle_add_more();
+	});
+	
+	$("a#button-add-url").click(function(event) {
+		event.preventDefault();
+		var url_box = $("#url-box-template").html();
+        $(this).parent().before(url_box);
+		toggle_add_more();
+	});
+	
+	 // show or hide add more button
+	function toggle_add_more(){
+	  var url_boxes = $(".url-box").length;
+	  if(url_boxes>=5){
+		$("a#button-add-url").hide();
+	  }else{
+		$("a#button-add-url").show();
+	  }
+	}
+});
+</script>
+	
+	
 </body>
 </html>

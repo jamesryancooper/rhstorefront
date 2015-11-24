@@ -1000,6 +1000,7 @@ transform:skew(8deg) rotate(3deg);
   line-height: normal;
   margin: 0;
   padding: 0;
+  text-align: left;
   text-transform: uppercase;
   width: 100%;
 }
@@ -1009,7 +1010,7 @@ transform:skew(8deg) rotate(3deg);
   margin: 0 -15px;
 }
 
-.url-boxes {
+.url-box-fixed, .url-label, .url-input {
   background-color: #808185;
   border: medium none;
   border-radius: 10px;
@@ -1018,17 +1019,19 @@ transform:skew(8deg) rotate(3deg);
   font-family: "Montserrat",sans-serif;
   font-size: 25px;
   font-weight: normal;
+  height: 50px;
   line-height: normal;
   margin: 10px 0;
-  padding: 5px 0 8px;
+  min-width: 120px;
+  padding: 8px 35px 10px 15px;
   position: relative;
-  text-align: center;
+  text-align: left;
   width: 100%;
 }
 
-.links-main-box {
+#url-list {
   float: left;
-  margin: 15px 0;
+  margin: 15px 0 0;
   padding: 0;
   width: 100%;
 }
@@ -1045,7 +1048,7 @@ transform:skew(8deg) rotate(3deg);
   font-size: 28px;
   font-weight: bold;
   line-height: normal;
-  margin: 10px 0;
+  margin: 5px 0;
   padding: 2px 0 2px 5%;
   text-align: left;
   text-transform: uppercase;
@@ -1105,6 +1108,13 @@ transform:skew(8deg) rotate(3deg);
   margin: 5px 0 0;
 }
 
+
+.url-box-inputs {
+  background-color: #fff;
+  border: 1px solid #808185;
+  border-radius: 10px;
+  color: #000;
+}
 
 
 
@@ -2161,21 +2171,48 @@ background-color:#26a9e0;
   }
 }
 
-.links-main-box li {
+#url-list li {
+  display: inline-block;
+  margin: 0 10px;
+  min-height: 60px;
+  padding: 0;
   position: relative;
+  white-space: nowrap;
+  width: auto;
 }
 
 
-.tag-close {
-  color: #fff;
-  font-size: 20px;
-  position: absolute;
-  right: 25px;
-  top: 19px;
-  display:none;
+.url-delete {
+   
+    border-bottom-right-radius: 10px;
+    border-top-right-radius: 10px;
+    color: #fff;
+    display: block;
+    font-size: 20px;
+    font-weight: bold;
+    height: 50px;
+    line-height: 50px;
+    position: absolute;
+    right: 0;
+    text-align: center;
+    top: 0;
+    width: 30px;
+}
+
+.url-delete:hover {
+ background-color: #ec1c24 !important;
 }
 
 
 .links-main-box li:hover .tag-close{
   display:block;
+}
+
+
+#url-box-template { display:none;}
+
+.url-input {
+  background-color: #fff;
+  border: 1px solid #808185 ;
+  color: #808185;
 }
