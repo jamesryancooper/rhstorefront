@@ -72,7 +72,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <script src="http://jqueryvalidation.org/files/dist/jquery.validate.min.js"></script>
 
-<script>
+<!--script>
 
 jQuery(document).ready(function() {
 	$('.competitor-url-input-outer input').focus(function () {
@@ -103,7 +103,10 @@ else{
   });
 
 	});
-</script>
+</script-->
+
+
+
 <style>
 .error{display:none}
 </style>
@@ -173,9 +176,14 @@ else{
 		 
         <div class="competitor-form-outer">	
             <div class="hr-line"> </div>	
-<!--form name="form_strategy" id="myform1"-->			
-		  <div class="competitor-url-input-outer"><label><i class="globe-icon"></i> </label><input class="input" placeholder="ENTER COMPETITOR URL" required>
-		   <span class="error-msg error">Plaese fill the correct url.</span></div>
+<!--form name="form_strategy" id="myform1"-->	
+        
+		  <ul> 
+         <li class="competitor-url-input-outer">	
+		 <label><i class="globe-icon"></i> </label><input class="valid_url" placeholder="ENTER COMPETITOR URL" required>
+		   <span class="error-msg error">Plaese fill the correct url.</span>
+		   </li>
+		   </ul>
 		 
 		  
 		  <div class="submit-btn-ot" type="button"> <div class="hr-line"> </div> 
@@ -307,6 +315,51 @@ else{
     function foo(){ console.log("Callback"); }
 
     </script>
+
+	<script type="text/javascript">
+jQuery(document).ready(function(){
+
+		jQuery(".valid_url").change(function(){
+		var url = jQuery(this).val();
+		url_validate = /(ftp|http|https):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?/;
+			if(!url_validate.test(url)){
+			jQuery(this).val('');
+			jQuery(this).attr('placeholder','You must enter a proper URL');
+			jQuery(this).parent('li').addClass('invalid');
+			jQuery(this).parent('li').removeClass('valid');
+			}
+			else{
+			jQuery(this).parent('li').removeClass('invalid');
+			jQuery(this).parent('li').addClass('valid');
+			}
+
+		});
+		
+	jQuery('.fname').focusout(function(){
+	jQuery(this).parent('li').addClass('valid');
+	});
+	
+
+	jQuery('.valid_url').focus(function () {
+	jQuery(this).parent('li').addClass('focus-effect');
+			}).blur(function () {
+
+			var  inputval = $(".valid_url").val();
+			//alert(inputval);
+			if(inputval == ""){
+			$(this).parent().removeClass('focus-effect');
+			}else{
+			//alert(inputval);
+			$(this).parent().addClass('focus-effect');
+		}
+	});
+
+		jQuery(function($){
+			$('.matchheight').matchHeight();
+		});
+});
+
+</script>
 
 </body>
 </html>

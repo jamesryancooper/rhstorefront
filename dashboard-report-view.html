@@ -265,7 +265,11 @@ function insRow()
 			  <div class="report-boxs">
 					 <h2 class="report-heading">Offsite content comparison - you vs. them
 					 <span>Your posted content vs. theirs + suggested mission to beat their rank</span></h2>
-                      <div class="text-center report-graph-outer"><!--img src="images/report-graph.png" alt=""-->   <div id="chart_div"></div></div>
+					 <div class="text-center report-graph-outer"><img src="images/report-graph.png" alt=""/></div>
+                      <div class="text-center report-graph-outer"><div id="chart_div"></div> 
+					  <div class="graph-label-outer"><span class="you-tag">YOU </span> <span class="them-tag"> THEM</span> </div></div>
+					  <div class="text-center report-graph-outer"><div id="chart_div2"></div> 
+					  <div class="graph-label-outer2"><span class="you-tag">YOU </span> <span class="them-tag"> THEM</span> </div></div>
                       </div>
 			 
 					 <div class="report-boxs">
@@ -445,23 +449,64 @@ function insRow()
       google.setOnLoadCallback(drawChart);
       function drawChart() {
         var data = google.visualization.arrayToDataTable([
-          ['Year', 'Sales', 'Expenses'],
-          ['2013',  1000,      400],
-          ['2014',  1170,      460],
-          ['2015',  660,       1120],
-          ['2016',  1030,      540]
+          ['Year', 'THEM', 'YOU'],
+          ['2013',  800,  350],
+          ['2013',  2200,  800],
+          ['2013',   900,  400],
+          ['2013',  1200,  500],
+          ['2013',  2400,  300],
+          ['2013',  2200,  600],
+          ['2014',  2370,  600],
+          ['2015',  1900,  400],
+          ['2016',  1000,  400]
         ]);
 
         var options = {
+		//chartArea:{ backgroundColor : {stroke:'#000',strokeWidth:10} },
+		chartArea:{ left : 0,width:'100%' },
+         legend: {position: 'none'},
          hAxis: {textPosition: 'none'},
         vAxis: {textPosition: 'none', baselineColor: '#000', gridlines: {count: 0}},
 		 series: {
-                0: {color: '#EB1C24'},
-                1: {color: '#D1D2D4'},
+                0: {color:'#D1D2D4', areaOpacity:1},
+                1: {color:'#EB1C24', areaOpacity:1},
             }
         };
 
         var chart = new google.visualization.AreaChart(document.getElementById('chart_div'));
+        chart.draw(data, options);
+      }
+    </script>
+	
+	 <script type="text/javascript">
+      google.load("visualization", "1", {packages:["corechart"]});
+      google.setOnLoadCallback(drawChart);
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Year', 'THEM', 'YOU'],
+          ['2013',  800,  350],
+          ['2013',  2200,  800],
+          ['2013',   900,  400],
+          ['2013',  1200,  500],
+          ['2013',  2400,  300],
+          ['2013',  2200,  600],
+          ['2014',  2370,  600],
+          ['2015',  1900,  400],
+          ['2016',  1000,  400]
+        ]);
+
+        var options = {
+		//chartArea:{ backgroundColor : {stroke:'#000',strokeWidth:10} },
+		chartArea:{ left : 0,width:'100%' },
+         legend: {position: 'none'},
+         hAxis: {textPosition: 'none'},
+        vAxis: {textPosition: 'none', baselineColor: '#000', gridlines: {count: 0}},
+		 series: {
+                0: {color:'#a9abaf', areaOpacity:0.6},
+                1: {color:'#EB1C24', areaOpacity:0.6},
+            }
+        };
+        var chart = new google.visualization.AreaChart(document.getElementById('chart_div2'));
         chart.draw(data, options);
       }
     </script>

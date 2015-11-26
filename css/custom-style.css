@@ -321,9 +321,9 @@ box-shadow: 0 1px 0 0 transparent;
   margin: 7px 0 0;
 }
 
-.focus-effect .globe-icon {
+/* .focus-effect .globe-icon {
   background-image:url("../images/globe-red.png");
-}
+} */
 
 .submit-url-btn:hover, .submit-url-btn:focus {
 background-color: #ec1c24;
@@ -1742,6 +1742,7 @@ padding: 0 0;
   margin: 0;
   padding: 0 10px 0 90px;
   width: 100%;
+  box-shadow: none !important;
 }
 
 .inventory-inputs-outer input::-webkit-input-placeholder {
@@ -1969,6 +1970,17 @@ background-color:#26a9e0;
   background-image: url("../images/globe-red.png");
 }
 
+.you-inputs .valid .globe-icon {
+  background-image: url("../images/globe-blue.png");
+}
+
+.them-inputs  .valid .globe-icon {
+  background-image: url("../images/globe-red.png");
+}
+
+.you-inputs .valid input {color: #26a9e0;}
+
+.them-inputs .valid input {color: #EB1C24;}
 
 .mail-icon {
   background-image: url("../images/mail-icon.png");
@@ -1981,7 +1993,7 @@ background-color:#26a9e0;
   width: 55px;
 }
 
-.mail-icon.active {
+.valid .mail-icon {
   background-image: url("../images/mail-icon-blue.png");
 }
 
@@ -1996,11 +2008,9 @@ background-color:#26a9e0;
   width: 55px;
 }
 
-.user-icon.active {
+.valid .user-icon {
   background-image: url("../images/user-icon-blue.png");
 }
-
-
 
 .name-tag-g {
   background-color: #000;
@@ -2110,10 +2120,11 @@ background-color:#26a9e0;
 }
 
 
-#chart_div {
+#chart_div , #chart_div2 {
   float: left;
-  height: 300px !important;
-  padding: 50px 0;
+  height: 350px !important;
+  margin: 0 0;
+  padding:0;
   width: 100%;
 }
 
@@ -2215,4 +2226,113 @@ background-color:#26a9e0;
   background-color: #fff;
   border: 1px solid #808185 ;
   color: #808185;
+}
+
+#chart_div, #chart_div2 {
+  overflow: hidden;
+  width: 90%;
+}
+
+
+
+.report-graph-outer {
+  position: relative;
+}
+.graph-label-outer , .graph-label-outer2 {
+  color: #000;
+  float: right;
+  width: auto;
+}
+
+.graph-label-outer .you-tag , .graph-label-outer .them-tag  , .graph-label-outer2 .you-tag , .graph-label-outer2 .them-tag{
+  background: #eb1c24 none repeat scroll 0 0;
+ /*  border-top: 5px solid #000; */
+  color: #fff;
+  display: block;
+  font-size: 1.8em;
+  padding: 5px;
+  text-align: center;
+  width: 100%;
+  margin:0;
+
+}
+
+
+
+.graph-label-outer .them-tag {
+  background: #D1D2D4 none repeat scroll 0 0;
+ /*  border-top: 5px solid #98999B; */
+  color:#58595B;
+    margin-top:20px;
+}
+
+.graph-label-outer2 .them-tag {
+  background:rgba(169,171,175,.6) none repeat scroll 0 0;
+  border-top: 5px solid #a9abaf; 
+  color:#58595B;
+    margin-top:20px;
+}
+
+ .graph-label-outer2 .you-tag {
+  background:rgba(235,28,36,.6)  none repeat scroll 0 0;
+  border-top: 5px solid #EB1C24; 
+
+}
+
+.graph-label-outer, .graph-label-outer2 {
+  bottom: 20%;
+  position: absolute;
+  right: 0;
+  width: 8%;
+}
+
+.invalid input  , .focus-effect input{
+  border-color: #EB1C24;box-shadow:0 0 0 transparent !important;
+}
+
+.you-inputs  .invalid input  ,.you-inputs  .focus-effect input{
+  border-color: #26a9e0;box-shadow:0 0 0 transparent !important;
+}
+ 
+.focus-effect.valid input  {
+  border-color:#3e3e3e;
+}
+
+input:focus { box-shadow:0 0 0 transparent !important; outline:none;}
+
+
+.focus-effect .globe-icon {
+  background-image:url("../images/globe-red.png");
+} 
+
+.you-inputs .focus-effect .globe-icon {
+  background-image: url("../images/globe-blue.png");
+}
+
+.you-inputs .focus-effect input {
+  border-color:#26a9e0;
+}
+
+.competitor-url-input-outer.focus-effect {
+  border-color:#EC1F27;
+}
+
+.competitor-url-input-outer.invalid  {
+  border-color:#EC1F27;
+}
+
+.competitor-url-input-outer input {
+  box-shadow: none;
+}
+
+.focus-effect .user-icon , .valid  .user-icon {
+  background-image: url("../images/user-icon-blue.png");
+}
+
+.focus-effect .mail-icon  , .valid  .mail-icon {
+  background-image: url("../images/mail-icon-blue.png");
+}
+
+.valid input.fname {
+border-color:#26A9E0;
 }
