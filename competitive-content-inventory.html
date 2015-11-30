@@ -91,7 +91,10 @@ jQuery(document).ready(function() {
 
 </script>
     
-    
+    <!--link rel="stylesheet" type="text/css" href="css/style_count.css"-->
+ <script type="text/javascript" src="js/countup.js"></script>
+    <!--script type="text/javascript" src="js/countup.min.js"></script-->
+   
 </head>
 
 <body id="body" class="page-loading home noisy">
@@ -182,17 +185,18 @@ jQuery(document).ready(function() {
 			<div class="row">
 			<div class="left-side-cci col-lg-7"> 
 			<div class="score-outer text-center">
-				<div class="rt-box-competitors red-text">3,168</div>
+				<div class="rt-box-competitors red-text timer" id="timer_id">3,168</div>
+				
 				<span class="heading-ct">Pieces of content per year*</span>
 				</div>
 				</div>
 			<div class="right-side-cci col-lg-5">
 			    <div class="score-outer text-center">
-					<div class="rt-box-competitors">264</div>
+					<div class="rt-box-competitors timer" id="timer_id2">274</div>
 					<span class="heading-ct">Pieces per month </span>
 					</div>
 					<div class="score-outer text-center">
-					<div class="rt-box-competitors">66</div>
+					<div class="rt-box-competitors timer" id="timer_id3">66</div>
 					<span class="heading-ct">Pieces per week </span>
 							</div>
 							</div>
@@ -426,6 +430,41 @@ jQuery(document).ready(function(){
 		});
 });
 
+</script>
+
+
+<script>
+
+
+
+jQuery(function() {
+	var timer_id = new countUp("timer_id", 0, 3168,0,5);
+	var timer_id2 = new countUp("timer_id2", 0, 274,0,2.5);
+	var timer_id3 = new countUp("timer_id3", 0,66,0,1);
+
+	
+	
+	window.onload = function() {
+        timer_id.start();
+        timer_id2.start();
+        timer_id3.start();
+	}
+ });
+ 
+ 
+ function isScrolledIntoView(elem)
+{
+    var $elem = $(elem);
+    var $window = $(window);
+
+    var docViewTop = $window.scrollTop();
+    var docViewBottom = docViewTop + $window.height();
+
+    var elemTop = $elem.offset().top;
+    var elemBottom = elemTop + $elem.height();
+
+    return ((elemBottom <= docViewBottom) && (elemTop >= docViewTop));
+}
 </script>
 
 </body>
