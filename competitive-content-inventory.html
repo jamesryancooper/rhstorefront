@@ -247,7 +247,7 @@ jQuery(document).ready(function() {
 	   
 	   <li><input type="text" placeholder="Ima Sailsmacheen" class="fname"  /> <label> <i class="user-icon"> </i> </label> </li>
 	   
-	   <li><input type="email" placeholder="sailsmacheen@fairmarketing.com" class="fname"  /> <label> <i class="mail-icon"> </i> </label>
+	   <li><input type="email" placeholder="sailsmacheen@fairmarketing.com" class="valid_email"  /> <label> <i class="mail-icon"> </i> </label>
         <span class="valida-note">Email verification required</span> </li>
 	   
 	   </ul>
@@ -406,12 +406,28 @@ jQuery(document).ready(function(){
 
 		});
 		
+		jQuery(".valid_email").change(function(){
+		var email_address = jQuery(this).val();
+		email_validate =  /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
+			if(!email_validate.test(email_address)){
+			jQuery(this).val('');
+			jQuery(this).attr('placeholder','You must enter a proper Email');
+			jQuery(this).parent('li').addClass('invalid');
+			jQuery(this).parent('li').removeClass('valid');
+			}
+			else{
+			jQuery(this).parent('li').removeClass('invalid');
+			jQuery(this).parent('li').addClass('valid');
+			}
+
+		});
+		
 	jQuery('.fname').focusout(function(){
 	jQuery(this).parent('li').addClass('valid');
 	});
 	
 
-	jQuery('.valid_url').focus(function () {
+	jQuery('.valid_url , .valid_email').focus(function () {
 	jQuery(this).parent('li').addClass('focus-effect');
 			}).blur(function () {
 
