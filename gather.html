@@ -39,62 +39,76 @@
 
     <!--google js file-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <script src="http://jqueryvalidation.org/files/dist/jquery.validate.min.js"></script>
 
-    <style>
-        .error {
-            display: none
-        }
-    </style>
+    <script>
+
+        jQuery(document).ready(function () {
+            $('.competitor-url-input-outer input').focus(function () {
+                $(this).parent().addClass('focus-effect');
+            }).blur(function () {
+
+                var inputval = $(".competitor-url-input-outer input").val();
+                //alert(inputval);
+                if (inputval == "") {
+                    $(this).parent().removeClass('focus-effect');
+                } else {
+                    //alert(inputval);
+                    $(this).parent().addClass('focus-effect');
+                }
+            });
+        });
+
+    </script>
 
 </head>
 
-<body id="body" class="home">
+<body id="body" class="page-loading">
 
 <!-- =========================
      HEADER
 ============================== -->
 <section id="header" class="blurable">
 
-    <div id="background-image" class="piece"></div>
-    <div class="piece scanlines noclick"></div>
+    <!--div id="background-image" class="piece"></div>
+    <div class="piece scanlines noclick"></div-->
 
-    <div class="overlay interface-outer">
+    <div class="overlay interface-outer blur_bg">
 
         <div class="text-center vertical-middle">
-            <!--h1 class="feed-headding">Content Strategies Revealed</h1-->
+            <h1 class="storefront-steps-headding">Our Spies Are Gathering Intel</h1>
 
-            <div class="feed-headding">
-                <div id="typed-strings">
-                    <p>Content Strategies Revealed</p>
-                </div>
-                <span id="typed" style="white-space:pre;"></span>
-            </div>
-
-            <div class="competitor-form-outer">
-                <div class="hr-line"></div>
-                <!--form name="form_strategy" id="myform1"-->
-
-                <ul>
-                    <li class="competitor-url-input-outer">
-                        <label><i class="globe-icon"></i> </label><input class="valid_url" placeholder="ENTER COMPETITOR URL" required>
-                        <span class="error-msg error">Please fill in a correct url.</span>
+            <div class="storefront-steps-outer col-lg-8 col-lg-offset-2">
+                <ul class="row">
+                    <li class="col-lg-4">
+                        <div class="st-outer">
+                            <div class="step-icon"><i class="fa fa-check check-icon"></i></div>
+                            <span>Hacking Content</span></div>
+                    </li>
+                    <li class="col-lg-4">
+                        <div class="st-outer">
+                            <div class="step-icon">
+                                <div class="spin"></div>
+                            </div>
+                            <span>Analyzing Content</span></div>
+                    </li>
+                    <li class="col-lg-4">
+                        <div class="st-outer">
+                            <div class="step-icon">
+                                <div class="spin"></div>
+                            </div>
+                            <span>Revealing Inventory</span></div>
                     </li>
                 </ul>
-
-
-                <div class="submit-btn-ot" type="button">
-                    <div class="hr-line"></div>
-
-                    <a href="#" class="submit-url-btn">INITIATE RANK HACK</a>
-                </div>
-                <!--/form-->
             </div>
+
+            <div class="loadding-bar">
+                <div class="two"></div>
+            </div>
+
 
         </div>
 
     </div>
-
 
 </section>
 
@@ -142,7 +156,6 @@
 <!-- =========================
      JS SCRIPTS
 ============================== -->
-
 <!-- BOOTSTRAP SCRIPTS -->
 <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
 
@@ -155,89 +168,9 @@
 <!--CUSTOM THEME SCRIPTS & SETTINGS -->
 <script type="text/javascript" src="js/rankhacker.scripts.js"></script>
 
-<!--Text typing effect js -->
-<script type="text/javascript" src="js/typed.min.js"></script>
-
 <!-- FIFTEEN TWENTY HOLDINGS SCRIPTS
 <script type="text/javascript" src="js/1520.js"></script>
 <script type="text/javascript" src="https://api.userinfo.io/userinfos?jsonp_callback=userInfoCallback"></script>-->
-
-<script>
-    $(function () {
-
-        $("#typed").typed({
-            // strings: ["Typed.js is a <strong>jQuery</strong> plugin.", "It <em>types</em> out sentences.", "And then deletes them.", "Try it out!"],
-            stringsElement: $('#typed-strings'),
-            typeSpeed: 80,
-            backDelay: 500,
-            loop: false,
-            contentType: 'html', // or text
-            // defaults to false for infinite loop
-            loopCount: false,
-            callback: function () {
-                foo();
-            },
-            resetCallback: function () {
-                newTyped();
-            }
-        });
-
-        $(".reset").click(function () {
-            $("#typed").typed('reset');
-        });
-
-    });
-
-    function newTyped() { /* A new typed object */
-    }
-
-    function foo() {
-        console.log("Callback");
-    }
-
-</script>
-
-<script type="text/javascript">
-    jQuery(document).ready(function () {
-
-        jQuery(".valid_url").change(function () {
-            var url = jQuery(this).val();
-            url_validate = /(ftp|http|https):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?/;
-            if (!url_validate.test(url)) {
-                jQuery(this).val('');
-                jQuery(this).attr('placeholder', 'You must enter a proper URL');
-                jQuery(this).parent('li').addClass('invalid');
-                jQuery(this).parent('li').removeClass('valid');
-            }
-            else {
-                jQuery(this).parent('li').removeClass('invalid');
-                jQuery(this).parent('li').addClass('valid');
-            }
-
-        });
-
-        jQuery('.fname').focusout(function () {
-            jQuery(this).parent('li').addClass('valid');
-        });
-
-
-        jQuery('.valid_url').focus(function () {
-            jQuery(this).parent('li').addClass('focus-effect');
-        }).blur(function () {
-
-            var inputval = $(".valid_url").val();
-            //alert(inputval);
-            if (inputval == "") {
-                $(this).parent().removeClass('focus-effect');
-            } else {
-                //alert(inputval);
-                $(this).parent().addClass('focus-effect');
-            }
-        });
-
-    });
-
-</script>
 
 </body>
 </html>

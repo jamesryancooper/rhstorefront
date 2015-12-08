@@ -293,54 +293,6 @@ function drawCharts(annualData, monthlyData, weeklyData) {
 })();
 
 //////////////////////////////////////////////////////  //
-//    THEATER TYPE TOOL                                 //
-//////////////////////////////////////////////////////  //
-(function () {
-	"use strict";
-
-	var theater = new TheaterJS();
-	var current;
-
-	theater
-		.describe("statement", { speed: .8, accuracy: .8, invincibility: 4 }, "#statement");
-
-	theater
-		.on("say:start, erase:start", function () {
-			var self    = this,
-				current = self.current.voice;
-
-			self.utils.addClass(current, "saying");
-
-		})
-		.on("say:end, erase:end", function () {
-			var self    = this,
-				current = self.current.voice;
-
-			self.utils.removeClass(current, "saying");
-		});
-
-	theater
-		.write(2000)
-		.write("statement:Content Strategies Revealed", 400);
-
-
-	function kill () {
-		var self    = this,
-			delay   = 300,
-			i       = 0,
-			timeout = setTimeout(function blink () {
-				if (++i < 6) timeout = setTimeout(blink, delay);
-				else self.next();
-			}, delay);
-
-		return self;
-	}
-
-	window.theater = theater;
-
-})();
-
-//////////////////////////////////////////////////////  //
 //    EVENTS ON DOCUMENT READY                          //
 //////////////////////////////////////////////////////  //
 $(document).ready(function() {

@@ -2114,7 +2114,7 @@ fieldset[disabled] .btn {
     top: 0;
     left: 0;
     z-index: 3;
-    background: transparent url("../img/background.png") no-repeat fixed center 100px;
+    background: transparent url("../img/background.png") no-repeat fixed center 40px;
     opacity: 0.7;
 }
 
@@ -2123,7 +2123,6 @@ fieldset[disabled] .btn {
   height: 100vh;
   left: 0;
   position: relative;
-  top: 70px;
   z-index: 6;
 }
 
