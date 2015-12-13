@@ -27,6 +27,7 @@
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet">
     <link href="css/rankhacker.css" rel="stylesheet" type="text/css">
     <link href="css/custom-style.css" rel="stylesheet" type="text/css">
+    <link href="css/1520.css" rel="stylesheet" type="text/css">
 
     <!-- =========================
          INTERNET EXPLORER FIXES
@@ -95,6 +96,35 @@
 
     </div>
 
+<!-- Login modal -->
+<div id="dimmer" class="dimmer"></div>
+
+<div id="login-window" class="login-window">
+    <div class="row">
+        <div class="col-lg-12 text-center">
+            <ul>
+                <li class="login-input-outer"><input id="user-email" type="text" required placeholder="E-MAIL ADDRESS"></li>
+                <li class="login-input-outer"><input id="user-password" type="password" required placeholder="PASSWORD"></li>
+            </ul>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-12 text-center">
+            <a class="cancel-login-btn" id="login_cancel_button">CANCEL</a>
+            <a class="submit-login-btn" id="login_submit_button">LOGIN</a>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-12 text-center">
+            <a class="remind-link" id="password_remind_button">REMIND ME</a>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-12 text-center">
+            <span id="login-response" class="login-response">placeholder</span>
+        </div>
+    </div>
+</div>
 
 </section>
 
@@ -125,7 +155,7 @@
             </div>
             <div class="account-links-outer pull-right ">
                 <ul>
-                    <li><a href=""> Log in </a></li>
+                    <li><a id="login_button">  Log in </a></li>
                 </ul>
             </div>
             <!--footer center socail icon section close here-->
@@ -158,9 +188,9 @@
 <!--Text typing effect js -->
 <script type="text/javascript" src="js/typed.min.js"></script>
 
-<!-- FIFTEEN TWENTY HOLDINGS SCRIPTS
+<!-- FIFTEEN TWENTY HOLDINGS SCRIPTS -->
 <script type="text/javascript" src="js/1520.js"></script>
-<script type="text/javascript" src="https://api.userinfo.io/userinfos?jsonp_callback=userInfoCallback"></script>-->
+<!-- <script type="text/javascript" src="https://api.userinfo.io/userinfos?jsonp_callback=userInfoCallback"></script>-->
 
 <script>
     $(function () {

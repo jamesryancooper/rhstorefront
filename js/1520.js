@@ -562,7 +562,8 @@ function loginAccount()
 
 function remindPassword()
 {
-    var email = document.getElementById('remind-email').value;
+    var email = $('#user-email').val();
+    console.log(email);
     
     var targetURL = restURL + "command=remindPassword&username="+email+"&z=" + Math.random();
     if (window.XMLHttpRequest)
@@ -578,16 +579,17 @@ function remindPassword()
     {
         if (xmlhttp.readyState===4 && xmlhttp.status===200)
         {
+            console.log("got a response:");
             var response = xmlhttp.responseText;
+            console.log(response);
             var responseData = JSON.parse(response);
             if(responseData.status == "Success")
             {
-                alert("Please check your email for a message from SSD Fair Marketing containing a new password for your account.");
-                document.getElementById("remind").style.display = "none";
+                $("#login-response").html("Please check your email for a message from SSD Fair Marketing containing a new password for your account.");
             }
             else
             {
-                alert("Error: We were unable to find an account under that email address.");
+                $("#login-response").html("<font color='#ec1c24'>Error: We were unable to find an account under that email address.</font>");
             }
         }
     }
@@ -618,11 +620,28 @@ $('#gotoInventory').click(runAhrefsAnalysis);
 
 $('#createAccountButton').click(createAccount);
 
-$('#loginButton').click(loginAccount);
+$('#login_submit_button').click(loginAccount);
 
-$('#recoverButton').click(remindPassword);
+$('#login_cancel_button').click(hideLogin);
+
+$('#login_button').click(showLogin);
+
+$('#password_remind_button').click(remindPassword);
 
 $('#get-started').click(validateGetStarted);
+
+function hideLogin()
+{
+    document.getElementById("dimmer").style.display = "none";
+    document.getElementById("login-window").style.display = "none";
+}
+
+function showLogin()
+{
+    document.getElementById("login-window").style.display = "block";
+    document.getElementById("dimmer").style.display = "block";
+}
+
 function validateGetStarted(e)
 {
     var keyword = $('#keyword');

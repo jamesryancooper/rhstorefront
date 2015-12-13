@@ -1,0 +1,125 @@
+.login-window {
+    position: fixed;
+    top: 40%;
+    left: 40%;
+    z-index: 999;
+    background-color: rgba(255,255,255,1);
+    color: #fff;
+    padding: 10px;
+    width: 20%;
+    //border: 2px solid #242021;
+    border: 4px solid #242021;
+    display: none;
+}
+
+.dimmer {
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background: rgba(0, 0, 0, 0.8);
+    z-index:998;
+    display: none;
+}
+
+.login-input-outer {
+  border: 1px solid #000;
+  border-radius: 8px;
+  clear: both;
+  display: inline-block;
+  height: 45px;
+  margin: 10px auto 10px;
+  position: relative;
+  width: 100%;
+  float:right;
+}
+
+.remind-link {
+  padding-top:8px;
+  padding-right:3px;
+  color: #242021;
+  float: left;
+  font-family: "Nixie One",cursive;
+  font-size: 18px;
+  float:right;
+}
+.remind-link:hover {
+  color: #ec1c24 !important;
+  font-weight:bold;
+  cursor: pointer;
+}
+
+.login-input-outer input {
+  background: #fff none repeat scroll 0 0;
+  border: medium none;
+  border-radius: 8px;
+  color: #231f20;
+  float: left;
+  font-family: "Nixie One",cursive;
+  font-size: 22px;
+  height: 100%;
+  margin: 0;
+  padding: 0 0 0 10px;
+  width: 100%;
+}
+
+.submit-login-btn {
+background-color: rgba(255, 255, 255, 0.7);
+border: 1px solid #242021;
+color: #242021 !important;
+display: table;
+float:left;
+font-size: 18px;
+font-weight: normal;
+height: 40px;
+line-height: 40px;
+margin: 0px auto 0;
+padding: 0 25px;
+text-align: center;
+width: auto;
+font-family: "Montserrat",sans-serif;
+}
+
+.submit-login-btn:hover, .submit-login-btn:focus {
+background-color: #ec1c24;
+color: #fff !important;
+border-color: #ec1c24;
+cursor:pointer;
+}
+
+.cancel-login-btn {
+background-color: rgba(255, 255, 255, 0.7);
+border: 1px solid #242021;
+color: #242021 !important;
+display: table;
+float:right;
+font-size: 18px;
+font-weight: normal;
+height: 40px;
+line-height: 40px;
+margin: 0px auto 0;
+padding: 0 25px;
+text-align: center;
+width: auto;
+font-family: "Montserrat",sans-serif;
+}
+
+.cancel-login-btn:hover, .cancel-login-btn:focus {
+background-color: rgba(61,61,61,.8);
+color: #fff !important;
+cursor:pointer;
+}
+
+#login_button {
+    cursor: pointer;
+}
+
+.login-response {
+  padding-top:16px;
+  color: #242021;
+  clear: both;
+  text-align: center;
+  font-family: "Nixie One",cursive;
+  font-size: 18px;
+}
