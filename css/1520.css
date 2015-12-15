@@ -116,8 +116,10 @@ cursor:pointer;
 }
 
 .login-response {
-  padding-top:16px;
-  color: #242021;
+  margin-top: 16px;
+  padding-top: 34px;
+  color: #ec1c24;
+  font-weight: bold;
   clear: both;
   text-align: center;
   font-family: "Nixie One",cursive;

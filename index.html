@@ -78,16 +78,16 @@
 
                 <ul>
                     <li class="competitor-url-input-outer">
-                        <label><i class="globe-icon"></i> </label><input class="valid_url" placeholder="ENTER COMPETITOR URL" required>
-                        <span class="error-msg error">Please fill in a correct url.</span>
+                        <label><i class="globe-icon"></i> </label><input class="valid_url" id="competitor-url" placeholder="ENTER COMPETITOR URL" required>
+                        <span class="error-msg error" id="url-error-msg">Please fill in a correct url</span>
                     </li>
                 </ul>
 
 
-                <div class="submit-btn-ot" type="button">
+                <div class="submit-btn-ot">
                     <div class="hr-line"></div>
 
-                    <a href="#" class="submit-url-btn">INITIATE RANK HACK</a>
+                    <a class="submit-url-btn" id="initiate-rank-hack">INITIATE RANK HACK</a>
                 </div>
                 <!--/form-->
             </div>
@@ -103,7 +103,7 @@
     <div class="row">
         <div class="col-lg-12 text-center">
             <ul>
-                <li class="login-input-outer"><input id="user-email" type="text" required placeholder="E-MAIL ADDRESS"></li>
+                <li class="login-input-outer"><input id="user-email" type="email" required placeholder="E-MAIL ADDRESS"></li>
                 <li class="login-input-outer"><input id="user-password" type="password" required placeholder="PASSWORD"></li>
             </ul>
         </div>
@@ -120,8 +120,8 @@
         </div>
     </div>
     <div class="row">
-        <div class="col-lg-12 text-center">
-            <span id="login-response" class="login-response">placeholder</span>
+        <div class="col-lg-12 text-center"><br/>
+            <span id="login-response" class="login-response"></span>
         </div>
     </div>
 </div>
@@ -222,7 +222,7 @@
     }
 
     function foo() {
-        console.log("Callback");
+        //console.log("Callback");
     }
 
 </script>
@@ -232,10 +232,18 @@
 
         jQuery(".valid_url").change(function () {
             var url = jQuery(this).val();
-            url_validate = /(ftp|http|https):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?/;
+            //url_validate = /(ftp|http|https):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?/;
+            url_validate = /(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?/;
             if (!url_validate.test(url)) {
                 jQuery(this).val('');
                 jQuery(this).attr('placeholder', 'You must enter a proper URL');
+                jQuery(this).parent('li').addClass('invalid');
+                jQuery(this).parent('li').removeClass('valid');
+            }
+            else if (url.trim() == '')
+            {
+                jQuery(this).val('');
+                jQuery(this).attr('placeholder', 'Please enter a URL');
                 jQuery(this).parent('li').addClass('invalid');
                 jQuery(this).parent('li').removeClass('valid');
             }

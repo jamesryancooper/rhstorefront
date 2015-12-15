@@ -329,6 +329,7 @@ box-shadow: 0 1px 0 0 transparent;
 background-color: #ec1c24;
 color: #fff !important;
 border-color: #ec1c24;
+cursor: pointer;
 }
 
 .competitor-url-input-outer.focus-effect label i , .competitor-url-input-outer.focus-effect input{ color: #ec1c24;}

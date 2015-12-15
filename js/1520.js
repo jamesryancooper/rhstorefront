@@ -1,7 +1,7 @@
-var restURL = "http://fairmarketing.cloudapp.net/rest1.0/endpoint.jsp?"
-//var restURL = "http://localhost:8084/rest1.0/endpoint.jsp?"
+//var restURL = "http://fairmarketing.cloudapp.net/rest1.0/endpoint.jsp?"
+var restURL = "http://localhost:8084/rest1.0/endpoint.jsp?"
 
-function userInfoCallback(data)
+/*function userInfoCallback(data)
 {
     var clientIP = data["ip_address"];
     document.cookie = "client_ip="+clientIP;
@@ -36,12 +36,12 @@ function detectIP()
     
     xmlhttp.open("POST",snifferURL,true);
     xmlhttp.send();
-}
+}*/
 
 function getCookie(paramName)
 {
     var name = paramName + "=";
-    var ca = document.cookie.split(';');
+    var ca = document.cookie.split('; ');
     for(var i=0; i<ca.length; i++) {
         var c = ca[i];
         while (c.charAt(0)==' ') c = c.substring(1);
@@ -50,7 +50,7 @@ function getCookie(paramName)
     return "";
 }
 
-function logUserIP()
+/*function logUserIP()
 {
     var clientIP = getCookie("client_ip");
     //var xForwarder = getCookie("x_forwarder");
@@ -83,56 +83,7 @@ function logUserIP()
     
     xmlhttp.open("POST",targetURL,true);
     xmlhttp.send();
-}
-
-function createRankHackerProject(keyword,location)
-{
-    keyword = encodeURI(keyword);
-    location = encodeURI(location);
-    
-    var username = getCookie("username");
-    if(username == "")
-    {
-        username = "guest";
-    }
-    
-    //Show the progress bar and suppress the competitors box
-    document.getElementById("loadingDiv").style.display = "";
-    //document.getElementById('data').style.display = "";
-    
-    document.getElementById("googleHead").style.display = "none";
-    document.getElementById("competitorForm").style.display = "none";
-    document.getElementById("initiateButton").style.display = "none";
-        
-    var targetURL = restURL + "command=createProject&username="+username+"&keyword="+keyword+"&location="+location+"&z=" + Math.random();
-    if (window.XMLHttpRequest)
-    {// code for IE7+, Firefox, Chrome, Opera, Safari
-        xmlhttp=new XMLHttpRequest();
-    }
-    else
-    {// code for IE6, IE5
-        xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
-    }
-    
-    xmlhttp.onreadystatechange=function()
-    {
-        if (xmlhttp.readyState===4 && xmlhttp.status===200)
-        {
-            var response = xmlhttp.responseText;
-            var responseData = JSON.parse(response);
-            var projectID = responseData.projectid;
-            
-            //projectID = "100";
-            
-            document.getElementById("projectid").value = projectID;
-            //console.log("projectid="+projectID);
-            checkGeoRankerDone(projectID);
-        }
-    }
-    
-    xmlhttp.open("POST",targetURL,true);
-    xmlhttp.send();
-}
+}*/
 
 function getGeoRankerCompetitors(projectID, callback)
 {
@@ -486,7 +437,7 @@ function getUserAhrefsData(callback)
     xmlhttp.send();
 }
 
-function createAccount()
+/*function createAccount()
 {
     var email = document.getElementById('register-email').value;
     var password = document.getElementById('register-password').value;
@@ -521,104 +472,9 @@ function createAccount()
     
     xmlhttp.open("POST",targetURL,true);
     xmlhttp.send();
-}
+}*/
 
-function loginAccount()
-{
-    var email = document.getElementById('login-email').value;
-    var password = document.getElementById('login-password').value;
-    
-    var targetURL = restURL + "command=loginAccount&username="+email+"&password="+password+"&z=" + Math.random();
-    if (window.XMLHttpRequest)
-    {// code for IE7+, Firefox, Chrome, Opera, Safari
-        xmlhttp=new XMLHttpRequest();
-    }
-    else
-    {// code for IE6, IE5
-        xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
-    }
-    
-    xmlhttp.onreadystatechange=function()
-    {
-        if (xmlhttp.readyState===4 && xmlhttp.status===200)
-        {
-            var response = xmlhttp.responseText;
-            var responseData = JSON.parse(response);
-            if(responseData.status == "Success")
-            {
-                document.cookie = "username="+email;
-                document.getElementById("login").style.display = "none";
-            }
-            else
-            {
-                alert("Error: The email address and password you provided do not match our records.");
-            }
-        }
-    }
-    
-    xmlhttp.open("POST",targetURL,true);
-    xmlhttp.send();
-}
-
-function remindPassword()
-{
-    var email = $('#user-email').val();
-    console.log(email);
-    
-    var targetURL = restURL + "command=remindPassword&username="+email+"&z=" + Math.random();
-    if (window.XMLHttpRequest)
-    {// code for IE7+, Firefox, Chrome, Opera, Safari
-        xmlhttp=new XMLHttpRequest();
-    }
-    else
-    {// code for IE6, IE5
-        xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
-    }
-    
-    xmlhttp.onreadystatechange=function()
-    {
-        if (xmlhttp.readyState===4 && xmlhttp.status===200)
-        {
-            console.log("got a response:");
-            var response = xmlhttp.responseText;
-            console.log(response);
-            var responseData = JSON.parse(response);
-            if(responseData.status == "Success")
-            {
-                $("#login-response").html("Please check your email for a message from SSD Fair Marketing containing a new password for your account.");
-            }
-            else
-            {
-                $("#login-response").html("<font color='#ec1c24'>Error: We were unable to find an account under that email address.</font>");
-            }
-        }
-    }
-    
-    xmlhttp.open("POST",targetURL,true);
-    xmlhttp.send();
-}
-
-function test()
-{
-    //Show the progress bar and suppress the competitors box
-    document.getElementById("loadingDiv").style.display = "";
-    document.getElementById('data').style.display = "";
-    
-    document.getElementById("googleHead").style.display = "none";
-    document.getElementById("competitorForm").style.display = "none";
-    document.getElementById("initiateButton").style.display = "none";
-    
-    var projectID = "117";
-    document.getElementById("projectid").value = projectID;
-    checkGeoRankerDone(projectID);
-}
-
-//jQuery action button overrides
-$('#gotoComparison').click(runUserAhrefsAnalysis);
-
-$('#gotoInventory').click(runAhrefsAnalysis);
-
-$('#createAccountButton').click(createAccount);
+//jQuery action buttons
 
 $('#login_submit_button').click(loginAccount);
 
@@ -628,7 +484,58 @@ $('#login_button').click(showLogin);
 
 $('#password_remind_button').click(remindPassword);
 
-$('#get-started').click(validateGetStarted);
+$('#initiate-rank-hack').click(initiateRankHack);
+
+$('#get-declassified-comparison').click(getDeclassifiedComparison);
+
+function loginAccount()
+{
+    var email = $('#user-email').val();
+    var password = $('#user-password').val();
+    
+    if(email.trim() == '' || email.indexOf("@") == -1)
+    {
+        $("#login-response").html("Error: Please provide a valid email address.");
+    }
+    else if(password.trim() == '')
+    {
+        $("#login-response").html("Error: Please enter your password.");
+    }
+    else
+    {
+    
+        var targetURL = restURL + "command=loginAccount&username="+email+"&password="+password+"&z=" + Math.random();
+        if (window.XMLHttpRequest)
+        {// code for IE7+, Firefox, Chrome, Opera, Safari
+            xmlhttp=new XMLHttpRequest();
+        }
+        else
+        {// code for IE6, IE5
+            xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+        }
+
+        xmlhttp.onreadystatechange=function()
+        {
+            if (xmlhttp.readyState===4 && xmlhttp.status===200)
+            {
+                var response = xmlhttp.responseText;
+                var responseData = JSON.parse(response);
+                if(responseData.status == "Success")
+                {
+                    document.cookie = "username="+email;
+                    document.getElementById("login").style.display = "none";
+                }
+                else
+                {
+                    $("#login-response").html("Error: The email address and password you provided do not match our records.");
+                }
+            }
+        }
+
+        xmlhttp.open("POST",targetURL,true);
+        xmlhttp.send();
+    }
+}
 
 function hideLogin()
 {
@@ -642,39 +549,160 @@ function showLogin()
     document.getElementById("dimmer").style.display = "block";
 }
 
-function validateGetStarted(e)
+function remindPassword()
 {
-    var keyword = $('#keyword');
-    var location = $('#location');
-    document.getElementById('georankerdone').value = "0";
-    document.getElementById('projectid').value = "0";
-    document.getElementById('ahrefsdone').value = "0";
-    document.getElementById('userahrefsdone').value = "0";
-    document.getElementById('chartdatareceived').value = "0";
+    var email = $('#user-email').val();
     
-    if(!keyword.val() || !location.val())
+    if(email.trim() == '')
     {
-        e.preventDefault();
-        $('#intro-form').addClass('has-error');
+        $("#login-response").html("Error: Please provide a valid email address.");
+    }
+    else
+    {
+        $.ajax({url: restURL, data: {'command':'remindPassword','username':email}, type: 'post', async: true, success: function postResponse(returnData){
+                var info = JSON.parse(returnData);
+
+                if(info.status == "success")
+                {
+                    $("#login-response").html("Please check your email for a message from SSD Fair Marketing containing a new password for your account.");
+                }
+                else if(info.status == "error")
+                {
+                    $("#login-response").html("Error: We were unable to find an account under that email address.");
+                }
+            }
+        });
+    }
+}
+
+function initiateRankHack()
+{
+    var competitorURL = $('#competitor-url').val();
+    
+    //url_validate = /(ftp|http|https):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?/;
+    url_validate = /(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?/;
+    
+    if(competitorURL.trim() == '')
+    {
+        $('#competitor-url').attr('placeholder', 'Please enter a URL');
+        $('#competitor-url').parent('li').addClass('invalid');
+        $('#competitor-url').parent('li').removeClass('valid');
+        return false;
+    }
+    else if(!url_validate.test(competitorURL))
+    {
+        /*$('#competitor-url').attr('placeholder', 'You must enter a proper URL');
+        $('#competitor-url').parent('li').addClass('invalid');
+        $('#competitor-url').parent('li').removeClass('valid');*/
         return false;
     }
     else
     {
-        $('#intro-form').removeClass('has-error').addClass('has-success');
-        var throttle = logUserIP();
-//-->        
-//        throttle = "false";
-//<--        
-        if(throttle == 'true')
-        {
-            e.preventDefault();
-            alert("It appears that you have run this tool several times already. Please create an account in order to continue with additional hacks.");
-            return false;
-        }
-        else
-        {
-            createRankHackerProject(keyword.val(),location.val());
-            //test();
-        }
+        createRankHackerProject(competitorURL.trim());
     }
+}
+
+function getSessionID(callback)
+{
+    var sessionID = getCookie("session_id");
+    if(sessionID == '' || sessionID == null)
+    {
+        $.ajax({url: restURL, data: {'command':'getSession'}, type: 'post', async: true, success: function postResponse(returnData){
+                var info = JSON.parse(returnData);
+
+                if(info.status == "success")
+                {
+                    sessionID = info.sessionid;
+                    callback(sessionID);
+                }
+            }
+        });
+    }
+    else
+    {
+        callback(sessionID);
+    }
+    
+}
+
+function createRankHackerProject(competitorURL)
+{
+    competitorURL = encodeURI(competitorURL);
+    
+    var username = getCookie("username");
+    if(username == "")
+    {
+        username = "guest";
+    }
+    getSessionID(function(sessionID){
+        
+        document.cookie = "session_id="+sessionID;
+        //Once you have a valid session, create the project
+        $.ajax({url: restURL, data: {'command':'createProject','username':username,'sessionID':sessionID,'competitorURL':competitorURL}, type: 'post', async: true, success: function postResponse(returnData){
+                var info = JSON.parse(returnData);
+
+                if(info.status == "success")
+                {
+                    var projectID = info.projectid;
+                    document.cookie = "project_id="+projectID;
+                    window.location = "gather.html";
+                }
+            }
+        });
+    });
+}
+
+function startInitialAhrefsRequest()
+{
+    var projectID = getCookie("project_id");
+    
+    $.ajax({url: restURL, data: {'command':'runInitialAhrefs','projectid':projectID}, type: 'post', async: true, success: function postResponse(returnData){
+            var info = JSON.parse(returnData);
+
+            if(info.status == "success")
+            {
+                window.location = "inventory.html";
+            }
+        }
+    });
+}
+
+function getInitialInventoryCounts()
+{
+    var projectID = getCookie("project_id");
+
+    $.ajax({url: restURL, data: {'command':'getInitialInventoryCounts','projectid':projectID}, type: 'post', async: true, success: function postResponse(returnData){
+            var info = JSON.parse(returnData);
+
+            if(info.status == "success")
+            {
+                var entry = info.data[0];
+                
+                var url = entry.competitorURL;
+                var runDate = entry.runDate;
+                var annualCount = entry.annualCount;
+                var monthlyCount = Math.ceil(annualCount/12);
+                var weeklyCount = Math.ceil(monthlyCount/4);
+                
+                $('#inventory-competitor-url').html(url);
+                $('#them1').val(url);
+                $('#report-created-date').html(runDate);
+                /*$('#timer_id').html(annualCount);
+                $('#timer_id2').html(monthlyCount);
+                $('#timer_id3').html(weeklyCount);*/
+                
+                var timer_id = new countUp("timer_id", 0, parseInt(annualCount), 0, 5);
+                var timer_id2 = new countUp("timer_id2", 0, parseInt(monthlyCount), 0, 2.5);
+                var timer_id3 = new countUp("timer_id3", 0, parseInt(weeklyCount), 0, 1);
+                timer_id.start();
+                timer_id2.start();
+                timer_id3.start();
+            }
+        }
+    });
+}
+
+function getDeclassifiedComparison()
+{
+    
 }

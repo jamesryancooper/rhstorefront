@@ -39,6 +39,9 @@
 
     <!--google js file-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    
+    <!-- FIFTEEN TWENTY HOLDINGS SCRIPTS -->
+    <script type="text/javascript" src="js/1520.js"></script>
 
     <script>
 
@@ -59,10 +62,16 @@
         });
 
     </script>
+    
+    <script>
+        function run(){
+            getInitialInventoryCounts();
+        }
+    </script>
 
 </head>
 
-<body id="body">
+<body id="body" onload="run();">
 
 <!-- =========================
      HEADER
@@ -94,7 +103,7 @@
                                 <div class="col-lg-6"><img src="images/rh-black-logo.png" alt=""></div>
 
                                 <div class="col-lg-6 text-right">
-                                    <span class="report-created-date">21 October 2015</span>
+                                    <span class="report-created-date" id="report-created-date"></span>
                                 </div>
 
                             </div>
@@ -102,24 +111,24 @@
 
 
                         <div class="competitive-details-outer col-lg-10 col-lg-offset-1">
-                            <h1 class="inventory-heading2">Content inventory for: <span class="red-text">www.thiswebsite.com</span></h1>
+                            <h1 class="inventory-heading2">Content inventory for: <span class="red-text" id="inventory-competitor-url">www.thiswebsite.com</span></h1>
 
                             <div class="rt-info-outer">
                                 <div class="row">
                                     <div class="left-side-cci col-lg-7">
                                         <div class="score-outer text-center">
-                                            <div class="rt-box-competitors red-text timer" id="timer_id">3,168</div>
+                                            <div class="rt-box-competitors red-text timer" id="timer_id">0</div>
 
                                             <span class="heading-ct">Pieces of content per year</span>
                                         </div>
                                     </div>
                                     <div class="right-side-cci col-lg-5">
                                         <div class="score-outer text-center">
-                                            <div class="rt-box-competitors timer" id="timer_id2">274</div>
+                                            <div class="rt-box-competitors timer" id="timer_id2">0</div>
                                             <span class="heading-ct">Pieces per month </span>
                                         </div>
                                         <div class="score-outer text-center">
-                                            <div class="rt-box-competitors timer" id="timer_id3">66</div>
+                                            <div class="rt-box-competitors timer" id="timer_id3">0</div>
                                             <span class="heading-ct">Pieces per week </span>
                                         </div>
                                     </div>
@@ -166,11 +175,11 @@
                                 <div class="col-lg-6 you-inputs ">
                                     <ul class="matchheight">
 
-                                        <li><input type="url" placeholder="ENTER YOUR URL" class="valid_url" required/> <label> <i class="globe-icon"> <span class="name-tag-g">you</span> </i> </label></li>
+                                        <li><input type="url" id="client-url" placeholder="ENTER YOUR URL" class="valid_url" required/> <label> <i class="globe-icon"> <span class="name-tag-g">you</span> </i> </label></li>
 
-                                        <li><input type="text" placeholder="Ima Sailsmacheen" class="fname"/> <label> <i class="user-icon"> </i> </label></li>
+                                        <li><input type="text" id="client-name" placeholder="ENTER YOUR NAME" class="fname" required/> <label> <i class="user-icon"> </i> </label></li>
 
-                                        <li><input type="email" placeholder="sailsmacheen@fairmarketing.com" class="valid_email"/> <label> <i class="mail-icon"> </i> </label>
+                                        <li><input type="email" id="client-email" placeholder="ENTER YOUR EMAIL ADDRESS" class="valid_email" required/> <label> <i class="mail-icon"> </i> </label>
                                             <span class="valida-note">Email verification required</span></li>
 
                                     </ul>
@@ -180,15 +189,15 @@
                                 <div class="col-lg-6 them-inputs ">
 
                                     <ul class="matchheight">
-                                        <li><input type="url" class="valid_url" placeholder="WWW.THISWEBSITE.COM" required/> <label> <i class="globe-icon"> <span class="name-tag-g">THEM</span></i> </label></li>
+                                        <li><input type="url" class="valid_url" id="them1" placeholder="WWW.THISWEBSITE.COM" required readonly/> <label> <i class="globe-icon"> <span class="name-tag-g">THEM</span></i> </label></li>
 
-                                        <li><input type="url" class="valid_url" placeholder="WWW.THISOTHERWEBSITE.COM"/> <label> <i class="globe-icon"><span class="name-tag-g">and</span> </i> </label></li>
+                                        <li><input type="url" class="valid_url" id="them2" placeholder="ADD ANOTHER COMPETITOR"/> <label> <i class="globe-icon"><span class="name-tag-g">and</span> </i> </label></li>
 
-                                        <li><input type="url" class="valid_url" placeholder="ADD ANOTHER COMPETITOR"/> <label> <i class="globe-icon"> <span class="name-tag-g">and</span> </i> </label></li>
+                                        <li><input type="url" class="valid_url" id="them3" placeholder="ADD ANOTHER COMPETITOR"/> <label> <i class="globe-icon"> <span class="name-tag-g">and</span> </i> </label></li>
 
-                                        <li><input type="url" class="valid_url" placeholder="ADD ANOTHER COMPETITOR"/> <label> <i class="globe-icon"> <span class="name-tag-g">and</span> </i> </label></li>
+                                        <li><input type="url" class="valid_url" id="them4" placeholder="ADD ANOTHER COMPETITOR"/> <label> <i class="globe-icon"> <span class="name-tag-g">and</span> </i> </label></li>
 
-                                        <li><input type="url" class="valid_url" placeholder="ADD ANOTHER COMPETITOR"/> <label> <i class="globe-icon"> <span class="name-tag-g">and</span> </i> </label>
+                                        <li><input type="url" class="valid_url" id="them5" placeholder="ADD ANOTHER COMPETITOR"/> <label> <i class="globe-icon"> <span class="name-tag-g">and</span> </i> </label>
 
                                         </li>
 
@@ -199,7 +208,7 @@
                                 <div class="vs-icon"><span>VS.</span></div>
                             </div>
 
-                            <a class="get_declassified-btn"> GET DECLASSIFIED COMPARISON <span>SHOW ME THE RANK HACK</span></a>
+                            <a class="get_declassified-btn" id="get-declassified-comparison"> GET DECLASSIFIED COMPARISON <span>SHOW ME THE RANK HACK</span></a>
 
 
                         </div>
@@ -344,20 +353,6 @@
 
 
 <script>
-
-    jQuery(function () {
-        var timer_id = new countUp("timer_id", 0, 3168, 0, 5);
-        var timer_id2 = new countUp("timer_id2", 0, 274, 0, 2.5);
-        var timer_id3 = new countUp("timer_id3", 0, 66, 0, 1);
-
-
-        window.onload = function () {
-            timer_id.start();
-            timer_id2.start();
-            timer_id3.start();
-        }
-    });
-
 
     function isScrolledIntoView(elem) {
         var $elem = $(elem);
