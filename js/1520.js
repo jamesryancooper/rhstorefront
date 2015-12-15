@@ -1,6 +1,11 @@
 //var restURL = "http://fairmarketing.cloudapp.net/rest1.0/endpoint.jsp?"
 var restURL = "http://localhost:8084/rest1.0/endpoint.jsp?"
 
+function getURLParameter(name)
+{
+    return decodeURIComponent((new RegExp('[?|&]' + name + '=' + '([^&;]+?)(&|#|;|$)').exec(location.search)||[,""])[1].replace(/\+/g, '%20'))||null
+}
+
 /*function userInfoCallback(data)
 {
     var clientIP = data["ip_address"];
@@ -488,52 +493,38 @@ $('#initiate-rank-hack').click(initiateRankHack);
 
 $('#get-declassified-comparison').click(getDeclassifiedComparison);
 
+//$('#save-password-button').click(saveAuthenticationPassword);
+
 function loginAccount()
 {
-    var email = $('#user-email').val();
-    var password = $('#user-password').val();
+    var email = $('#user-email').val().trim();
+    var password = $('#user-password').val().trim();
     
-    if(email.trim() == '' || email.indexOf("@") == -1)
+    if(email == '' || email.indexOf("@") == -1)
     {
         $("#login-response").html("Error: Please provide a valid email address.");
     }
-    else if(password.trim() == '')
+    else if(password == '')
     {
         $("#login-response").html("Error: Please enter your password.");
     }
     else
     {
-    
-        var targetURL = restURL + "command=loginAccount&username="+email+"&password="+password+"&z=" + Math.random();
-        if (window.XMLHttpRequest)
-        {// code for IE7+, Firefox, Chrome, Opera, Safari
-            xmlhttp=new XMLHttpRequest();
-        }
-        else
-        {// code for IE6, IE5
-            xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
-        }
+        $.ajax({url: restURL, data: {'command':'loginAccount','username':email,'password':password}, type: 'post', async: true, success: function postResponse(returnData){
+                var info = JSON.parse(returnData);
 
-        xmlhttp.onreadystatechange=function()
-        {
-            if (xmlhttp.readyState===4 && xmlhttp.status===200)
-            {
-                var response = xmlhttp.responseText;
-                var responseData = JSON.parse(response);
-                if(responseData.status == "Success")
+                if(info.status == "success")
                 {
                     document.cookie = "username="+email;
                     document.getElementById("login").style.display = "none";
+                    window.location = "dashboard.html";
                 }
-                else
+                else if(info.status == "error")
                 {
                     $("#login-response").html("Error: The email address and password you provided do not match our records.");
                 }
             }
-        }
-
-        xmlhttp.open("POST",targetURL,true);
-        xmlhttp.send();
+        });
     }
 }
 
@@ -704,5 +695,73 @@ function getInitialInventoryCounts()
 
 function getDeclassifiedComparison()
 {
+    var projectID = getCookie("project_id");
+    var sessionID = getCookie("session_id");
     
+    var clientURL = $('#client-url').val().trim();
+    var clientName = $('#client-name').val().trim();
+    var clientEmail = $('#client-email').val().trim();
+    
+    //var them1 = $('#them1').val();  //We already have this saved
+    var them2 = $('#them2').val().trim();
+    var them3 = $('#them3').val().trim();
+    var them4 = $('#them4').val().trim();
+    var them5 = $('#them5').val().trim();
+    
+    if(clientURL != '' && clientName != '' && clientEmail != '')
+    {
+        //Initiate the Cognitive calls
+        $.ajax({url: restURL, data: {'command':'requestFullReport','sessionid':sessionID,'projectid':projectID,'clienturl':clientURL,'clientname':clientName,'clientemail':clientEmail,'them2':them2,'them3':them3,'them4':them4,'them5':them5}, type: 'post', async: true, success: function postResponse(returnData){
+                var info = JSON.parse(returnData);
+
+                if(info.status == "success")
+                {
+                    window.location = "declassify.html";
+                }
+            }
+        });
+        
+    }
+}
+
+function authenticateToken()
+{
+    var email = getURLParameter("email");
+    var token = getURLParameter("token");
+    
+    $.ajax({url: restURL, data: {'command':'authenticateToken','email':email,'token':token}, type: 'post', async: true, success: function postResponse(returnData){
+                var info = JSON.parse(returnData);
+
+                if(info.status == "success")
+                {
+                    document.getElementById('success-message').style.display = "";
+                    document.getElementById('create-password-message').style.display = "";
+                    document.getElementById('password-form').style.display = "";
+                }
+                else if(info.status == "error")
+                {
+                    document.getElementById('error-message').style.display = "";
+                    document.getElementById('retry-message').style.display = "";
+                }
+            }
+        });
+}
+
+function saveAuthenticationPassword()
+{
+    var email = getURLParameter("email");
+    var password = $('#authenticate-user-password').val().trim();
+
+    if(password != '')
+    {
+        $.ajax({url: restURL, data: {'command':'saveAuthenticationPassword','email':email,'password':password}, type: 'post', async: true, success: function postResponse(returnData){
+                    var info = JSON.parse(returnData);
+
+                    if(info.status == "success")
+                    {
+                        window.location = "dashboard.html";
+                    }
+                }
+            });
+    }
 }
