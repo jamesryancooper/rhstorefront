@@ -501,13 +501,14 @@ function loginAccount()
 {
     var email = $('#user-email').val().trim();
     var password = $('#user-password').val().trim();
-    
+
     if(email == '' || email.indexOf("@") == -1)
     {
         $("#login-response").html("Error: Please provide a valid email address.");
     }
     else if(password == '')
     {
+        alert("hi");
         $("#login-response").html("Error: Please enter your password.");
     }
     else
@@ -518,12 +519,11 @@ function loginAccount()
                 if(info.status == "success")
                 {
                     document.cookie = "username="+email;
-                    document.getElementById("login").style.display = "none";
                     window.location = "dashboard.html";
                 }
                 else if(info.status == "error")
                 {
-                    $("#login-response").html("Error: The email address and password you provided do not match our records.");
+                    $("#login-response").html(info.message);
                 }
             }
         });
@@ -828,5 +828,127 @@ function resendVerification()
     else
     {
         showAlert("Error: We were unable to re-send your verification email.")
+    }
+}
+
+function loadProjectDashboard()
+{
+    var username = getCookie("username");
+    username = "admin";
+    if(username != '')
+    {    
+        $.ajax({url: restURL, data: {'command':'getProjectDashboardData','username':username}, type: 'post', async: true, success: function postResponse(returnData){
+                var info = JSON.parse(returnData);
+
+                if(info.status == "success")
+                {
+                    var numProjects = parseInt(info.projectsCount);
+                    var userFullName = info.userFullName;
+                    
+                    //Set the welcome message
+                    $('#dashboard-user-full-name').html(userFullName);
+                    
+                    var finalOutput = "";
+                    var colCounter = 0;
+                    for(var i=0; i<numProjects; i++)
+                    {
+                        var entry = info.data[i];
+                        
+                        var projectID = entry.projectID;
+                        var runDate = entry.runDate;
+                        var percentComplete = parseFloat(entry.percentComplete);
+                        var projectTitle = entry.projectTitle;
+                        
+                        var cardHTML = "";
+                        var ulHTMLBefore = "";
+                        var ulHTMLAfter = "";
+                        if(colCounter == 0)
+                        {
+                            //Create a new row
+                            ulHTMLBefore = "<ul class=\"row\">\n";
+                            ulHTMLAfter = "";
+                        }
+                        else if(colCounter == 2)
+                        {
+                            //terminate the row
+                            ulHTMLBefore = "";
+                            ulHTMLAfter = "</ul>\n";
+                        }
+                        else
+                        {
+                            //No row HTML needed
+                            ulHTMLBefore = "";
+                            ulHTMLAfter = "";
+                        }
+                        
+                        //Create a card and add it to the div
+                        if(percentComplete == 100)
+                        {
+                            cardHTML += "<li class=\"col-lg-4 matchheight\">\n";
+                            cardHTML += "<div class=\"project-cart-box box-shadow-ot\">\n";
+                            cardHTML += "<div class=\"card-header\">\n";
+                            cardHTML += "<h1 class=\"project_name_sort\"><a href=\"report.html?pid="+projectID+"\">"+projectTitle+"</a></h1>\n";
+                            cardHTML += "</div>\n";
+                            cardHTML += "<div class=\"card-box-detail card-box-detail-outer\">\n";
+                            cardHTML += "<ul class=\"you-v-them\">\n";
+                            cardHTML += "<li class=\"col-lg-5 text-right\">YOU</li>\n";
+                            cardHTML += "<li class=\"col-lg-2 text-center\">vs</li>\n";
+                            cardHTML += "<li class=\"col-lg-5 text-left\">THEM</li>\n";
+                            cardHTML += "</ul>\n";
+                            cardHTML += "<h2>REVEALED</h2>\n";
+                            cardHTML += "</div>\n";
+                            cardHTML += "<div class=\"card-box-bottom\">\n";
+                            cardHTML += "<div class=\"project-date-card date_sort\"><i class=\"eagle-icon\"></i>"+runDate+"</div>\n";
+                            cardHTML += "<a href=\"report.html?pid="+projectID+"\" class=\"project-status-card  project_status_sort\"> VIEW REPORT </a>\n";
+                            cardHTML += "</div>\n";
+                            cardHTML += "</div>\n";
+                            cardHTML += "</li>\n";
+                        }
+                        else
+                        {
+                            cardHTML += "<li class=\"col-lg-4 matchheight\">\n";
+                            cardHTML += "<div class=\"project-cart-box box-shadow-ot\">\n";
+                            cardHTML += "<div class=\"card-header\">\n";
+                            cardHTML += "<h1 class=\"project_name_sort\"><a href=\"#\">"+projectTitle+"</a></h1>\n";
+                            cardHTML += "</div>\n";
+                            cardHTML += "<div class=\"report-processing card-box-detail card-box-detail-outer\">\n";
+                            cardHTML += "<div class=\"blink\">\n";
+                            cardHTML += "<img src=\"images/eagle-holder.png\" alt=\"\">\n";
+                            cardHTML += "<h2> PROCESSING</h2>\n";
+                            cardHTML += "</div>\n";
+                            cardHTML += "</div>\n";
+                            cardHTML += "<div class=\"card-box-bottom\">\n";
+                            cardHTML += "<div class=\"progress\">\n";
+                            cardHTML += "<div class=\"progress-bar\" role=\"progressbar\" aria-valuenow=\""+percentComplete+"\" aria-valuemin=\"0\" aria-valuemax=\"100\" style=\"width:"+percentComplete+"%\">\n";
+                            cardHTML += "<span class=\"sr-only\">"+percentComplete+"% Complete</span>\n";
+                            cardHTML += "</div>\n";
+                            cardHTML += "</div>\n";
+                            cardHTML += "</div>\n";
+                            cardHTML += "</div>\n";
+                            cardHTML += "</li>";
+                        }
+                        
+                        finalOutput += ulHTMLBefore+cardHTML+ulHTMLAfter;
+                        
+                        colCounter++;
+                        if(colCounter == 3)
+                        {
+                            colCounter = 0;
+                        }
+                        
+                        if(i == (numProjects-1) && colCounter != 0)
+                        {
+                            //If it's the last project and you haven't finished the row, terminate the UL
+                            finalOutput += "</ul>";
+                        }
+                    }
+                    $('#card-container').html(finalOutput);
+                }
+            }
+        });
+    }
+    else
+    {
+        window.location = "index.html";
     }
 }
