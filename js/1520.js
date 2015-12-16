@@ -489,6 +489,8 @@ $('#alert_close_button').click(hideAlert);
 
 $('#login_button').click(showLogin);
 
+$('#logout_link').click(logout);
+
 $('#password_remind_button').click(remindPassword);
 
 $('#initiate-rank-hack').click(initiateRankHack);
@@ -496,6 +498,17 @@ $('#initiate-rank-hack').click(initiateRankHack);
 $('#get-declassified-comparison').click(getDeclassifiedComparison);
 
 //$('#save-password-button').click(saveAuthenticationPassword);
+
+function logout()
+{
+    //Expire the cookies
+    document.cookie = 'session_id=';
+    document.cookie = 'project_id=';
+    document.cookie = 'username=';
+    document.cookie = 'email=';
+    
+    window.location = "index.html";
+}
 
 function loginAccount()
 {
@@ -834,7 +847,6 @@ function resendVerification()
 function loadProjectDashboard()
 {
     var username = getCookie("username");
-    username = "admin";
     if(username != '')
     {    
         $.ajax({url: restURL, data: {'command':'getProjectDashboardData','username':username}, type: 'post', async: true, success: function postResponse(returnData){
