@@ -125,3 +125,40 @@ cursor:pointer;
   font-family: "Nixie One",cursive;
   font-size: 18px;
 }
+
+.alert-window {
+    position: fixed;
+    top: 40%;
+    left: 40%;
+    z-index: 999;
+    background-color: rgba(255,255,255,1);
+    color: #000000;
+    padding: 10px;
+    width: 20%;
+    //border: 2px solid #242021;
+    border: 4px solid #242021;
+    display: none;
+}
+
+.alert-close-btn {
+background-color: rgba(255, 255, 255, 0.7);
+border: 1px solid #242021;
+color: #242021 !important;
+display: table;
+float:right;
+font-size: 14px;
+font-weight: normal;
+height: 30px;
+line-height: 30px;
+margin: 0px auto 0;
+padding: 0 25px;
+text-align: center;
+width: auto;
+font-family: "Montserrat",sans-serif;
+}
+
+.alert-close-btn:hover, .alert-close-btn:focus {
+background-color: rgba(61,61,61,.8);
+color: #fff !important;
+cursor:pointer;
+}

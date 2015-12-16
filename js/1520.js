@@ -485,6 +485,8 @@ $('#login_submit_button').click(loginAccount);
 
 $('#login_cancel_button').click(hideLogin);
 
+$('#alert_close_button').click(hideAlert);
+
 $('#login_button').click(showLogin);
 
 $('#password_remind_button').click(remindPassword);
@@ -537,6 +539,19 @@ function hideLogin()
 function showLogin()
 {
     document.getElementById("login-window").style.display = "block";
+    document.getElementById("dimmer").style.display = "block";
+}
+
+function hideAlert()
+{
+    document.getElementById("dimmer").style.display = "none";
+    document.getElementById("alert-window").style.display = "none";
+}
+
+function showAlert(msgContent)
+{
+    $('#alert-msg-body').html(msgContent);
+    document.getElementById("alert-window").style.display = "block";
     document.getElementById("dimmer").style.display = "block";
 }
 
@@ -710,6 +725,9 @@ function getDeclassifiedComparison()
     
     if(clientURL != '' && clientName != '' && clientEmail != '')
     {
+        //Save the email to cookie so that we can re-send verification later on if needed
+        document.cookie = "email="+clientEmail;
+        
         //Initiate the Cognitive calls
         $.ajax({url: restURL, data: {'command':'requestFullReport','sessionid':sessionID,'projectid':projectID,'clienturl':clientURL,'clientname':clientName,'clientemail':clientEmail,'them2':them2,'them3':them3,'them4':them4,'them5':them5}, type: 'post', async: true, success: function postResponse(returnData){
                 var info = JSON.parse(returnData);
@@ -763,5 +781,52 @@ function saveAuthenticationPassword()
                     }
                 }
             });
+    }
+}
+
+function checkProjectDone()
+{
+    var projectID = getCookie("project_id");
+    
+    if(projectID != '')
+    {
+        setInterval(function(){
+            
+            $.ajax({url: restURL, data: {'command':'checkProjectDone','projectid':projectID}, type: 'post', async: true, success: function postResponse(returnData){
+                    var info = JSON.parse(returnData);
+
+                    if(info.status == "success")
+                    {
+                        if(info.completed == "yes")
+                        {
+                            window.location = "verify.html";
+                        }
+                    }
+                }
+            });
+            
+        },15000);
+    }
+}
+
+function resendVerification()
+{
+    var email = getCookie("email");
+    
+    if(email != '')
+    {    
+        $.ajax({url: restURL, data: {'command':'resendUserVerification','email':email}, type: 'post', async: true, success: function postResponse(returnData){
+                var info = JSON.parse(returnData);
+
+                if(info.status == "success")
+                {
+                    showAlert("A new verification email has been sent. Please check your email.");
+                }
+            }
+        });
+    }
+    else
+    {
+        showAlert("Error: We were unable to re-send your verification email.")
     }
 }

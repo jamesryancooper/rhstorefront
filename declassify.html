@@ -63,10 +63,15 @@
 
     </script>
 
+    <script>
+        function run(){
+            checkProjectDone();
+        }
+    </script>
 
 </head>
 
-<body id="body" class="page-loading">
+<body id="body" class="page-loading" onload="run();">
 
 <!-- =========================
      HEADER
@@ -76,16 +81,16 @@
     <div class="overlay interface-outer blur_bg blur_bg2">
 
         <div class="text-center vertical-middle">
-            <h1 class="storefront-steps-headding">declassifing and comparing</h1>
+            <h1 class="storefront-steps-headding">declassifying and comparing</h1>
 
-            <div class="storefront-steps-outer col-lg-8 col-lg-offset-2">
+            <div class="storefront-steps-outer col-lg-10 col-lg-offset-1">
                 <ul class="row">
                     <li class="col-lg-4">
                         <div class="st-outer">
                             <div class="step-icon"><i class="fa fa-check check-icon"></i></div>
-                            <span>Declassifing Content Types</span></div>
+                            <span>Declassifying Content Types</span></div>
                     </li>
-                    <li class="col-lg-4">
+                    <li class="col-lg-3 col-lg-offset-1">
                         <div class="st-outer">
                             <div class="step-icon">
                                 <div class="spin"></div>
@@ -107,7 +112,7 @@
             </div>
 
             <div class="mail-note">This Report May take several minutes to process <br><br>
-                in the meantime, <a href="#" class="red-text">Please verify your email</a> and a <br>
+                in the meantime, <span class="red-text">Please verify your email</span> and a <br>
                 notification will be sent when your report is ready
             </div>
 

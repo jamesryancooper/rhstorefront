@@ -27,6 +27,7 @@
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet">
     <link href="css/rankhacker.css" rel="stylesheet" type="text/css">
     <link href="css/custom-style.css" rel="stylesheet" type="text/css">
+    <link href="css/1520.css" rel="stylesheet" type="text/css">
 
     <!-- =========================
          INTERNET EXPLORER FIXES
@@ -39,9 +40,6 @@
 
     <!--google js file-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    
-    <!-- FIFTEEN TWENTY HOLDINGS SCRIPTS -->
-    <script type="text/javascript" src="js/1520.js"></script>
 
     <script>
 
@@ -78,14 +76,14 @@
         <div class="text-center vertical-middle">
             <h1 class="storefront-steps-headding blue-bg">Your Report is ready</h1>
 
-            <div class="storefront-steps-outer col-lg-8 col-lg-offset-2">
+            <div class="storefront-steps-outer col-lg-10 col-lg-offset-1">
                 <ul class="row">
                     <li class="col-lg-4">
                         <div class="st-outer">
                             <div class="step-icon"><i class="fa fa-check check-icon"></i></div>
-                            <span>Declassifing Content Types</span></div>
+                            <span>Declassifying Content Types</span></div>
                     </li>
-                    <li class="col-lg-4">
+                    <li class="col-lg-3 col-lg-offset-1">
                         <div class="st-outer">
                             <div class="step-icon"><i class="fa fa-check check-icon"></i></div>
                             <span>Comparing Strategies</span></div>
@@ -105,7 +103,7 @@
 
                     <h1 class="col-lg-8 text-left verify-note">Check your spam folder - Be sure to add rank hacker to your address book </h1>
 
-                    <h1 class="col-lg-4 text-right verify-note"><a href="">Resend Verification </a></h1>
+                    <h1 class="col-lg-4 text-right verify-note"><a style="cursor:pointer;" id="resend-verification" onclick="resendVerification();">Resend Verification </a></h1>
 
                 </div>
 
@@ -116,6 +114,27 @@
 
     </div>
 
+<!-- Alert modal -->
+<div id="dimmer" class="dimmer"></div>
+
+<div id="alert-window" class="alert-window">
+    <div class="row">
+        <div class="col-lg-12 text-center" id="alert-msg-body">
+            
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-12 text-center">
+            <br/>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-12 text-center">
+            <a class="alert-close-btn" id="alert_close_button">CLOSE</a>
+        </div>
+    </div>
+</div>
+    
 </section>
 
 <!-- =========================
@@ -175,9 +194,9 @@
 <!--CUSTOM THEME SCRIPTS & SETTINGS -->
 <script type="text/javascript" src="js/rankhacker.scripts.js"></script>
 
-<!-- FIFTEEN TWENTY HOLDINGS SCRIPTS
+<!-- FIFTEEN TWENTY HOLDINGS SCRIPTS -->
 <script type="text/javascript" src="js/1520.js"></script>
-<script type="text/javascript" src="https://api.userinfo.io/userinfos?jsonp_callback=userInfoCallback"></script>-->
+<!-- <script type="text/javascript" src="https://api.userinfo.io/userinfos?jsonp_callback=userInfoCallback"></script>-->
 
 </body>
 </html>
