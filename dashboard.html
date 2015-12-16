@@ -27,6 +27,7 @@
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet">
     <link href="css/rankhacker.css" rel="stylesheet" type="text/css">
     <link href="css/custom-style.css" rel="stylesheet" type="text/css">
+    <link href="css/spinner.css" rel="stylesheet" type="text/css">
 
     <!-- =========================
          INTERNET EXPLORER FIXES
@@ -42,7 +43,7 @@
     
     <!-- FIFTEEN TWENTY HOLDINGS SCRIPTS -->
     <script type="text/javascript" src="js/1520.js"></script>
-
+    
     <script>
 
         jQuery(document).ready(function () {
@@ -62,10 +63,16 @@
         });
 
     </script>
+    
+    <script>
+        function run(){
+            loadProjectDashboard();
+        }
+    </script>
 
 </head>
 
-<body id="body">
+<body id="body" onload="run();">
 
 <!-- =========================
      MAIN MENU
@@ -102,7 +109,7 @@
 
             <div id="dashboard-header" class="col-lg-10 col-md-offset-1 ">
                 <div class="row">
-                    <h2 class="user-info col-lg-12"><span>Welcome</span> <a href="#">Ima Sailsmacheen </a></h2>
+                    <h2 class="user-info col-lg-12"><span>Welcome</span> <a href="#" id="dashboard-user-full-name"></a></h2>
                     <div class="col-lg-12">
                         <div class="col-lg-6 view-option-outer">
                             <ul>
@@ -126,75 +133,10 @@
                 <div class="col-lg-10 col-md-offset-1">
                     <h3 class="bread-comb-outer">YOUR REPORTS</h3>
 
-                    <div class="row-v-spacing project-cards-outer">
-                        <ul class="row">
-                            <li class="col-lg-4 matchheight">
-                                <div class="project-cart-box box-shadow-ot">
-                                    <div class="card-header">
-                                        <h1 class="project_name_sort"><a href="#">www.fairmarketing.com</a></h1>
-                                    </div>
-                                    <div class="card-box-detail card-box-detail-outer">
-                                        <ul class="you-v-them">
-                                            <li class="col-lg-5 text-right">YOU</li>
-                                            <li class="col-lg-2 text-center">vs</li>
-                                            <li class="col-lg-5 text-left">THEM</li>
-                                        </ul>
-                                        <h2>REVEALED</h2>
-
-                                    </div>
-                                    <div class="card-box-bottom">
-                                        <div class="project-date-card date_sort"><i class="eagle-icon"></i>December 2012</div>
-                                        <a href="#" class="project-status-card  project_status_sort "> VIEW REPORT </a>
-                                    </div>
-                                </div>
-                            </li>
-
-                            <li class="col-lg-4 matchheight">
-                                <div class="project-cart-box box-shadow-ot">
-                                    <div class="card-header">
-                                        <h1 class="project_name_sort"><a href="#">www.seohouston.com</a></h1>
-                                    </div>
-                                    <div class="card-box-detail card-box-detail-outer">
-                                        <ul class="you-v-them">
-                                            <li class="col-lg-5 text-right">YOU</li>
-                                            <li class="col-lg-2 text-center">vs</li>
-                                            <li class="col-lg-5 text-left">THEM</li>
-                                        </ul>
-                                        <h2>REVEALED</h2>
-
-                                    </div>
-                                    <div class="card-box-bottom">
-                                        <div class="project-date-card date_sort"><i class="eagle-icon"></i>December 2012</div>
-                                        <a href="#" class="project-status-card  project_status_sort "> VIEW REPORT </a>
-                                    </div>
-                                </div>
-                            </li>
-
-                            <li class="col-lg-4 matchheight">
-                                <div class="project-cart-box box-shadow-ot">
-                                    <div class="card-header">
-                                        <h1 class="project_name_sort"><a href="#">www.mydomain.com</a></h1>
-                                    </div>
-                                    <div class="report-processing card-box-detail card-box-detail-outer">
-
-                                        <div class="blink">
-                                            <img src="images/eagle-holder.png" alt="">
-                                            <h2> PROCESSING</h2>
-                                        </div>
-
-                                    </div>
-                                    <div class="card-box-bottom">
-                                        <div class="progress">
-                                            <div class="progress-bar" role="progressbar" aria-valuenow="70"
-                                                 aria-valuemin="0" aria-valuemax="100" style="width:70%">
-                                                <span class="sr-only">70% Complete</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </li>
-
-                        </ul>
+                    <div class="row-v-spacing project-cards-outer" id="card-container">
+                        
+                        <div class="three-quarters-loader" id="loading_spinner"></div>
+                        <br/><br/><br/>
                     </div>
 
 
