@@ -704,14 +704,10 @@ function createRankHackerProjectFromDashboard(clientURL,competitorURL1,competito
 
                 if(info.status == "success")
                 {
-                    
+                    window.location = "dashboard.html";
                 }
             }
         });
-        
-        //Don't wait for the AJAX call to return (it'll keep running on the server)
-        window.location = "dashboard.html";
-        
     });
 }
 
@@ -1079,7 +1075,28 @@ function createNewReport()
     }
     else
     {
-        alert("success");
-        //createRankHackerProjectFromDashboard(clientURL.trim(),competitorURL1.trim(),competitorURL2.trim(),competitorURL3.trim(),competitorURL4.trim(),competitorURL5.trim());
+        //alert("success");
+        createRankHackerProjectFromDashboard(clientURL.trim(),competitorURL1.trim(),competitorURL2.trim(),competitorURL3.trim(),competitorURL4.trim(),competitorURL5.trim());
+    }
+}
+
+function loadProjectData()
+{
+    var projectID = getURLParameter("pid");
+    if(projectID != '')
+    {
+        $.ajax({url: restURL, data: {'command':'getProjectData','projectid':projectID}, type: 'post', async: true, success: function postResponse(returnData){
+                var info = JSON.parse(returnData);
+
+                if(info.status == "success")
+                {
+                    //Fill in the project data here
+                }
+            }
+        });
+    }
+    else
+    {
+        window.location = "dashboard.html";
     }
 }
