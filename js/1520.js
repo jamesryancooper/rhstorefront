@@ -497,6 +497,8 @@ $('#initiate-rank-hack').click(initiateRankHack);
 
 $('#get-declassified-comparison').click(getDeclassifiedComparison);
 
+$('#create-new-report-button').click(createNewReport);
+
 //$('#save-password-button').click(saveAuthenticationPassword);
 
 function logout()
@@ -601,8 +603,13 @@ function initiateRankHack()
 {
     var competitorURL = $('#competitor-url').val();
     
-    //url_validate = /(ftp|http|https):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?/;
-    url_validate = /(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?/;
+    url_validate = /(ftp|http|https):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?/;
+    //url_validate = /(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?/;
+    
+    if(competitorURL.indexOf("ftp://") == -1 || competitorURL.indexOf("http://") == -1 || competitorURL.indexOf("https://") == -1)
+    {
+        competitorURL = "http://"+competitorURL;
+    }
     
     if(competitorURL.trim() == '')
     {
@@ -671,6 +678,40 @@ function createRankHackerProject(competitorURL)
                 }
             }
         });
+    });
+}
+
+function createRankHackerProjectFromDashboard(clientURL,competitorURL1,competitorURL2,competitorURL3,competitorURL4,competitorURL5)
+{
+    clientURL = encodeURI(clientURL);
+    competitorURL1 = encodeURI(competitorURL1);
+    competitorURL2 = encodeURI(competitorURL2);
+    competitorURL3 = encodeURI(competitorURL3);
+    competitorURL4 = encodeURI(competitorURL4);
+    competitorURL5 = encodeURI(competitorURL5);
+    
+    var username = getCookie("username");
+    if(username == "")
+    {
+        username = "guest";
+    }
+    getSessionID(function(sessionID){
+        
+        document.cookie = "session_id="+sessionID;
+        //Once you have a valid session, create the project
+        $.ajax({url: restURL, data: {'command':'createProjectFromDashboard','username':username,'sessionID':sessionID,'clientURL':clientURL,'competitorURL1':competitorURL1,'competitorURL2':competitorURL2,'competitorURL3':competitorURL3,'competitorURL4':competitorURL4,'competitorURL5':competitorURL5}, type: 'post', async: true, success: function postResponse(returnData){
+                var info = JSON.parse(returnData);
+
+                if(info.status == "success")
+                {
+                    
+                }
+            }
+        });
+        
+        //Don't wait for the AJAX call to return (it'll keep running on the server)
+        window.location = "dashboard.html";
+        
     });
 }
 
@@ -965,5 +1006,80 @@ function loadProjectDashboard()
     else
     {
         window.location = "index.html";
+    }
+}
+
+function createNewReport()
+{
+    var clientURL = $('#client-url').val();
+    var competitorURL1 = $('#competitor-url-1').val();
+    var competitorURL2 = $('#competitor-url-2').val();
+    var competitorURL3 = $('#competitor-url-3').val();
+    var competitorURL4 = $('#competitor-url-4').val();
+    var competitorURL5 = $('#competitor-url-5').val();
+    
+    url_validate = /(ftp|http|https):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?/;
+    //url_validate = /(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?/;
+    
+    if(clientURL.trim() == '')
+    {
+        $('#client-url').attr('placeholder', 'Please enter your URL');
+        $('#client-url').parent('li').addClass('invalid');
+        $('#client-url').parent('li').removeClass('valid');
+        return false;
+    }
+    else if(competitorURL1.trim() == '')
+    {
+        $('#competitor-url-1').attr('placeholder', 'Please enter at least one competitor URL');
+        $('#competitor-url-1').parent('li').addClass('invalid');
+        $('#competitor-url-1').parent('li').removeClass('valid');
+        return false;
+    }
+    else if(!url_validate.test(clientURL))
+    {
+        /*$('#client-url').attr('placeholder', 'You must enter a proper URL');
+        $('#client-url').parent('li').addClass('invalid');
+        $('#client-url').parent('li').removeClass('valid');*/
+        return false;
+    }
+    else if(!url_validate.test(competitorURL1))
+    {
+        /*$('#competitor-url-1').attr('placeholder', 'Please enter at least one competitor URL');
+        $('#competitor-url-1').parent('li').addClass('invalid');
+        $('#competitor-url-1').parent('li').removeClass('valid');*/
+        return false;
+    }
+    else if(!url_validate.test(competitorURL2) && competitorURL2.trim() != "")
+    {
+        /*$('#competitor-url-2').attr('placeholder', 'Please enter at least one competitor URL');
+        $('#competitor-url-2').parent('li').addClass('invalid');
+        $('#competitor-url-2').parent('li').removeClass('valid');*/
+        return false;
+    }
+    else if(!url_validate.test(competitorURL3) && competitorURL3.trim() != "")
+    {
+        /*$('#competitor-url-3').attr('placeholder', 'Please enter at least one competitor URL');
+        $('#competitor-url-3').parent('li').addClass('invalid');
+        $('#competitor-url-3').parent('li').removeClass('valid');*/
+        return false;
+    }
+    else if(!url_validate.test(competitorURL4) && competitorURL4.trim() != "")
+    {
+        /*$('#competitor-url-4').attr('placeholder', 'Please enter at least one competitor URL');
+        $('#competitor-url-4').parent('li').addClass('invalid');
+        $('#competitor-url-4').parent('li').removeClass('valid');*/
+        return false;
+    }
+    else if(!url_validate.test(competitorURL5) && competitorURL5.trim() != "")
+    {
+        /*$('#competitor-url-5').attr('placeholder', 'Please enter at least one competitor URL');
+        $('#competitor-url-5').parent('li').addClass('invalid');
+        $('#competitor-url-5').parent('li').removeClass('valid');*/
+        return false;
+    }
+    else
+    {
+        alert("success");
+        //createRankHackerProjectFromDashboard(clientURL.trim(),competitorURL1.trim(),competitorURL2.trim(),competitorURL3.trim(),competitorURL4.trim(),competitorURL5.trim());
     }
 }
