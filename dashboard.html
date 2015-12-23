@@ -67,6 +67,7 @@
     <script>
         function run(){
             loadProjectDashboard();
+            setInterval(loadProjectDashboard, 60000);
         }
     </script>
 
@@ -80,8 +81,8 @@
 <div id="rank-header-outer">
     <nav id="mainmenu" class="navbar navbar-fixed-top main-menu" role="navigation">
         <!-- LOGO CONTAINER -->
-        <div class="logo-cont logo-outer"><a class="navbar-brand" data-text="RANKHACKER" href="#header"><img src="images/logo-main.png" alt="site-logo"> </a></div>
-        <div class="dashboard-status"><i class="white_eagle-rh"></i><a href="#">Dashboard Activated</a></div>
+        <div class="logo-cont logo-outer"><a class="navbar-brand" data-text="RANKHACKER" style="cursor:default;"><img src="images/logo-main.png" alt="site-logo"> </a></div>
+        <div class="dashboard-status"><i class="white_eagle-rh"></i><a style="cursor:default;">Dashboard Activated</a></div>
 
         <!-- header_right side start here -->
         <div class="pull-right header-right-side">
@@ -114,13 +115,13 @@
                         <div class="col-lg-6 view-option-outer">
                             <ul>
                                 <li class="black_eagle-rh"></li>
-                                <li><a href="">RANK HACKER DASHBOARD</a></li>
+                                <li><a href="dashboard.html">RANK HACKER DASHBOARD</a></li>
                             </ul>
                         </div>
                         <div class="col-lg-6 rh-actions-menu pull-right">
                             <ul>
                                 <li>
-                                    <button id="create-new-project" class="btn btn-orange btn-round"><i class="fa fa-plus"></i><span>Create New Report</span></button>
+                                    <button id="create-new-project" class="btn btn-orange btn-round" onclick="javascript:window.location='create-report.html';"><i class="fa fa-plus"></i><span>Create New Report</span></button>
                                 </li>
                             </ul>
                         </div>

@@ -92,7 +92,7 @@
   -moz-animation: three-quarters-loader 1250ms infinite linear;
   -webkit-animation: three-quarters-loader 1250ms infinite linear;
   animation: three-quarters-loader 1250ms infinite linear;
-  border: 4px solid #eaeaeb;
+  border: 4px solid #005cb9;
   border-right-color: transparent;
   border-radius: 16px;
   box-sizing: border-box;

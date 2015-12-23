@@ -526,6 +526,9 @@ function loginAccount()
     }
     else
     {
+        //Show the spinner
+        $("#login-response").html("<div class='three-quarters-loader-small'></div>");
+        
         $.ajax({url: restURL, data: {'command':'loginAccount','username':email,'password':password}, type: 'post', async: true, success: function postResponse(returnData){
                 var info = JSON.parse(returnData);
 
