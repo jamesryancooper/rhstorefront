@@ -1091,6 +1091,66 @@ function loadProjectData()
                 if(info.status == "success")
                 {
                     //Fill in the project data here
+                    var entry = info.data[0];
+                    
+                    var userFullName = entry.userFullName;
+                    var runDate = entry.runDate;
+                    var projectTitle = entry.projectTitle;
+                    var competitor1ID = entry.competitor1ID;
+                    var competitor1URL = entry.competitor1URL;
+                    var competitor2ID = entry.competitor2ID;
+                    var competitor2URL = entry.competitor2URL;
+                    var competitor3ID = entry.competitor3ID;
+                    var competitor3URL = entry.competitor3URL;
+                    var competitor4ID = entry.competitor4ID;
+                    var competitor4URL = entry.competitor4URL;
+                    var competitor5ID = entry.competitor5ID;
+                    var competitor5URL = entry.competitor5URL;
+                    var monthsList = entry.monthsList;
+                    var clientCounts = entry.clientCounts;
+                    var competitorCounts = entry.competitorCounts;
+                    
+                        var clientMonthlyNumbers = clientCounts.split(",");
+                        var clientTotalNum = 0;
+                        for(var i=0; i<clientMonthlyNumbers.length; i++)
+                        {
+                            clientTotalNum += parseInt(clientMonthlyNumbers[i]);
+                        }
+                        var clientMonthlyNum = Math.ceil(clientTotalNum/12);
+                        var clientWeeklyNum = Math.ceil(clientMonthlyNum/4);
+                    
+                        var competitorMonthlyNumbers = competitorCounts.split(",");
+                        var competitorTotalNum = 0;
+                        for(var i=0; i<competitorMonthlyNumbers.length; i++)
+                        {
+                            competitorTotalNum += parseInt(competitorMonthlyNumbers[i]);
+                        }
+                        var competitorMonthlyNum = Math.ceil(competitorTotalNum/12);
+                        var competitorWeeklyNum = Math.ceil(competitorMonthlyNum/4);
+                    
+                    var blogCount = parseFloat(entry.blog);
+                    var pressReleaseCount = parseFloat(entry.pressRelease);
+                    var directoryCount = parseFloat(entry.articleDirectory)+parseFloat(entry.webDirectory);
+                    var forumCount = parseFloat(entry.forum);
+                    var imageCount = 0;
+                    var infographicsCount = 0;
+                    var ecommerceCount = parseFloat(entry.ecommerce);
+                    var wikiCount = parseFloat(entry.wiki);
+                    
+                    //Update the elements on the report
+                    $('#reportTitleSmall').html('> '+projectTitle);
+                    $('#preparedFor').html(userFullName);
+                    $('#reportDate').html(runDate);
+                    $('#preparedFor').html(userFullName);
+                    $('#preparedFor').html(userFullName);
+                    $('#preparedFor').html(userFullName);
+                    $('#preparedFor').html(userFullName);
+                    $('#preparedFor').html(userFullName);
+                    $('#preparedFor').html(userFullName);
+                    $('#preparedFor').html(userFullName);
+                    $('#preparedFor').html(userFullName);
+                    $('#preparedFor').html(userFullName);
+                    $('#preparedFor').html(userFullName);
                 }
             }
         });
