@@ -6,6 +6,10 @@ function getURLParameter(name)
     return decodeURIComponent((new RegExp('[?|&]' + name + '=' + '([^&;]+?)(&|#|;|$)').exec(location.search)||[,""])[1].replace(/\+/g, '%20'))||null
 }
 
+function numberWithCommas(x) {
+    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+}
+
 /*function userInfoCallback(data)
 {
     var clientIP = data["ip_address"];
@@ -498,6 +502,8 @@ $('#initiate-rank-hack').click(initiateRankHack);
 $('#get-declassified-comparison').click(getDeclassifiedComparison);
 
 $('#create-new-report-button').click(createNewReport);
+
+//$('#refresh-report-button').click(refreshReport);
 
 //$('#save-password-button').click(saveAuthenticationPassword);
 
@@ -1107,6 +1113,7 @@ function loadProjectData()
                     var competitor5ID = entry.competitor5ID;
                     var competitor5URL = entry.competitor5URL;
                     var monthsList = entry.monthsList;
+                        var monthsArray = monthsList.split(",");
                     var clientCounts = entry.clientCounts;
                     var competitorCounts = entry.competitorCounts;
                     
@@ -1128,29 +1135,189 @@ function loadProjectData()
                         var competitorMonthlyNum = Math.ceil(competitorTotalNum/12);
                         var competitorWeeklyNum = Math.ceil(competitorMonthlyNum/4);
                     
-                    var blogCount = parseFloat(entry.blog);
-                    var pressReleaseCount = parseFloat(entry.pressRelease);
-                    var directoryCount = parseFloat(entry.articleDirectory)+parseFloat(entry.webDirectory);
-                    var forumCount = parseFloat(entry.forum);
-                    var imageCount = 0;
+                    //Update the URLs list
+                    var htmlToAdd = "<li>" +
+                                    "        <div class=\"url-box-fixed\">"+competitor1URL+"</div>" +
+                                    "    </li>";
+                    $('#url-list').append(htmlToAdd);
+                    
+                    //Add each additional URL if it's not NA
+                    var competitorCount = 1;
+                    
+                    if(competitor2ID != "NA")
+                    {
+                        var htmlToAdd = "<li class=\"url-box\">" +
+                                        "    <div class=\"url-label\"><span id=\"url-2\">"+competitor2URL+"</span><a href=\"#delete-url\" class=\"url-delete\" id=\""+competitor2ID+"\">X</a></div>" +
+                                        //"    <input class=\"url-input\" value=\""+competitor2URL+"\" type=\"url\" placeholder=\"\" style=\"display:none;\">" +
+                                        "</li>";
+                        $('#url-list').append(htmlToAdd);
+                        competitorCount++;
+                    }
+                    if(competitor3ID != "NA")
+                    {
+                        var htmlToAdd = "<li class=\"url-box\">" +
+                                        "    <div class=\"url-label\"><span id=\"url-3\">"+competitor3URL+"</span><a href=\"#delete-url\" class=\"url-delete\" id=\""+competitor3ID+"\">X</a></div>" +
+                                        //"    <input class=\"url-input\" value=\""+competitor3URL+"\" type=\"url\" placeholder=\"\" style=\"display:none;\">" +
+                                        "</li>";
+                        $('#url-list').append(htmlToAdd);
+                        competitorCount++;
+                    }
+                    if(competitor4ID != "NA")
+                    {
+                        var htmlToAdd = "<li class=\"url-box\">" +
+                                        "    <div class=\"url-label\"><span id=\"url-4\">"+competitor4URL+"</span><a href=\"#delete-url\" class=\"url-delete\" id=\""+competitor4ID+"\">X</a></div>" +
+                                        //"    <input class=\"url-input\" value=\""+competitor4URL+"\" type=\"url\" placeholder=\"\" style=\"display:none;\">" +
+                                        "</li>";
+                        $('#url-list').append(htmlToAdd);
+                        competitorCount++;
+                    }
+                    if(competitor5ID != "NA")
+                    {
+                        var htmlToAdd = "<li class=\"url-box\">" +
+                                        "    <div class=\"url-label\"><span id=\"url-5\">"+competitor5URL+"</span><a href=\"#delete-url\" class=\"url-delete\" id=\""+competitor5ID+"\">X</a></div>" +
+                                        //"    <input class=\"url-input\" value=\""+competitor5URL+"\" type=\"url\" placeholder=\"\" style=\"display:none;\">" +
+                                        "</li>";
+                        $('#url-list').append(htmlToAdd);
+                        competitorCount++;
+                    }
+                    
+                    if(competitorCount < 5)
+                    {
+                        var htmlToAdd = "<li><a href=\"#add-more-url\" class=\"add-more-url\" id=\"button-add-url\"> + Add more</a></li>";
+                        $('#url-list').append(htmlToAdd);
+                    }
+                    
+                    //Monthly content types count
+                    var blogCount = Math.ceil(parseFloat(entry.blog)/12);
+                    var pressReleaseCount = Math.ceil(parseFloat(entry.pressRelease)/12);
+                    var directoryCount = Math.ceil(parseFloat(entry.directory)/12);
+                    var forumCount = Math.ceil(parseFloat(entry.forum)/12);
+                    var imageCount = Math.ceil(parseFloat(entry.image)/12);
                     var infographicsCount = 0;
-                    var ecommerceCount = parseFloat(entry.ecommerce);
-                    var wikiCount = parseFloat(entry.wiki);
+                    var ecommerceCount = Math.ceil(parseFloat(entry.ecommerce)/12);
+                    var wikiCount = Math.ceil(parseFloat(entry.wiki)/12);
                     
                     //Update the elements on the report
                     $('#reportTitleSmall').html('> '+projectTitle);
                     $('#preparedFor').html(userFullName);
                     $('#reportDate').html(runDate);
-                    $('#preparedFor').html(userFullName);
-                    $('#preparedFor').html(userFullName);
-                    $('#preparedFor').html(userFullName);
-                    $('#preparedFor').html(userFullName);
-                    $('#preparedFor').html(userFullName);
-                    $('#preparedFor').html(userFullName);
-                    $('#preparedFor').html(userFullName);
-                    $('#preparedFor').html(userFullName);
-                    $('#preparedFor').html(userFullName);
-                    $('#preparedFor').html(userFullName);
+                    $('#reportTitleLarge').html(projectTitle);
+                    $('#competitorCountAnnual').html(numberWithCommas(competitorTotalNum));
+                    $('#competitorCountMonthly').html(numberWithCommas(competitorMonthlyNum));
+                    $('#competitorCountWeekly').html(numberWithCommas(competitorWeeklyNum));
+                    $('#clientCountAnnual').html(numberWithCommas(clientTotalNum));
+                    $('#clientCountMonthly').html(numberWithCommas(clientMonthlyNum));
+                    $('#clientCountWeekly').html(numberWithCommas(clientWeeklyNum));
+                    $('#clientDeficiencyAnnual').html(numberWithCommas(clientTotalNum - competitorTotalNum));
+                    $('#clientDeficiencyMonthly').html(numberWithCommas(clientMonthlyNum - competitorMonthlyNum));
+                    $('#clientDeficiencyWeekly').html(numberWithCommas(clientWeeklyNum - competitorWeeklyNum));
+                    $('#blogCount').html(numberWithCommas(blogCount));
+                    $('#pressReleaseCount').html(numberWithCommas(pressReleaseCount));
+                    $('#directoryCount').html(numberWithCommas(directoryCount));
+                    $('#forumCount').html(numberWithCommas(forumCount));
+                    $('#imageCount').html(numberWithCommas(imageCount));
+                    $('#infographicsCount').html(numberWithCommas(infographicsCount));
+                    $('#ecommerceCount').html(numberWithCommas(ecommerceCount));
+                    $('#wikiCount').html(numberWithCommas(wikiCount));
+                    
+                    //Draw the chart
+                    var data = google.visualization.arrayToDataTable([
+                        ['Year', 'THEM', 'YOU'],
+                        [monthsArray[11], parseInt(competitorMonthlyNumbers[11]), parseInt(clientMonthlyNumbers[11])],
+                        [monthsArray[10], parseInt(competitorMonthlyNumbers[10]), parseInt(clientMonthlyNumbers[10])],
+                        [monthsArray[9], parseInt(competitorMonthlyNumbers[9]), parseInt(clientMonthlyNumbers[9])],
+                        [monthsArray[8], parseInt(competitorMonthlyNumbers[8]), parseInt(clientMonthlyNumbers[8])],
+                        [monthsArray[7], parseInt(competitorMonthlyNumbers[7]), parseInt(clientMonthlyNumbers[7])],
+                        [monthsArray[6], parseInt(competitorMonthlyNumbers[6]), parseInt(clientMonthlyNumbers[6])],
+                        [monthsArray[5], parseInt(competitorMonthlyNumbers[5]), parseInt(clientMonthlyNumbers[5])],
+                        [monthsArray[4], parseInt(competitorMonthlyNumbers[4]), parseInt(clientMonthlyNumbers[4])],
+                        [monthsArray[3], parseInt(competitorMonthlyNumbers[3]), parseInt(clientMonthlyNumbers[3])],
+                        [monthsArray[2], parseInt(competitorMonthlyNumbers[2]), parseInt(clientMonthlyNumbers[2])],
+                        [monthsArray[1], parseInt(competitorMonthlyNumbers[1]), parseInt(clientMonthlyNumbers[1])],
+                        [monthsArray[0], parseInt(competitorMonthlyNumbers[0]), parseInt(clientMonthlyNumbers[0])]
+                    ]);
+                    var options = {
+                        //chartArea:{ backgroundColor : {stroke:'#000',strokeWidth:10} },
+                        chartArea: {left: 0, width: '100%'},
+                        legend: {position: 'none'},
+                        hAxis: {textPosition: 'none'},
+                        vAxis: {textPosition: 'none', baselineColor: '#000', gridlines: {count: 0}},
+                        series: {
+                            0: {color: '#a9abaf', areaOpacity: 0.6},
+                            1: {color: '#EB1C24', areaOpacity: 0.6},
+                        }
+                    };
+                    var chart = new google.visualization.AreaChart(document.getElementById('chart_div2'));
+                    chart.draw(data, options);
+                    
+                    //hide url-label and show url-input  <-- DON'T DO THIS; WE CAN'T JUST OVERWRITE AN EXISTING COMPETITOR; THEY HAVE TO BE DELETED AND A NEW ONE HAS TO BE ENTERED
+                    /*$('#url-list').on('click', '.url-label', function () {
+                        $(this).hide();
+                        $(this).next('.url-input').show().focus();
+                    });*/
+
+                    //hide url-input and show url-label
+                    $('#url-list').on('focusout', '.url-input', function () {
+                        var url_val = $(this).val();
+                        $(this).hide();
+                        $(this).parents('li').find('.url-label').show();
+                        
+                        var addListValue = $('#add-url-list').val();
+                        if(addListValue == "")
+                        {
+                            addListValue = url_val;
+                        }
+                        else
+                        {
+                            addListValue += "," + url_val;
+                        }
+                        $('#add-url-list').val(addListValue);
+                    });
+
+                    //put  url-input value in url-label
+                    $('#url-list').on('keyup', '.url-input', function () {
+                        var url_val = $(this).val();
+                        $(this).parents('li').find('.url-label span').html(url_val);
+                    });
+                    
+                    // Delete parent li on click
+                    $("#url-list").on('click', '.url-delete', function (event) {
+                        event.preventDefault();
+                        var deleteListValue = $('#delete-url-list').val();
+                        if(deleteListValue == "")
+                        {
+                            deleteListValue = $(this).attr("id");
+                        }
+                        else
+                        {
+                            deleteListValue += "," + $(this).attr("id");
+                        }
+                        $('#delete-url-list').val(deleteListValue);
+                        
+                        $(this).parents('li').remove();
+                        toggle_add_more();
+                    });
+
+                    $("a#button-add-url").click(function (event) {
+                        event.preventDefault();
+                        var url_box = $("#url-box-template").html();
+                        $(this).parent().before(url_box);
+                        toggle_add_more();
+                    });
+
+                    // show or hide add more button
+                    function toggle_add_more() {
+                        var url_boxes = $(".url-box").length;
+
+                        if (url_boxes >= 5) {
+                            $("a#button-add-url").hide();
+                        } else {
+                            $("a#button-add-url").show();
+                        }
+                    }
+
+                    // Select all elements with data-toggle="popover" in the document
+                    $('[data-toggle="popover"]').popover();
                 }
             }
         });
@@ -1158,5 +1325,30 @@ function loadProjectData()
     else
     {
         window.location = "dashboard.html";
+    }
+}
+
+function refreshReport()
+{
+    //Hide the button so users don't hit it more than once
+    $('#refresh-div').html("Working...");
+    var deleteList = $('#delete-url-list').val();
+    var addList = $('#add-url-list').val();
+    
+    console.log("delete: "+deleteList);
+    console.log("add: "+addList);
+    
+    var projectID = getURLParameter("pid");
+    if(projectID != '')
+    {
+        $.ajax({url: restURL, data: {'command':'refreshProject','projectid':projectID,'deleteList':deleteList,'addList':addList}, type: 'post', async: true, success: function postResponse(returnData){
+                var info = JSON.parse(returnData);
+
+                if(info.status == "success")
+                {
+                    window.location = "dashboard.html";
+                }
+            }
+        });
     }
 }

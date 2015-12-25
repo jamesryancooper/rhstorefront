@@ -95,7 +95,7 @@
     
     <script>
         function run(){
-            loadProjectData();
+            //loadProjectData();
         }
     </script>
 
@@ -109,7 +109,7 @@
 <div id="rank-header-outer">
     <nav id="mainmenu" class="navbar navbar-fixed-top main-menu" role="navigation">
         <!-- LOGO CONTAINER -->
-        <div class="logo-cont logo-outer"><a class="navbar-brand" data-text="RANKHACKER" style="cursor:default;"><img src="images/logo-main.png" alt="site-logo"> </a></div>
+        <div class="logo-cont logo-outer"><a class="navbar-brand" data-text="RANKHACKER" style="cursor:pointer;" href="dashboard.html"><img src="images/logo-main.png" alt="site-logo"> </a></div>
         <div class="dashboard-status"><i class="white_eagle-rh"></i><a style="cursor:default;">Dashboard Activated</a></div>
 
 
@@ -140,7 +140,7 @@
 
             <div id="dashboard-header" class="col-lg-10 col-md-offset-1 ">
                 <div class="row">
-                    <h2 class="user-info col-lg-12"><span>Welcome</span> <a href="#">Ima Sailsmacheen </a></h2>
+                    <h2 class="user-info col-lg-12"><span>Welcome</span> <a style="cursor:default;">Ima Sailsmacheen </a></h2>
 
                     <div class="col-lg-12">
                         <div class="col-lg-6 view-option-outer">
@@ -181,7 +181,7 @@
                                 <div class="col-lg-6"><img src="images/rh-black-logo.png" alt=""></div>
 
                                 <div class="col-lg-6 text-right">
-                                    <h2 class="user-name-block"> Prepared for <a href="#" id="preparedFor"></a></h2>
+                                    <h2 class="user-name-block"> Prepared for <a style="cursor:default;" id="preparedFor"></a></h2>
                                     <span class="report-created-date" id="reportDate"></span>
                                 </div>
 
@@ -189,22 +189,25 @@
                         </div>
 
                         <div class="report-section-1">
-                            <a href="#" class="site-url">www.fairmarketing.com </a>
+                            <a style="cursor:default;" class="site-url" id="reportTitleLarge">www.fairmarketing.com </a>
 
                             <div class="competitors-urlbox-outer">
                                 <h2>Hacked Competitors </h2>
 
                                 <div class="row" id="competitors-box">
 
+                                    <input type="hidden" id="delete-url-list" value=""/>
+                                    <input type="hidden" id="add-url-list" value=""/>
+                                    
                                     <ul id="url-list">
-                                        <li>
-                                            <div class="url-box-fixed">www.thisisaurl.com</div>
+                                        <!--<li>
+                                            <div class="url-box-fixed" id="initialCompetitorURL"></div>
                                         </li>
                                         <li class="url-box">
                                             <div class="url-label"><span>www.thisisacompetitor.com</span><a href="#delete-url" class="url-delete">X</a></div>
                                             <input class="url-input" value="www.thisisacompetitor.com" type="url" placeholder="" style="display:none;">
                                         </li>
-                                        <li><a href="#add-more-url" class="add-more-url" id="button-add-url"> + Add more</a></li>
+                                        <li><a href="#add-more-url" class="add-more-url" id="button-add-url"> + Add more</a></li>-->
                                     </ul>
 
                                     <div id="url-box-template">
@@ -215,8 +218,8 @@
                                     </div>
 
                                 </div>
-                                <div class="row text-right">
-                                    <a href="#"><i class="fa fa-refresh"> Refresh Report </i></a>
+                                <div class="row text-right" id="refresh-div">
+                                    <a style="cursor:pointer;" id="refresh-report-button" onclick="refreshReport();"><i class="fa fa-refresh"> Refresh Report </i></a>
                                 </div>
 
                             </div>
@@ -240,15 +243,15 @@
                                 </h2>
                                 <ul class="row">
                                     <li class="col-lg-4 text-center">
-                                        <div class="rt-box-competitors">3,168</div>
+                                        <div class="rt-box-competitors" id="competitorCountAnnual"></div>
                                         <span class="heading-ct">Avg. Content pcs. per year</span>
                                     </li>
                                     <li class="col-lg-4 text-center">
-                                        <div class="rt-box-competitors">264</div>
+                                        <div class="rt-box-competitors" id="competitorCountMonthly"></div>
                                         <span class="heading-ct">Avg. Content pcs. per month</span>
                                     </li>
                                     <li class="col-lg-4 text-center">
-                                        <div class="rt-box-competitors">66</div>
+                                        <div class="rt-box-competitors" id="competitorCountWeekly"></div>
                                         <span class="heading-ct">Avg. Content pcs. per week</span>
                                     </li>
 
@@ -261,16 +264,16 @@
                                 </h2>
                                 <ul class="row">
                                     <li class="col-lg-4 text-center">
-                                        <div class="rt-box-competitors">-2,640</div>
-                                        <span class="heading-ct">You post <span class="red-text">528</span> pcs. per year</span>
+                                        <div class="rt-box-competitors" id="clientDeficiencyAnnual"></div>
+                                        <span class="heading-ct">You post <span class="red-text" id="clientCountAnnual"></span> pcs. per year</span>
                                     </li>
                                     <li class="col-lg-4 text-center">
-                                        <div class="rt-box-competitors">-220</div>
-                                        <span class="heading-ct">You post an avg. <span class="red-text">44</span> pcs. per month</span>
+                                        <div class="rt-box-competitors" id="clientDeficiencyMonthly"></div>
+                                        <span class="heading-ct">You post an avg. <span class="red-text" id="clientCountMonthly"></span> pcs. per month</span>
                                     </li>
                                     <li class="col-lg-4 text-center">
-                                        <div class="rt-box-competitors">-55</div>
-                                        <span class="heading-ct">You post an avg. <span class="red-text">11</span> pcs. per week</span>
+                                        <div class="rt-box-competitors" id="clientDeficiencyWeekly"></div>
+                                        <span class="heading-ct">You post an avg. <span class="red-text" id="clientCountWeekly"></span> pcs. per week</span>
                                     </li>
 
                                 </ul>
@@ -281,14 +284,14 @@
                                 <h2 class="report-heading">Competitors' monthly offsite content strategy
                                     <span>A breakdown of how much and what types of content your competitors are posting monthly</span></h2>
                                 <ul class="report-tags">
-                                    <li><span>3</span> blogs</li>
-                                    <li><span>1</span> press release(s)</li>
-                                    <li><span>3</span> directories</li>
-                                    <li><span>1</span> forum(s)</li>
-                                    <li><span>11</span> images</li>
-                                    <li><span>2</span> infographics</li>
-                                    <li><span>3</span> ecommerce</li>
-                                    <li><span>1</span> wiki</li>
+                                    <li><span id="blogCount"></span> blogs</li>
+                                    <li><span id="pressReleaseCount"></span> press release(s)</li>
+                                    <li><span id="directoryCount"></span> directories</li>
+                                    <li><span id="forumCount"></span> forum(s)</li>
+                                    <li><span id="imageCount"></span> images</li>
+                                    <li><span id="infographicsCount"></span> infographics</li>
+                                    <li><span id="ecommerceCount"></span> ecommerce</li>
+                                    <li><span id="wikiCount"></span> wiki</li>
 
                                 </ul>
                             </div>
@@ -401,8 +404,8 @@
 
 <script type="text/javascript">
     google.load("visualization", "1", {packages: ["corechart"]});
-    google.setOnLoadCallback(drawChart);
-    function drawChart() {
+    google.setOnLoadCallback(loadProjectData);
+    /*function drawChart() {
         var data = google.visualization.arrayToDataTable([
             ['Year', 'THEM', 'YOU'],
             ['2013', 800, 350],
@@ -428,13 +431,13 @@
         };
         var chart = new google.visualization.AreaChart(document.getElementById('chart_div2'));
         chart.draw(data, options);
-    }
+    }*/
 </script>
 
 
 <script type="text/javascript">
-    $(document).ready(function () {
-        //hide url-label and show url-input
+    /*$(document).ready(function () {
+        /hide url-label and show url-input
         $('#url-list').on('click', '.url-label', function () {
             $(this).hide();
             $(this).next('.url-input').show().focus();
@@ -469,6 +472,9 @@
         // show or hide add more button
         function toggle_add_more() {
             var url_boxes = $(".url-box").length;
+            
+            console.log("num boxes = "+url_boxes);
+            
             if (url_boxes >= 5) {
                 $("a#button-add-url").hide();
             } else {
@@ -479,7 +485,7 @@
         // Select all elements with data-toggle="popover" in the document
         $('[data-toggle="popover"]').popover();
 
-    });
+    });*/
 </script>
 
 
