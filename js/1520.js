@@ -1199,6 +1199,7 @@ function loadProjectData()
                     
                     //Update the elements on the report
                     $('#reportTitleSmall').html('> '+projectTitle);
+                    $('#welcomeUser').html(userFullName);
                     $('#preparedFor').html(userFullName);
                     $('#reportDate').html(runDate);
                     $('#reportTitleLarge').html(projectTitle);
