@@ -610,26 +610,21 @@ function initiateRankHack()
 {
     var competitorURL = $('#competitor-url').val();
     
-    url_validate = /(ftp|http|https):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?/;
-    //url_validate = /(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?/;
+    //url_validate = /(ftp|http|https):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?/;
+    url_validate = /^(?:(ftp|http|https)?:\/\/)?(?:[\w-]+\.)+([a-z]|[A-Z]|[0-9]){2,6}$/gi;
     
-    if(competitorURL.indexOf("ftp://") == -1 || competitorURL.indexOf("http://") == -1 || competitorURL.indexOf("https://") == -1)
-    {
-        competitorURL = "http://"+competitorURL;
-    }
-    
-    if(competitorURL.trim() == '')
+    /*if(competitorURL.trim() == '')
     {
         $('#competitor-url').attr('placeholder', 'Please enter a URL');
         $('#competitor-url').parent('li').addClass('invalid');
         $('#competitor-url').parent('li').removeClass('valid');
         return false;
     }
-    else if(!url_validate.test(competitorURL))
+    else */if(!url_validate.test(competitorURL))
     {
-        /*$('#competitor-url').attr('placeholder', 'You must enter a proper URL');
+        $('#competitor-url').attr('placeholder', 'You must enter a proper URL');
         $('#competitor-url').parent('li').addClass('invalid');
-        $('#competitor-url').parent('li').removeClass('valid');*/
+        $('#competitor-url').parent('li').removeClass('valid');
         return false;
     }
     else
@@ -812,6 +807,7 @@ function authenticateToken()
 
                 if(info.status == "success")
                 {
+                    document.cookie = "username="+email;
                     document.getElementById('success-message').style.display = "";
                     document.getElementById('create-password-message').style.display = "";
                     document.getElementById('password-form').style.display = "";
@@ -837,6 +833,7 @@ function saveAuthenticationPassword()
 
                     if(info.status == "success")
                     {
+                        document.cookie = "username="+email;
                         document.cookie = "userFullName="+info.userfullname;
                         window.location = "dashboard.html";
                     }
