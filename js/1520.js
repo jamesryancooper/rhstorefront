@@ -1,5 +1,5 @@
-//var restURL = "http://fairmarketing.cloudapp.net/rest1.0/endpoint.jsp?"
-var restURL = "http://localhost:8084/rest1.0/endpoint.jsp?"
+var restURL = "http://fairmarketing.cloudapp.net/rest1.0/endpoint.jsp?"
+//var restURL = "http://localhost:8084/rest1.0/endpoint.jsp?"
 
 function getURLParameter(name)
 {
@@ -543,6 +543,7 @@ function loginAccount()
                 if(info.status == "success")
                 {
                     document.cookie = "username="+email;
+                    document.cookie = "userFullName="+info.userfullname;
                     window.location = "dashboard.html";
                 }
                 else if(info.status == "error")
@@ -836,6 +837,7 @@ function saveAuthenticationPassword()
 
                     if(info.status == "success")
                     {
+                        document.cookie = "userFullName="+info.userfullname;
                         window.location = "dashboard.html";
                     }
                 }
@@ -1020,68 +1022,69 @@ function createNewReport()
     var competitorURL4 = $('#competitor-url-4').val();
     var competitorURL5 = $('#competitor-url-5').val();
     
-    url_validate = /(ftp|http|https):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?/;
-    //url_validate = /(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?/;
+    //url_validate = /(ftp|http|https):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?/;
+    url_validate = /^(?:(ftp|http|https)?:\/\/)?(?:[\w-]+\.)+([a-z]|[A-Z]|[0-9]){2,6}$/gi;
     
-    if(clientURL.trim() == '')
+    /*if(clientURL.trim() == '')
     {
-        $('#client-url').attr('placeholder', 'Please enter your URL');
+        $('#client-url').attr('placeholder', 'You must enter a proper URL');
         $('#client-url').parent('li').addClass('invalid');
         $('#client-url').parent('li').removeClass('valid');
         return false;
     }
     else if(competitorURL1.trim() == '')
     {
-        $('#competitor-url-1').attr('placeholder', 'Please enter at least one competitor URL');
+        $('#competitor-url-1').attr('placeholder', 'You must enter a proper URL');
         $('#competitor-url-1').parent('li').addClass('invalid');
         $('#competitor-url-1').parent('li').removeClass('valid');
         return false;
     }
-    else if(!url_validate.test(clientURL))
+    else */if(!url_validate.test(clientURL))
     {
-        /*$('#client-url').attr('placeholder', 'You must enter a proper URL');
+        $('#client-url').attr('placeholder', 'You must enter a proper URL');
         $('#client-url').parent('li').addClass('invalid');
-        $('#client-url').parent('li').removeClass('valid');*/
+        $('#client-url').parent('li').removeClass('valid');
         return false;
     }
     else if(!url_validate.test(competitorURL1))
     {
-        /*$('#competitor-url-1').attr('placeholder', 'Please enter at least one competitor URL');
+        $('#competitor-url-1').attr('placeholder', 'You must enter a proper URL');
         $('#competitor-url-1').parent('li').addClass('invalid');
-        $('#competitor-url-1').parent('li').removeClass('valid');*/
+        $('#competitor-url-1').parent('li').removeClass('valid');
         return false;
     }
-    else if(!url_validate.test(competitorURL2) && competitorURL2.trim() != "")
+    else if(!url_validate.test(competitorURL2) && competitorURL2 != "")
     {
-        /*$('#competitor-url-2').attr('placeholder', 'Please enter at least one competitor URL');
+        $('#competitor-url-2').attr('placeholder', 'You must enter a proper URL');
         $('#competitor-url-2').parent('li').addClass('invalid');
-        $('#competitor-url-2').parent('li').removeClass('valid');*/
+        $('#competitor-url-2').parent('li').removeClass('valid');
         return false;
     }
-    else if(!url_validate.test(competitorURL3) && competitorURL3.trim() != "")
+    else if(!url_validate.test(competitorURL3) && competitorURL3 != "")
     {
-        /*$('#competitor-url-3').attr('placeholder', 'Please enter at least one competitor URL');
+        $('#competitor-url-3').attr('placeholder', 'You must enter a proper URL');
         $('#competitor-url-3').parent('li').addClass('invalid');
-        $('#competitor-url-3').parent('li').removeClass('valid');*/
+        $('#competitor-url-3').parent('li').removeClass('valid');
         return false;
     }
-    else if(!url_validate.test(competitorURL4) && competitorURL4.trim() != "")
+    else if(!url_validate.test(competitorURL4) && competitorURL4 != "")
     {
-        /*$('#competitor-url-4').attr('placeholder', 'Please enter at least one competitor URL');
+        $('#competitor-url-4').attr('placeholder', 'You must enter a proper URL');
         $('#competitor-url-4').parent('li').addClass('invalid');
-        $('#competitor-url-4').parent('li').removeClass('valid');*/
+        $('#competitor-url-4').parent('li').removeClass('valid');
         return false;
     }
-    else if(!url_validate.test(competitorURL5) && competitorURL5.trim() != "")
+    else if(!url_validate.test(competitorURL5) && competitorURL5 != "")
     {
-        /*$('#competitor-url-5').attr('placeholder', 'Please enter at least one competitor URL');
+        $('#competitor-url-5').attr('placeholder', 'You must enter a proper URL');
         $('#competitor-url-5').parent('li').addClass('invalid');
-        $('#competitor-url-5').parent('li').removeClass('valid');*/
+        $('#competitor-url-5').parent('li').removeClass('valid');
         return false;
     }
     else
     {
         //alert("success");
+        $('#create-new-report-button').html("working...");
         createRankHackerProjectFromDashboard(clientURL.trim(),competitorURL1.trim(),competitorURL2.trim(),competitorURL3.trim(),competitorURL4.trim(),competitorURL5.trim());
     }
 }
@@ -1136,10 +1139,7 @@ function loadProjectData()
                         var competitorWeeklyNum = Math.ceil(competitorMonthlyNum/4);
                     
                     //Update the URLs list
-                    var htmlToAdd = "<li>" +
-                                    "        <div class=\"url-box-fixed\">"+competitor1URL+"</div>" +
-                                    "    </li>";
-                    $('#url-list').append(htmlToAdd);
+                    $('#initialCompetitorURL').html(competitor1URL);
                     
                     //Add each additional URL if it's not NA
                     var competitorCount = 1;
