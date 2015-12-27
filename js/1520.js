@@ -1,5 +1,5 @@
-var restURL = "http://fairmarketing.cloudapp.net/rest1.0/endpoint.jsp?"
-//var restURL = "http://localhost:8084/rest1.0/endpoint.jsp?"
+//var restURL = "http://fairmarketing.cloudapp.net/rest1.0/endpoint.jsp?"
+var restURL = "http://localhost:8084/rest1.0/endpoint.jsp?"
 
 function getURLParameter(name)
 {
@@ -1178,7 +1178,10 @@ function loadProjectData()
                         competitorCount++;
                     }
                     
-                    if(competitorCount < 5)
+                    var filename = window.location.href.substr(window.location.href.lastIndexOf("/")+1);
+                    console.log(filename);
+                    
+                    if(competitorCount < 5 && filename.indexOf("print-report.html") == -1)
                     {
                         var htmlToAdd = "<li><a href=\"#add-more-url\" class=\"add-more-url\" id=\"button-add-url\"> + Add more</a></li>";
                         $('#url-list').append(htmlToAdd);
@@ -1195,8 +1198,9 @@ function loadProjectData()
                     var wikiCount = Math.ceil(parseFloat(entry.wiki)/12);
                     
                     //Update the elements on the report
-                    $('#reportTitleSmall').html('> '+projectTitle);
-                    $('#welcomeUser').html(userFullName);
+                    if( $('#reportTitleSmall').length ) { $('#reportTitleSmall').html('> '+projectTitle); }
+                    if( $('#welcomeUser').length ) { $('#welcomeUser').html(userFullName); }
+                    
                     $('#preparedFor').html(userFullName);
                     $('#reportDate').html(runDate);
                     $('#reportTitleLarge').html(projectTitle);
