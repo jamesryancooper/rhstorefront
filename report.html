@@ -27,6 +27,7 @@
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet">
     <link href="css/rankhacker.css" rel="stylesheet" type="text/css">
     <link href="css/custom-style.css" rel="stylesheet" type="text/css">
+    <link href="css/1520.css" rel="stylesheet" type="text/css">
 
     <!-- =========================
          INTERNET EXPLORER FIXES
@@ -101,7 +102,7 @@
 
 </head>
 
-<body id="body" onload="run();">
+<body id="body">
 
 <!-- =========================
      MAIN MENU
@@ -201,7 +202,7 @@
                                     
                                     <ul id="url-list">
                                         <li>
-                                            <div class="url-box-fixed" id="initialCompetitorURL"><img src="img/loading_gif.gif"/></div>
+                                            <div class="url-box-fixed" id="initialCompetitorURL"><img src="img/loading_gif.GIF"/></div>
                                         </li>
                                         <!--<li class="url-box">
                                             <div class="url-label"><span>www.thisisacompetitor.com</span><a href="#delete-url" class="url-delete">X</a></div>
@@ -339,7 +340,7 @@
 <!-- Login modal -->
 <div id="dimmer" class="dimmer"></div>
 
-<div id="share-window" class="login-window">
+<div id="share-window" class="share-window">
     <div class="row">
         <div class="col-lg-12 text-center">
             <ul>
@@ -349,8 +350,9 @@
     </div>
     <div class="row">
         <div class="col-lg-12 text-center">
-            <a class="cancel-login-btn" id="share_cancel_button">CANCEL</a>
-            <a class="submit-login-btn" id="share_submit_button">SHARE WITH RECIPIENT</a>
+            <a class="cancel-login-btn" id="share_close_button" onclick="hideEmailShare();" style="display:none;">CLOSE</a>
+            <a class="cancel-login-btn" id="share_cancel_button" onclick="hideEmailShare();">CANCEL</a>
+            <a class="submit-login-btn" id="share_submit_button" onclick="shareReport();">SHARE WITH RECIPIENT(S)</a>
         </div>
     </div>
     <div class="row">

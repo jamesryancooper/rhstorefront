@@ -1413,14 +1413,21 @@ function shareReport()
 {
     var projectID = getURLParameter("pid");
     var recipient = $('#recipient-email').val();
+    var jsonData = $('#json').val();
     if(projectID != '')
     {
-        $.ajax({url: restURL, data: {'command':'shareReport','projectid':projectID,'recipient':recipient}, type: 'post', async: true, success: function postResponse(returnData){
+        $("#share-response").html("<div class='three-quarters-loader-small'></div>");
+        
+        $.ajax({url: restURL, data: {'command':'shareReport','json':jsonData,'recipient':recipient}, type: 'post', async: true, success: function postResponse(returnData){
                 var info = JSON.parse(returnData);
 
                 if(info.status == "success")
                 {
                     $('#share-response').html("Your report will be emailed to the addresses provided above.");
+                    
+                    document.getElementById('share_close_button').style.display = 'block';
+                    document.getElementById('share_cancel_button').style.display = 'none';
+                    document.getElementById('share_submit_button').style.display = 'none';
                 }
             }
         });
