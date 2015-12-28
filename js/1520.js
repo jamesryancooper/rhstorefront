@@ -1,7 +1,7 @@
-//var restURL = "http://fairmarketing.cloudapp.net/rest1.0/endpoint.jsp?"
-//var downloadURL = "http://fairmarketing.cloudapp.net/rest1.0/servlet/ssd.DownloadInventoryReport?"
-var restURL = "http://localhost:8084/rest1.0/endpoint.jsp?"
-var downloadURL = "http://localhost:8084/rest1.0/servlet/ssd.DownloadInventoryReport?"
+var restURL = "http://fairmarketing.cloudapp.net/rest1.0/endpoint.jsp?"
+var downloadURL = "http://fairmarketing.cloudapp.net/rest1.0/servlet/ssd.DownloadInventoryReport?"
+//var restURL = "http://localhost:8084/rest1.0/endpoint.jsp?"
+//var downloadURL = "http://localhost:8084/rest1.0/servlet/ssd.DownloadInventoryReport"
 
 function getURLParameter(name)
 {
@@ -1100,6 +1100,9 @@ function loadProjectData()
         $.ajax({url: restURL, data: {'command':'getProjectData','projectid':projectID}, type: 'post', async: true, success: function postResponse(returnData){
                 var info = JSON.parse(returnData);
 
+                //Save this to local storage so that it can be sent to the PDF printer service
+                $('#json').val(returnData);
+
                 if(info.status == "success")
                 {
                     //Fill in the project data here
@@ -1185,7 +1188,6 @@ function loadProjectData()
                     }
                     
                     var filename = window.location.href.substr(window.location.href.lastIndexOf("/")+1);
-                    console.log(filename);
                     
                     if(competitorCount < 5 && filename.indexOf("print-report.html") == -1)
                     {
@@ -1399,11 +1401,12 @@ function hideEmailShare()
 
 function downloadReport()
 {
-    var projectID = getURLParameter("pid");
+    $('#printForm').submit();
+    /*var projectID = getURLParameter("pid");
     if(projectID != '')
     {
-        window.open(downloadURL+"projectid="+projectID);
-    }
+        window.open(downloadURL+"j="+projectID);
+    }*/
 }
 
 function shareReport()
