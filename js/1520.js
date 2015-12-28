@@ -1,5 +1,7 @@
 //var restURL = "http://fairmarketing.cloudapp.net/rest1.0/endpoint.jsp?"
+//var downloadURL = "http://fairmarketing.cloudapp.net/rest1.0/servlet/ssd.DownloadInventoryReport?"
 var restURL = "http://localhost:8084/rest1.0/endpoint.jsp?"
+var downloadURL = "http://localhost:8084/rest1.0/servlet/ssd.DownloadInventoryReport?"
 
 function getURLParameter(name)
 {
@@ -488,6 +490,10 @@ function getUserAhrefsData(callback)
 $('#login_submit_button').click(loginAccount);
 
 $('#login_cancel_button').click(hideLogin);
+
+$('#share_submit_button').click(shareReport);
+
+$('#share_cancel_button').click(hideEmailShare);
 
 $('#alert_close_button').click(hideAlert);
 
@@ -1188,14 +1194,26 @@ function loadProjectData()
                     }
                     
                     //Monthly content types count
-                    var blogCount = Math.ceil(parseFloat(entry.blog)/12);
-                    var pressReleaseCount = Math.ceil(parseFloat(entry.pressRelease)/12);
-                    var directoryCount = Math.ceil(parseFloat(entry.directory)/12);
-                    var forumCount = Math.ceil(parseFloat(entry.forum)/12);
-                    var imageCount = Math.ceil(parseFloat(entry.image)/12);
+                    var blogCount = Math.ceil(parseFloat(entry.blog)/1);
+                    var pressReleaseCount = Math.ceil(parseFloat(entry.pressRelease)/1);
+                    var directoryCount = Math.ceil(parseFloat(entry.directory)/1);
+                    var forumCount = Math.ceil(parseFloat(entry.forum)/1);
+                    var imageCount = Math.ceil(parseFloat(entry.image)/1);
                     var infographicsCount = 0;
-                    var ecommerceCount = Math.ceil(parseFloat(entry.ecommerce)/12);
-                    var wikiCount = Math.ceil(parseFloat(entry.wiki)/12);
+                    var ecommerceCount = Math.ceil(parseFloat(entry.ecommerce)/1);
+                    var wikiCount = Math.ceil(parseFloat(entry.wiki)/1);
+                    var socialCount = Math.ceil(parseFloat(entry.socialNetwork)/1);
+                    var searchEngineCount = Math.ceil(parseFloat(entry.searchEngine)/1);
+                    var portalCount = Math.ceil(parseFloat(entry.portal)/1);
+                    var newsCount = Math.ceil(parseFloat(entry.newsSite)/1);
+                    var genericCount = Math.ceil(parseFloat(entry.generic)/1);
+                    var adultCount = Math.ceil(parseFloat(entry.adult)/1);
+                    var gamblingCount = Math.ceil(parseFloat(entry.gambling)/1);
+                    var warezCount = Math.ceil(parseFloat(entry.warez)/1);
+                    var govCount = Math.ceil(parseFloat(entry.gov)/1);
+                    var universityCount = Math.ceil(parseFloat(entry.university)/1);
+                    var personalSiteCount = Math.ceil(parseFloat(entry.personalSite)/1);
+                    var corporateCount = Math.ceil(parseFloat(entry.corporate)/1);
                     
                     //Update the elements on the report
                     if( $('#reportTitleSmall').length ) { $('#reportTitleSmall').html('> '+projectTitle); }
@@ -1221,6 +1239,18 @@ function loadProjectData()
                     $('#infographicsCount').html(numberWithCommas(infographicsCount));
                     $('#ecommerceCount').html(numberWithCommas(ecommerceCount));
                     $('#wikiCount').html(numberWithCommas(wikiCount));
+                    $('#socialCount').html(numberWithCommas(socialCount));
+                    $('#searchEngineCount').html(numberWithCommas(searchEngineCount));
+                    $('#portalCount').html(numberWithCommas(portalCount));
+                    $('#newsCount').html(numberWithCommas(newsCount));
+                    $('#genericCount').html(numberWithCommas(genericCount));
+                    $('#adultCount').html(numberWithCommas(adultCount));
+                    $('#gamblingCount').html(numberWithCommas(gamblingCount));
+                    $('#warezCount').html(numberWithCommas(warezCount));
+                    $('#govCount').html(numberWithCommas(govCount));
+                    $('#universityCount').html(numberWithCommas(universityCount));
+                    $('#personalSiteCount').html(numberWithCommas(personalSiteCount));
+                    $('#corporateCount').html(numberWithCommas(corporateCount));
                     
                     //Draw the chart
                     var data = google.visualization.arrayToDataTable([
@@ -1349,6 +1379,45 @@ function refreshReport()
                 if(info.status == "success")
                 {
                     window.location = "dashboard.html";
+                }
+            }
+        });
+    }
+}
+
+function showEmailShare()
+{
+    document.getElementById("share-window").style.display = "block";
+    document.getElementById("dimmer").style.display = "block";
+}
+
+function hideEmailShare()
+{
+    document.getElementById("dimmer").style.display = "none";
+    document.getElementById("share-window").style.display = "none";
+}
+
+function downloadReport()
+{
+    var projectID = getURLParameter("pid");
+    if(projectID != '')
+    {
+        window.open(downloadURL+"projectid="+projectID);
+    }
+}
+
+function shareReport()
+{
+    var projectID = getURLParameter("pid");
+    var recipient = $('#recipient-email').val();
+    if(projectID != '')
+    {
+        $.ajax({url: restURL, data: {'command':'shareReport','projectid':projectID,'recipient':recipient}, type: 'post', async: true, success: function postResponse(returnData){
+                var info = JSON.parse(returnData);
+
+                if(info.status == "success")
+                {
+                    $('#share-response').html("Your report will be emailed to the addresses provided above.");
                 }
             }
         });

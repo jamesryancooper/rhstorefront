@@ -156,13 +156,13 @@
                                 </li>
 
                                 <li>
-                                    <a href="#" data-content="Download a PDF of this report." data-placement="top" data-trigger="hover" data-toggle="popover" data-container="body"><i class="fa fa-download"></i></a>
+                                    <a onclick="downloadReport();" data-content="Download a PDF of this report." data-placement="top" data-trigger="hover" data-toggle="popover" data-container="body"><i class="fa fa-download"></i></a>
                                 </li>
                                 <li>
-                                    <a href="#" data-content="Email this report." data-placement="top" data-trigger="hover" data-toggle="popover" data-container="body"><i class="fa fa-envelope"></i></a>
+                                    <a onclick="showEmailShare();" data-content="Email this report." data-placement="top" data-trigger="hover" data-toggle="popover" data-container="body"><i class="fa fa-envelope"></i></a>
                                 </li>
                                 <li>
-                                    <a href="#" data-content="Print this report." data-placement="top" data-trigger="hover" data-toggle="popover" data-container="body"> <i class="fa fa-print"></i></a>
+                                    <a onclick="downloadReport();" data-content="Print this report." data-placement="top" data-trigger="hover" data-toggle="popover" data-container="body"> <i class="fa fa-print"></i></a>
                                 </li>
                             </ul>
                         </div>
@@ -201,7 +201,7 @@
                                     
                                     <ul id="url-list">
                                         <li>
-                                            <div class="url-box-fixed" id="initialCompetitorURL">Loading...</div>
+                                            <div class="url-box-fixed" id="initialCompetitorURL"><img src="img/loading_gif.gif"/></div>
                                         </li>
                                         <!--<li class="url-box">
                                             <div class="url-label"><span>www.thisisacompetitor.com</span><a href="#delete-url" class="url-delete">X</a></div>
@@ -285,14 +285,25 @@
                                     <span>A breakdown of how much and what types of content your competitors are posting monthly</span></h2>
                                 <ul class="report-tags">
                                     <li><span id="blogCount"></span> blogs</li>
-                                    <li><span id="pressReleaseCount"></span> press release(s)</li>
+                                    <li><span id="pressReleaseCount"></span> press releases</li>
                                     <li><span id="directoryCount"></span> directories</li>
-                                    <li><span id="forumCount"></span> forum(s)</li>
+                                    <li><span id="forumCount"></span> forums</li>
                                     <li><span id="imageCount"></span> images</li>
                                     <li><span id="infographicsCount"></span> infographics</li>
                                     <li><span id="ecommerceCount"></span> ecommerce</li>
                                     <li><span id="wikiCount"></span> wiki</li>
-
+                                    <li><span id="socialCount"></span> social</li>
+                                    <li><span id="searchEngineCount"></span> search engines</li>
+                                    <li><span id="portalCount"></span> portals</li>
+                                    <li><span id="newsCount"></span> news</li>
+                                    <li><span id="genericCount"></span> generic</li>
+                                    <li><span id="adultCount"></span> adult</li>
+                                    <li><span id="gamblingCount"></span> gambling</li>
+                                    <li><span id="warezCount"></span> wares</li>
+                                    <li><span id="govCount"></span> government</li>
+                                    <li><span id="universityCount"></span> university</li>
+                                    <li><span id="personalSiteCount"></span> personal</li>
+                                    <li><span id="corporateCount"></span> corporate</li>
                                 </ul>
                             </div>
 
@@ -307,9 +318,9 @@
 
                     <div class="report-bottom-links">
                         <ul>
-                            <li><a href="#" data-content="Download a PDF of this report." data-placement="top" data-trigger="hover" data-toggle="popover" data-container="body"><i class="fa fa-download"></i></a></li>
-                            <li><a href="#" data-content="Email this report." data-placement="top" data-trigger="hover" data-toggle="popover" data-container="body"><i class="fa fa-envelope"></i></a></li>
-                            <li><a href="#" data-content="Print this report." data-placement="top" data-trigger="hover" data-toggle="popover" data-container="body"> <i class="fa fa-print"></i></a></li>
+                            <li><a onclick="downloadReport();" data-content="Download a PDF of this report." data-placement="top" data-trigger="hover" data-toggle="popover" data-container="body"><i class="fa fa-download"></i></a></li>
+                            <li><a onclick="showEmailShare();" data-content="Email this report." data-placement="top" data-trigger="hover" data-toggle="popover" data-container="body"><i class="fa fa-envelope"></i></a></li>
+                            <li><a onclick="downloadReport();" data-content="Print this report." data-placement="top" data-trigger="hover" data-toggle="popover" data-container="body"> <i class="fa fa-print"></i></a></li>
                         </ul>
                         <a href="dashboard.html" class="close-link">close report </a>
                     </div>
@@ -324,6 +335,31 @@
             </div>
         </div>
 
+
+<!-- Login modal -->
+<div id="dimmer" class="dimmer"></div>
+
+<div id="share-window" class="login-window">
+    <div class="row">
+        <div class="col-lg-12 text-center">
+            <ul>
+                <li class="login-input-outer"><input id="recipient-email" type="email" required placeholder="E-MAIL ADDRESSES SEPARATED BY A COMMA"></li>
+            </ul>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-12 text-center">
+            <a class="cancel-login-btn" id="share_cancel_button">CANCEL</a>
+            <a class="submit-login-btn" id="share_submit_button">SHARE WITH RECIPIENT</a>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-12 text-center"><br/>
+            <span id="share-response" class="login-response"></span>
+        </div>
+    </div>
+</div>
+        
 </section>
 
 <!-- =========================
