@@ -1395,6 +1395,13 @@ function showEmailShare()
 
 function hideEmailShare()
 {
+    $('#share-response').html("");
+    $('#recipient-email').val("");
+                    
+    document.getElementById('share_close_button').style.display = 'none';
+    document.getElementById('share_cancel_button').style.display = 'block';
+    document.getElementById('share_submit_button').style.display = 'block';
+    
     document.getElementById("dimmer").style.display = "none";
     document.getElementById("share-window").style.display = "none";
 }
