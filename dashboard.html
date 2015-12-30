@@ -198,6 +198,19 @@
     jQuery(function ($) {
         $('.matchheight').matchHeight();
     });
+    
+    function confirmDelete(projectID)
+    {
+        var confirmed = confirm("Are you sure you want to delete this project?");
+        if(confirmed)
+        {
+            deleteProject(projectID);
+        }
+        else
+        {
+            //Do nothing
+        }
+    }
 </script>
 
 </body>

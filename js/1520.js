@@ -1,6 +1,6 @@
-var restURL = "http://fairmarketing.cloudapp.net/rest1.0/endpoint.jsp?"
+//var restURL = "http://fairmarketing.cloudapp.net/rest1.0/endpoint.jsp?"
 var downloadURL = "http://fairmarketing.cloudapp.net/rest1.0/servlet/ssd.DownloadInventoryReport?"
-//var restURL = "http://localhost:8084/rest1.0/endpoint.jsp?"
+var restURL = "http://localhost:8084/rest1.0/endpoint.jsp?"
 //var downloadURL = "http://localhost:8084/rest1.0/servlet/ssd.DownloadInventoryReport"
 
 function getURLParameter(name)
@@ -507,7 +507,7 @@ $('#initiate-rank-hack').click(initiateRankHack);
 
 $('#get-declassified-comparison').click(getDeclassifiedComparison);
 
-$('#create-new-report-button').click(createNewReport);
+//$('#create-new-report-button').click(createNewReport);
 
 //$('#refresh-report-button').click(refreshReport);
 
@@ -617,7 +617,7 @@ function initiateRankHack()
     var competitorURL = $('#competitor-url').val();
     
     //url_validate = /(ftp|http|https):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?/;
-    url_validate = /^(?:(ftp|http|https)?:\/\/)?(?:[\w-]+\.)+([a-z]|[A-Z]|[0-9]){2,6}$/gi;
+    //url_validate = /^(?:(ftp|http|https)?:\/\/)?(?:[\w-]+\.)+([a-z]|[A-Z]|[0-9]){2,6}$/gi;
     
     /*if(competitorURL.trim() == '')
     {
@@ -626,7 +626,7 @@ function initiateRankHack()
         $('#competitor-url').parent('li').removeClass('valid');
         return false;
     }
-    else */if(!url_validate.test(competitorURL))
+    else */if(!validateURL(competitorURL))
     {
         $('#competitor-url').attr('placeholder', 'You must enter a proper URL');
         $('#competitor-url').parent('li').addClass('invalid');
@@ -950,7 +950,7 @@ function loadProjectDashboard()
                             cardHTML += "<li class=\"col-lg-4 matchheight\">\n";
                             cardHTML += "<div class=\"project-cart-box box-shadow-ot\">\n";
                             cardHTML += "<div class=\"card-header\">\n";
-                            cardHTML += "<h1 class=\"project_name_sort\"><a href=\"report.html?pid="+projectID+"\">"+projectTitle+"</a></h1>\n";
+                            cardHTML += "<h1 class=\"project_name_sort\"><a href=\"report.html?pid="+projectID+"\">"+projectTitle+"</a></h1><br/><br/><div style='text-align:right;float:right;'><a style='cursor:pointer;color:#ec1c24;' onclick=\"confirmDelete('"+projectID+"');\">Delete</a></div>\n";
                             cardHTML += "</div>\n";
                             cardHTML += "<div class=\"card-box-detail card-box-detail-outer\">\n";
                             cardHTML += "<ul class=\"you-v-them\">\n";
@@ -972,7 +972,7 @@ function loadProjectDashboard()
                             cardHTML += "<li class=\"col-lg-4 matchheight\">\n";
                             cardHTML += "<div class=\"project-cart-box box-shadow-ot\">\n";
                             cardHTML += "<div class=\"card-header\">\n";
-                            cardHTML += "<h1 class=\"project_name_sort\"><a href=\"#\">"+projectTitle+"</a></h1>\n";
+                            cardHTML += "<h1 class=\"project_name_sort\"><a href=\"#\">"+projectTitle+"</a></h1><br/><br/><div style='text-align:right;float:right;'><a style='cursor:pointer;color:#ec1c24;' onclick=\"confirmDelete('"+projectID+"');\">Delete</a></div>\n";
                             cardHTML += "</div>\n";
                             cardHTML += "<div class=\"report-processing card-box-detail card-box-detail-outer\">\n";
                             cardHTML += "<div class=\"blink\">\n";
@@ -1026,7 +1026,7 @@ function createNewReport()
     var competitorURL5 = $('#competitor-url-5').val();
     
     //url_validate = /(ftp|http|https):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?/;
-    url_validate = /^(?:(ftp|http|https)?:\/\/)?(?:[\w-]+\.)+([a-z]|[A-Z]|[0-9]){2,6}$/gi;
+    //url_validate = /^(?:(ftp|http|https)?:\/\/)?(?:[\w-]+\.)+([a-z]|[A-Z]|[0-9]){2,6}$/gi;
     
     /*if(clientURL.trim() == '')
     {
@@ -1042,46 +1042,52 @@ function createNewReport()
         $('#competitor-url-1').parent('li').removeClass('valid');
         return false;
     }
-    else */if(!url_validate.test(clientURL))
+    else */if(!validateURL(clientURL))
     {
         $('#client-url').attr('placeholder', 'You must enter a proper URL');
         $('#client-url').parent('li').addClass('invalid');
         $('#client-url').parent('li').removeClass('valid');
+        showAlert("Please confirm that you've entered a proper URL for your website.");
         return false;
     }
-    else if(!url_validate.test(competitorURL1))
+    else if(!validateURL(competitorURL1))
     {
         $('#competitor-url-1').attr('placeholder', 'You must enter a proper URL');
         $('#competitor-url-1').parent('li').addClass('invalid');
         $('#competitor-url-1').parent('li').removeClass('valid');
+        showAlert("Please confirm that you've entered a proper URL for your first competitor.");
         return false;
     }
-    else if(!url_validate.test(competitorURL2) && competitorURL2 != "")
+    else if(!validateURL(competitorURL2) && competitorURL2 != "")
     {
         $('#competitor-url-2').attr('placeholder', 'You must enter a proper URL');
         $('#competitor-url-2').parent('li').addClass('invalid');
         $('#competitor-url-2').parent('li').removeClass('valid');
+        showAlert("Please confirm that you've entered a proper URL for your second competitor.");
         return false;
     }
-    else if(!url_validate.test(competitorURL3) && competitorURL3 != "")
+    else if(!validateURL(competitorURL3) && competitorURL3 != "")
     {
         $('#competitor-url-3').attr('placeholder', 'You must enter a proper URL');
         $('#competitor-url-3').parent('li').addClass('invalid');
         $('#competitor-url-3').parent('li').removeClass('valid');
+        showAlert("Please confirm that you've entered a proper URL for your third competitor.");
         return false;
     }
-    else if(!url_validate.test(competitorURL4) && competitorURL4 != "")
+    else if(!validateURL(competitorURL4) && competitorURL4 != "")
     {
         $('#competitor-url-4').attr('placeholder', 'You must enter a proper URL');
         $('#competitor-url-4').parent('li').addClass('invalid');
         $('#competitor-url-4').parent('li').removeClass('valid');
+        showAlert("Please confirm that you've entered a proper URL for your fourth competitor.");
         return false;
     }
-    else if(!url_validate.test(competitorURL5) && competitorURL5 != "")
+    else if(!validateURL(competitorURL5) && competitorURL5 != "")
     {
         $('#competitor-url-5').attr('placeholder', 'You must enter a proper URL');
         $('#competitor-url-5').parent('li').addClass('invalid');
         $('#competitor-url-5').parent('li').removeClass('valid');
+        showAlert("Please confirm that you've entered a proper URL for your fifth competitor.");
         return false;
     }
     else
@@ -1439,4 +1445,34 @@ function shareReport()
             }
         });
     }
+}
+
+function deleteProject(projectID)
+{
+    if(projectID != '')
+    {   
+        $.ajax({url: restURL, data: {'command':'deleteProject','projectid':projectID}, type: 'post', async: true, success: function postResponse(returnData){
+                var info = JSON.parse(returnData);
+
+                if(info.status == "success")
+                {
+                    window.location = "dashboard.html";
+                }
+            }
+        });
+    }
+}
+
+function validateURL(url)
+{
+    var validTLDs = [".com",".org",".net",".int",".edu",".gov",".mil",".arpa",".ac",".ad",".ae",".af",".ag",".ai",".al",".am",".an",".ao",".aq",".ar",".as",".at",".au",".aw",".ax",".az",".ba",".bb",".bd",".be",".bf",".bg",".bh",".bi",".bj",".bm",".bn",".bo",".bq",".br",".bs",".bt",".bv",".bw",".by",".bz",".ca",".cc",".cd",".cf",".cg",".ch",".ci",".ck",".cl",".cm",".cn",".co",".cr",".cu",".cv",".cw",".cx",".cy",".cz",".de",".dj",".dk",".dm",".do",".dz",".ec",".ee",".eg",".eh",".er",".es",".et",".eu",".fi",".fj",".fk",".fm",".fo",".fr",".ga",".gb",".gd",".ge",".gf",".gg",".gh",".gi",".gl",".gm",".gn",".gp",".gq",".gr",".gs",".gt",".gu",".gw",".gy",".hk",".hm",".hn",".hr",".ht",".hu",".id",".ie",".il",".im",".in",".io",".iq",".ir",".is",".it",".je",".jm",".jo",".jp",".ke",".kg",".kh",".ki",".km",".kn",".kp",".kr",".krd",".kw",".ky",".kz",".la",".lb",".lc",".li",".lk",".lr",".ls",".lt",".lu",".lv",".ly",".ma",".mc",".md",".me",".mg",".mh",".mk",".ml",".mm",".mn",".mo",".mp",".mq",".mr",".ms",".mt",".mu",".mv",".mw",".mx",".my",".mz",".na",".nc",".ne",".nf",".ng",".ni",".nl",".no",".np",".nr",".nu",".nz",".om",".pa",".pe",".pf",".pg",".ph",".pk",".pl",".pm",".pn",".pr",".ps",".pt",".pw",".py",".qa",".re",".ro",".rs",".ru",".rw",".sa",".sb",".sc",".sd",".se",".sg",".sh",".si",".sj",".sk",".sl",".sm",".sn",".so",".sr",".ss",".st",".su",".sv",".sx",".sy",".sz",".tc",".td",".tf",".tg",".th",".tj",".tk",".tl",".tm",".tn",".to",".tp",".tr",".tt",".tv",".tw",".tz",".ua",".ug",".uk",".us",".uy",".uz",".va",".vc",".ve",".vg",".vi",".vn",".vu",".wf",".ws",".ye",".yt",".za",".zm",".zw"];
+    var isValid = false;
+    for(var i=0; i<validTLDs.length; i++)
+    {
+        if(url.indexOf(validTLDs[i]) > -1)
+        {
+            isValid = true;
+        }
+    }
+    return isValid;
 }
