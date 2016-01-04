@@ -921,6 +921,7 @@ function loadProjectDashboard()
                         var runDate = entry.runDate;
                         var percentComplete = parseFloat(entry.percentComplete);
                         var projectTitle = entry.projectTitle;
+                        var completionEstimate = entry.completionEstimate;
                         
                         var cardHTML = "";
                         var ulHTMLBefore = "";
@@ -961,6 +962,7 @@ function loadProjectDashboard()
                             cardHTML += "<h2>REVEALED</h2>\n";
                             cardHTML += "</div>\n";
                             cardHTML += "<div class=\"card-box-bottom\">\n";
+                            cardHTML += "<div style=\"color:#ffffff;\">&nbsp;</div>";
                             cardHTML += "<div class=\"project-date-card date_sort\"><i class=\"eagle-icon\"></i>"+runDate+"</div>\n";
                             cardHTML += "<a href=\"report.html?pid="+projectID+"\" class=\"project-status-card  project_status_sort\"> VIEW REPORT </a>\n";
                             cardHTML += "</div>\n";
@@ -981,6 +983,7 @@ function loadProjectDashboard()
                             cardHTML += "</div>\n";
                             cardHTML += "</div>\n";
                             cardHTML += "<div class=\"card-box-bottom\">\n";
+                            cardHTML += "<div style=\"color:#242021;margin-top:5px;\">"+completionEstimate+"&nbsp;&nbsp;&nbsp;&nbsp;<font class=\"footnote\">?<span class=\"footnotetooltip\">Why does this take so long? Our system is currently crawling the web in real-time to ensure that we are gathering the freshest, most accurate and most complete data.</span></font></div>";
                             cardHTML += "<div class=\"progress\">\n";
                             cardHTML += "<div class=\"progress-bar\" role=\"progressbar\" aria-valuenow=\""+percentComplete+"\" aria-valuemin=\"0\" aria-valuemax=\"100\" style=\"width:"+percentComplete+"%\">\n";
                             cardHTML += "<span class=\"sr-only\">"+percentComplete+"% Complete</span>\n";
@@ -1207,7 +1210,6 @@ function loadProjectData()
                     var directoryCount = Math.ceil(parseFloat(entry.directory)/1);
                     var forumCount = Math.ceil(parseFloat(entry.forum)/1);
                     var imageCount = Math.ceil(parseFloat(entry.image)/1);
-                    var infographicsCount = 0;
                     var ecommerceCount = Math.ceil(parseFloat(entry.ecommerce)/1);
                     var wikiCount = Math.ceil(parseFloat(entry.wiki)/1);
                     var socialCount = Math.ceil(parseFloat(entry.socialNetwork)/1);
@@ -1222,6 +1224,10 @@ function loadProjectData()
                     var universityCount = Math.ceil(parseFloat(entry.university)/1);
                     var personalSiteCount = Math.ceil(parseFloat(entry.personalSite)/1);
                     var corporateCount = Math.ceil(parseFloat(entry.corporate)/1);
+                    var infographicsCount = 0;
+                        //Instead of infographics, we're going to take the monthly competitor count, subtract the categorized content, and set unclassified equal to the result
+                        infographicsCount = Math.max(0,competitorMonthlyNum-(blogCount+pressReleaseCount+directoryCount+forumCount+imageCount+ecommerceCount+wikiCount+socialCount+searchEngineCount+portalCount+newsCount+genericCount+adultCount+gamblingCount+warezCount+govCount+universityCount+personalSiteCount+corporateCount));
+                    
                     
                     //Update the elements on the report
                     if( $('#reportTitleSmall').length ) { $('#reportTitleSmall').html('> '+projectTitle); }

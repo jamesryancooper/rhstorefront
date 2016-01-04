@@ -184,3 +184,7 @@ cursor:pointer;
     cursor:pointer;
     color:#ec1c24;
 }
+
+.footnote {color:#ec1c24;cursor:pointer;}
+.footnote:hover .footnotetooltip {display:block;}
+.footnotetooltip {font-size:12px;display:none;color:#000000;border:1px solid #242021;background:#D8D8D8;margin-left:250px;margin-top:-175px;padding:5px;position:absolute;z-index:998;width:200px;}
