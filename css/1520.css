@@ -176,3 +176,11 @@ cursor:pointer;
     border: 4px solid #242021;
     display: none;
 }
+
+#refresh-report-button {
+    color:#242021;
+}
+#refresh-report-button:hover {
+    cursor:pointer;
+    color:#ec1c24;
+}
