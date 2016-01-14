@@ -666,11 +666,13 @@ function createRankHackerProject(competitorURL)
 {
     competitorURL = encodeURI(competitorURL);
     
-    var username = getCookie("username");
+    /*var username = getCookie("username");
     if(username == "")
     {
         username = "guest";
-    }
+    }*/
+    var username = "guest";
+    
     getSessionID(function(sessionID){
         
         document.cookie = "session_id="+sessionID;
