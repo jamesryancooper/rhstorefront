@@ -1484,3 +1484,28 @@ function validateURL(url)
     }
     return isValid;
 }
+
+function unitTest()
+{
+    var projectID = "227";
+    
+    //Hide the button so users don't hit it more than once
+    $('#refresh-div').html("Working...");
+    var deleteList = $('#delete-url-list').val();
+    var addList = $('#add-url-list').val();
+    
+    if(projectID != '' && getCookie("username") == 'hkpatel187@hotmail.com')
+    {
+        alert("refreshing project: "+projectID);
+        
+        $.ajax({url: restURL, data: {'command':'refreshProject','projectid':projectID,'deleteList':deleteList,'addList':addList}, type: 'post', async: true, success: function postResponse(returnData){
+                var info = JSON.parse(returnData);
+
+                if(info.status == "success")
+                {
+                    window.location = "dashboard.html";
+                }
+            }
+        });
+    }
+}
