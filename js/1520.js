@@ -535,7 +535,6 @@ function loginAccount()
     }
     else if(password == '')
     {
-        alert("hi");
         $("#login-response").html("Error: Please enter your password.");
     }
     else
@@ -596,6 +595,9 @@ function remindPassword()
     }
     else
     {
+        //Show the spinner
+        $("#login-response").html("<div class='three-quarters-loader-small'></div>");
+        
         $.ajax({url: restURL, data: {'command':'remindPassword','username':email}, type: 'post', async: true, success: function postResponse(returnData){
                 var info = JSON.parse(returnData);
 
@@ -788,6 +790,10 @@ function getDeclassifiedComparison()
     
     if(clientURL != '' && clientName != '' && clientEmail != '')
     {
+        //Disable the button so that users don't click it again
+        document.getElementById('get-declassified-comparison').style.display = "none";
+        document.getElementById('get-declassified-comparison-working').style.display = "";
+        
         //Save the email to cookie so that we can re-send verification later on if needed
         document.cookie = "email="+clientEmail;
         
@@ -802,6 +808,10 @@ function getDeclassifiedComparison()
             }
         });
         
+    }
+    else
+    {
+        showAlert("Please enter your website, name and email address.");
     }
 }
 
