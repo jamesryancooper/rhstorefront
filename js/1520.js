@@ -1254,9 +1254,30 @@ function loadProjectData()
                     $('#clientCountAnnual').html(numberWithCommas(clientTotalNum));
                     $('#clientCountMonthly').html(numberWithCommas(clientMonthlyNum));
                     $('#clientCountWeekly').html(numberWithCommas(clientWeeklyNum));
-                    $('#clientDeficiencyAnnual').html(numberWithCommas(clientTotalNum - competitorTotalNum));
-                    $('#clientDeficiencyMonthly').html(numberWithCommas(clientMonthlyNum - competitorMonthlyNum));
-                    $('#clientDeficiencyWeekly').html(numberWithCommas(clientWeeklyNum - competitorWeeklyNum));
+                    
+                        var clientDeficiencyAnnual = clientTotalNum - competitorTotalNum;
+                        var annualSign = "";
+                        if(clientDeficiencyAnnual > 0)
+                        {
+                            annualSign = "+";
+                        }
+                        var clientDeficiencyMonthly = clientMonthlyNum - competitorMonthlyNum;
+                        var monthlySign = "";
+                        if(clientDeficiencyMonthly > 0)
+                        {
+                            monthlySign = "+";
+                        }
+                        var clientDeficiencyWeekly = clientWeeklyNum - competitorWeeklyNum;
+                        var weeklySign = "";
+                        if(clientDeficiencyWeekly > 0)
+                        {
+                            weeklySign = "+";
+                        }
+                    $('#clientDeficiencyAnnual').html(annualSign+numberWithCommas(clientDeficiencyAnnual));
+                    $('#clientDeficiencyMonthly').html(monthlySign+numberWithCommas(clientDeficiencyMonthly));
+                    $('#clientDeficiencyWeekly').html(weeklySign+numberWithCommas(clientDeficiencyWeekly));
+                    
+                    
                     $('#blogCount').html(numberWithCommas(blogCount));
                     $('#pressReleaseCount').html(numberWithCommas(pressReleaseCount));
                     $('#directoryCount').html(numberWithCommas(directoryCount));
