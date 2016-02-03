@@ -1440,6 +1440,10 @@ padding: 0 0;
   width: 100%;
 }
 
+.rt-bottom-section h3 {
+  color: #b0b0b0;
+}
+
 .rt-bottom-section {
   display: table;
   margin:0 auto !important;
@@ -1472,7 +1476,7 @@ padding: 0 0;
   line-height: normal;
   margin: 25px 0 0;
   padding: 0;
-  text-align: left;
+  text-align: center;
   width: 100%;
 }
 
