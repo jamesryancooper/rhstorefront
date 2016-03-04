@@ -243,6 +243,33 @@
         </div>
     </div>
 </div>
+
+<div id="login-window" class="login-window">
+    <div class="row">
+        <div class="col-lg-12 text-center">
+            <ul>
+                <li class="login-input-outer"><input id="user-email" type="email" required placeholder="E-MAIL ADDRESS"></li>
+                <li class="login-input-outer"><input id="user-password" type="password" required placeholder="PASSWORD"></li>
+            </ul>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-12 text-center">
+            <a class="cancel-login-btn" id="login_cancel_button" onclick="hideLogin();">CANCEL</a>
+            <a class="submit-login-btn" id="login_submit_button" onclick="loginAccount();">LOGIN</a>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-12 text-center">
+            <a class="remind-link" id="password_remind_button" onclick="remindPassword();">REMIND ME</a>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-12 text-center"><br/>
+            <span id="login-response" class="login-response">It looks like you've already registered. Please log in to access your dashboard.</span>
+        </div>
+    </div>
+</div>
     
 </section>
 

@@ -803,7 +803,14 @@ function getDeclassifiedComparison()
 
                 if(info.status == "success")
                 {
-                    window.location = "declassify.html";
+                    if(info.existing == "false")
+                    {
+                        window.location = "declassify.html";
+                    }
+                    else
+                    {
+                        showLogin();
+                    }
                 }
             }
         });
@@ -1259,23 +1266,156 @@ function loadProjectData()
                         var annualSign = "";
                         if(clientDeficiencyAnnual > 0)
                         {
+                            $("#clientCountAnnual").removeClass("red-text");
+                            $("#clientCountAnnual").addClass("green-text");
+                            $("#clientDeficiencyAnnual").removeClass("rt-box-competitors");
+                            $("#clientDeficiencyAnnual").addClass("rt-box-competitors-green");
                             annualSign = "+";
                         }
                         var clientDeficiencyMonthly = clientMonthlyNum - competitorMonthlyNum;
                         var monthlySign = "";
                         if(clientDeficiencyMonthly > 0)
                         {
+                            $("#clientCountMonthly").removeClass("red-text");
+                            $("#clientCountMonthly").addClass("green-text");
+                            $("#clientDeficiencyMonthly").removeClass("rt-box-competitors");
+                            $("#clientDeficiencyMonthly").addClass("rt-box-competitors-green");
                             monthlySign = "+";
                         }
                         var clientDeficiencyWeekly = clientWeeklyNum - competitorWeeklyNum;
                         var weeklySign = "";
                         if(clientDeficiencyWeekly > 0)
                         {
+                            $("#clientCountWeekly").removeClass("red-text");
+                            $("#clientCountWeekly").addClass("green-text");
+                            $("#clientDeficiencyWeekly").removeClass("rt-box-competitors");
+                            $("#clientDeficiencyWeekly").addClass("rt-box-competitors-green");
                             weeklySign = "+";
                         }
                     $('#clientDeficiencyAnnual').html(annualSign+numberWithCommas(clientDeficiencyAnnual));
                     $('#clientDeficiencyMonthly').html(monthlySign+numberWithCommas(clientDeficiencyMonthly));
                     $('#clientDeficiencyWeekly').html(weeklySign+numberWithCommas(clientDeficiencyWeekly));
+                    
+                    if(blogCount == 0)
+                    {
+                        $("#blogLI").addClass("gray-text");
+                        $("#blogCount").removeClass("dark-gray-box");
+                        $("#blogCount").addClass("gray-box");
+                    }
+                    if(pressReleaseCount == 0)
+                    {
+                        $("#pressReleaseLI").addClass("gray-text");
+                        $("#pressReleaseCount").removeClass("dark-gray-box");
+                        $("#pressReleaseCount").addClass("gray-box");
+                    }
+                    if(directoryCount == 0)
+                    {
+                        $("#directoryLI").addClass("gray-text");
+                        $("#directoryCount").removeClass("dark-gray-box");
+                        $("#directoryCount").addClass("gray-box");
+                    }
+                    if(forumCount == 0)
+                    {
+                        $("#forumLI").addClass("gray-text");
+                        $("#forumCount").removeClass("dark-gray-box");
+                        $("#forumCount").addClass("gray-box");
+                    }
+                    if(imageCount == 0)
+                    {
+                        $("#imageLI").addClass("gray-text");
+                        $("#imageCount").removeClass("dark-gray-box");
+                        $("#imageCount").addClass("gray-box");
+                    }
+                    if(infographicsCount == 0)
+                    {
+                        $("#infographicsLI").addClass("gray-text");
+                        $("#infographicsCount").removeClass("dark-gray-box");
+                        $("#infographicsCount").addClass("gray-box");
+                    }
+                    if(ecommerceCount == 0)
+                    {
+                        $("#ecommerceLI").addClass("gray-text");
+                        $("#ecommerceCount").removeClass("dark-gray-box");
+                        $("#ecommerceCount").addClass("gray-box");
+                    }
+                    if(wikiCount == 0)
+                    {
+                        $("#wikiLI").addClass("gray-text");
+                        $("#wikiCount").removeClass("dark-gray-box");
+                        $("#wikiCount").addClass("gray-box");
+                    }
+                    if(socialCount == 0)
+                    {
+                        $("#socialLI").addClass("gray-text");
+                        $("#socialCount").removeClass("dark-gray-box");
+                        $("#socialCount").addClass("gray-box");
+                    }
+                    if(searchEngineCount == 0)
+                    {
+                        $("#searchEngineLI").addClass("gray-text");
+                        $("#searchEngineCount").removeClass("dark-gray-box");
+                        $("#searchEngineCount").addClass("gray-box");
+                    }
+                    if(portalCount == 0)
+                    {
+                        $("#portalLI").addClass("gray-text");
+                        $("#portalCount").removeClass("dark-gray-box");
+                        $("#portalCount").addClass("gray-box");
+                    }
+                    if(newsCount == 0)
+                    {
+                        $("#newsLI").addClass("gray-text");
+                        $("#newsCount").removeClass("dark-gray-box");
+                        $("#newsCount").addClass("gray-box");
+                    }
+                    if(genericCount == 0)
+                    {
+                        $("#genericLI").addClass("gray-text");
+                        $("#genericCount").removeClass("dark-gray-box");
+                        $("#genericCount").addClass("gray-box");
+                    }
+                    if(adultCount == 0)
+                    {
+                        $("#adultLI").addClass("gray-text");
+                        $("#adultCount").removeClass("dark-gray-box");
+                        $("#adultCount").addClass("gray-box");
+                    }
+                    if(gamblingCount == 0)
+                    {
+                        $("#gamblingLI").addClass("gray-text");
+                        $("#gamblingCount").removeClass("dark-gray-box");
+                        $("#gamblingCount").addClass("gray-box");
+                    }
+                    if(warezCount == 0)
+                    {
+                        $("#warezLI").addClass("gray-text");
+                        $("#warezCount").removeClass("dark-gray-box");
+                        $("#warezCount").addClass("gray-box");
+                    }
+                    if(govCount == 0)
+                    {
+                        $("#govLI").addClass("gray-text");
+                        $("#govCount").removeClass("dark-gray-box");
+                        $("#govCount").addClass("gray-box");
+                    }
+                    if(universityCount == 0)
+                    {
+                        $("#universityLI").addClass("gray-text");
+                        $("#universityCount").removeClass("dark-gray-box");
+                        $("#universityCount").addClass("gray-box");
+                    }
+                    if(personalSiteCount == 0)
+                    {
+                        $("#personalSiteLI").addClass("gray-text");
+                        $("#personalSiteCount").removeClass("dark-gray-box");
+                        $("#personalSiteCount").addClass("gray-box");
+                    }
+                    if(corporateCount == 0)
+                    {
+                        $("#corporateLI").addClass("gray-text");
+                        $("#corporateCount").removeClass("dark-gray-box");
+                        $("#corporateCount").addClass("gray-box");
+                    }
                     
                     
                     $('#blogCount').html(numberWithCommas(blogCount));
@@ -1468,14 +1608,14 @@ function shareReport()
     var jsonData = $('#json').val();
     if(projectID != '')
     {
-        $("#share-response").html("<div class='three-quarters-loader-small'></div>");
+        $("#share-response").html("<div class='three-quarters-loader-small'></div><br/>Generating report...");
         
         $.ajax({url: restURL, data: {'command':'shareReport','json':jsonData,'recipient':recipient}, type: 'post', async: true, success: function postResponse(returnData){
                 var info = JSON.parse(returnData);
 
                 if(info.status == "success")
                 {
-                    $('#share-response').html("Your report will be emailed to the addresses provided above.");
+                    $('#share-response').html("Your report has been be emailed to the addresses provided above.");
                     
                     document.getElementById('share_close_button').style.display = 'block';
                     document.getElementById('share_cancel_button').style.display = 'none';

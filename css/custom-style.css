@@ -474,6 +474,7 @@ margin-top: 25px;
 }
 
 .red-text {color:#ec1c24 !important;}
+.green-text {color:#1ac149 !important;}
 
 
 
@@ -747,6 +748,23 @@ white-space: nowrap;
 width: 100%;
 }
 
+.rt-box-competitors-green {
+background-color: #6d6e70;
+border: 3px solid transparent;
+color: #fff;
+float: left;
+font-family: 'Nixie One', cursive;
+font-size: 30px;
+font-weight: bold;
+height: 40px;
+line-height: 35px;
+margin: 0 0 2px;
+overflow: hidden;
+padding: 0;
+white-space: nowrap;
+width: 100%;
+}
+
 .heading-ct {
   color: #231f20;
   float: left;
@@ -795,6 +813,12 @@ color: #1874bd;
 .content-section .rt-box-competitors {
 background-color: transparent;
 border: 3px solid #ec1c24 ;
+color: #231f20;
+}
+
+.content-section .rt-box-competitors-green {
+background-color: transparent;
+border: 3px solid #1ac149 ;
 color: #231f20;
 }
 
@@ -1141,6 +1165,12 @@ transform:skew(8deg) rotate(3deg);
   line-height: 105px;
 }
 
+.report-boxs .rt-box-competitors-green {
+  font-size: 6.5em;
+  height: 110px;
+  line-height: 105px;
+}
+
 .report-boxs  .heading-ct {
   font-size: 1.5em;
   margin: 5px 0 0;
@@ -1339,7 +1369,7 @@ padding: 0 0;
   font-family: 'Montserrat', sans-serif;
 }
 
-.report-tags li span {
+/*.report-tags li span {
   background: #6d6e70 none repeat scroll 0 0;
   color: #fff;
   float: left;
@@ -1351,7 +1381,7 @@ padding: 0 0;
   margin: 0 15px 0 0;
   min-width: 50px;
   text-align: center;
-}
+}*/
 
 
 
@@ -1675,7 +1705,24 @@ padding: 0 0;
   margin: 0 0 2px;
 }
 
+.rt-info-outer .left-side-cci .rt-box-competitors-green {
+  background-color: #231f20;
+  font-family: "Nixie One",cursive;
+  font-size: 12em;
+  height: auto;
+  line-height: normal;
+  margin: 0 0 2px;
+}
+
 .rt-info-outer .right-side-cci .rt-box-competitors {
+  font-family: "Nixie One",cursive;
+  font-size: 6em;
+  height: auto;
+  line-height: normal;
+  margin: 0 0 2px;
+}
+
+.rt-info-outer .right-side-cci .rt-box-competitors-green {
   font-family: "Nixie One",cursive;
   font-size: 6em;
   height: auto;
@@ -2388,4 +2435,36 @@ input:focus { box-shadow:0 0 0 transparent !important; outline:none;}
 
 .valid input.fname {
 border-color:#26A9E0;
+}
+
+.gray-text {
+    color:#d9d9d9;
+}
+
+.dark-gray-box {
+  background: #6d6e70 none repeat scroll 0 0;
+  color: #fff;
+  float: left;
+  font-family: "Nixie One",cursive;
+  font-size: 50px;
+  font-weight: normal;
+  height: 50px;
+  line-height: 50px;
+  margin: 0 15px 0 0;
+  min-width: 50px;
+  text-align: center;
+}
+
+.gray-box {
+  background: #d9d9d9 none repeat scroll 0 0;
+  color: #fff;
+  float: left;
+  font-family: "Nixie One",cursive;
+  font-size: 50px;
+  font-weight: normal;
+  height: 50px;
+  line-height: 50px;
+  margin: 0 15px 0 0;
+  min-width: 50px;
+  text-align: center;
 }
