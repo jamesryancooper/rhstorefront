@@ -1,7 +1,7 @@
 var restURL = "http://fairmarketing.cloudapp.net/rest1.0/endpoint.jsp?"
 var downloadURL = "http://fairmarketing.cloudapp.net/rest1.0/servlet/ssd.DownloadInventoryReport?"
-//var khURL = "http://fairmarketing.cloudapp.net/rhkeywordhacker/";
-var khURL = "http://localhost:8383/rhkeywordhacker/";
+var khURL = "http://fairmarketing.cloudapp.net/rhkeywordhacker/";
+//var khURL = "http://localhost:8383/rhkeywordhacker/";
 //var restURL = "http://localhost:8084/rest1.0/endpoint.jsp?"
 //var downloadURL = "http://localhost:8084/rest1.0/servlet/ssd.DownloadInventoryReport"
 
