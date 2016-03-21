@@ -920,7 +920,7 @@ function loadProjectDashboard()
 {
     var username = getCookie("username");
     if(username != '')
-    {    
+    {
         $.ajax({url: restURL, data: {'command':'getProjectDashboardData','username':username}, type: 'post', async: true, success: function postResponse(returnData){
                 var info = JSON.parse(returnData);
 
