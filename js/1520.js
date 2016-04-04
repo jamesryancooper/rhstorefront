@@ -981,8 +981,8 @@ function loadProjectDashboard()
                             cardHTML += "<li class=\"col-lg-5 text-left\">THEM</li>\n";
                             cardHTML += "</ul>\n";
                             cardHTML += "<h2>REVEALED</h2>\n";
-                            cardHTML += "<div style=\"padding:10px;margin-top:40px;\"><a class=\"cancel-login-btn\" style=\"font-size:14px;\" id=\"ch_project_button\">GET CONTENT</a>\n";
-                            cardHTML += "<a class=\"submit-login-btn\" style=\"font-size:14px;\" id=\"kh_project_button\" onclick=\"gotoKHCreateProject('"+projectTitle+"');\">GET KEYWORDS</a></div>\n";
+                            cardHTML += "<div style=\"padding:10px;margin-top:40px;\"><!--<a class=\"cancel-login-btn\" style=\"font-size:14px;\" id=\"ch_project_button\">GET CONTENT</a>-->\n";
+                            cardHTML += "<!--<a class=\"submit-login-btn\" style=\"font-size:14px;\" id=\"kh_project_button\" onclick=\"gotoKHCreateProject('"+projectTitle+"');\">GET KEYWORDS</a>--></div>\n";
                             cardHTML += "</div>\n";
                             cardHTML += "<div class=\"card-box-bottom\">\n";
                             cardHTML += "<div style=\"color:#ffffff;\">&nbsp;</div>";
