@@ -1687,5 +1687,8 @@ function unitTest()
 
 function gotoKHCreateProject(projectURL)
 {
-    window.location = khURL+"createproject.html?url="+projectURL;
+    var username = getCookie("username");
+    var fullname = getCookie("userFullName");
+    var destination = "createproject";
+    window.location = khURL+"auto_auth.html?username="+username+"&fullname="+fullname+"&destination="+destination;
 }
