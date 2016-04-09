@@ -934,6 +934,40 @@ function loadProjectDashboard()
                     
                     var finalOutput = "";
                     var colCounter = 0;
+                    
+                    var cardHTML = "";
+                    var ulHTMLBefore = "";
+                    var ulHTMLAfter = "";
+                    if(colCounter == 0)
+                    {
+                        //Create a new row
+                        ulHTMLBefore = "<ul class=\"row\">\n";
+                        ulHTMLAfter = "";
+                    }
+                    else if(colCounter == 2)
+                    {
+                        //terminate the row
+                        ulHTMLBefore = "";
+                        ulHTMLAfter = "</ul>\n";
+                    }
+                    else
+                    {
+                        //No row HTML needed
+                        ulHTMLBefore = "";
+                        ulHTMLAfter = "";
+                    }
+
+                    //Create the Activate New Report card
+                    cardHTML += "<li class=\"col-lg-4 matchheight\">\n";
+                    cardHTML += "<div class=\"project-cart-box box-shadow-ot\">\n";
+                    cardHTML += "<div class=\"active-link-outer\"><span class=\"active-new-project-link\" style=\"padding-top:210px;padding-bottom:178px;\"> <a style=\"cursor:pointer;\" onclick=\"javascript:window.location='create-report.html';\">[ Activate Content Hacker ]</a> </span></div>";
+                    cardHTML += "</div>\n";
+                    cardHTML += "</li>";
+
+                    finalOutput += ulHTMLBefore+cardHTML+ulHTMLAfter;
+                    colCounter++;
+                    
+                    //Now add in the other cards
                     for(var i=0; i<numProjects; i++)
                     {
                         var entry = info.data[i];
@@ -944,9 +978,9 @@ function loadProjectDashboard()
                         var projectTitle = entry.projectTitle;
                         var completionEstimate = entry.completionEstimate;
                         
-                        var cardHTML = "";
-                        var ulHTMLBefore = "";
-                        var ulHTMLAfter = "";
+                        cardHTML = "";
+                        ulHTMLBefore = "";
+                        ulHTMLAfter = "";
                         if(colCounter == 0)
                         {
                             //Create a new row
@@ -965,6 +999,8 @@ function loadProjectDashboard()
                             ulHTMLBefore = "";
                             ulHTMLAfter = "";
                         }
+                        
+                        //Create the Activate New Report card
                         
                         //Create a card and add it to the div
                         if(percentComplete == 100)
