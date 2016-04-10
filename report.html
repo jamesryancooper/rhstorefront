@@ -113,9 +113,9 @@
         <!-- LOGO CONTAINER -->
         <div class="logo-cont logo-outer"><a class="navbar-brand" data-text="RANKHACKER" style="cursor:pointer;" href="dashboard.html"><img src="images/logo-main.png" alt="site-logo"> </a></div>
         <!--<div class="dashboard-status"><i class="white_eagle-rh"></i><a style="cursor:default;">Dashboard Activated</a></div>-->
-        <div class="dashboard-status"><img src="images/keyword-hacker-icon-white.png" alt="kwhacker" class="module-icon" style="opacity:0.6;"><a class="module-icon-label" style="opacity:0.6;">Keyword Hacker</a></div>
-        <div class="dashboard-status"><img src="images/content-hacker-icon-white.png" alt="contenthacker" class="module-icon"><a class="module-icon-label">Content Hacker</a></div>
-
+        <!--<div class="dashboard-status"><img src="images/keyword-hacker-icon-white.png" alt="kwhacker" class="module-icon" style="opacity:0.6;"><a class="module-icon-label" style="opacity:0.6;">Keyword Hacker</a></div>
+        <div class="dashboard-status"><img src="images/content-hacker-icon-white.png" alt="contenthacker" class="module-icon"><a class="module-icon-label">Content Hacker</a></div>-->
+        <div class="dashboard-status"><img src="images/keyword-hacker-icon-white.png" alt="kwhacker" class="module-icon" style="cursor:pointer;" onclick="gotoKHDashboard();"><a class="module-icon-label" style="cursor:pointer;" onclick="gotoKHDashboard();">Missions</a></div>
 
         <!-- header_right side start here -->
         <div class="pull-right header-right-side">
@@ -155,9 +155,9 @@
                         </div>
                         <div class="col-lg-6 rh-actions-menu pull-right">
                             <ul>
-                                <li>
+                                <!--<li>
                                     <button id="create-new-project" class="btn btn-orange btn-round" onclick="javascript:window.location='create-report.html';"><i class="fa fa-plus"></i><span>Create New Report</span></button>
-                                </li>
+                                </li>-->
 
                                 <li>
                                     <a onclick="downloadReport();" style="cursor:pointer;" data-content="Download a PDF of this report." data-placement="top" data-trigger="hover" data-toggle="popover" data-container="body"><i class="fa fa-download"></i></a>

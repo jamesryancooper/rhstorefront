@@ -1728,3 +1728,11 @@ function gotoKHCreateProject(projectURL)
     var destination = "createproject";
     window.location = khURL+"auto_auth.html?username="+username+"&fullname="+fullname+"&destination="+destination;
 }
+
+function gotoKHDashboard(projectURL)
+{
+    var username = getCookie("username");
+    var fullname = getCookie("userFullName");
+    var destination = "dashboard";
+    window.location = khURL+"auto_auth.html?username="+username+"&fullname="+fullname+"&destination="+destination;
+}
