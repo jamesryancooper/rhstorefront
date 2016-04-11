@@ -919,9 +919,16 @@ function resendVerification()
 function loadProjectDashboard()
 {
     var username = getCookie("username");
+    var projectURL = getURLParameter("purl");
+    var urlToFilter = "";
+    if(typeof projectURL !== "undefined")
+    {
+        urlToFilter = decodeURIComponent(projectURL);
+    }
+    
     if(username != '')
     {
-        $.ajax({url: restURL, data: {'command':'getProjectDashboardData','username':username}, type: 'post', async: true, success: function postResponse(returnData){
+        $.ajax({url: restURL, data: {'command':'getProjectDashboardData','username':username,'urltofilter':urlToFilter}, type: 'post', async: true, success: function postResponse(returnData){
                 var info = JSON.parse(returnData);
 
                 if(info.status == "success")

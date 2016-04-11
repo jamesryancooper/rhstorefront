@@ -8,8 +8,15 @@ function authorizeUser()
     var username = getURLParameter("username");
     var userFullName = getURLParameter("fullname");
     var destURL = getURLParameter("destination");
+    var projectURL = getURLParameter("projecturl");
+    var qs = "";
+    if(typeof projectURL !== "undefined")
+    {
+        qs = "?purl="+projectURL;
+    }
+    
     
     document.cookie = "username="+username;
     document.cookie = "userFullName="+userFullName;
-    window.location = destURL+".html";
+    window.location = destURL+".html"+qs;
 }
