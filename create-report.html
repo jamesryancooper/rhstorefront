@@ -323,6 +323,7 @@
     {
         var userFullName = getCookie("userFullName");
         var projectID = getURLParameter("pid");
+        var projectURL = getURLParameter("purl");
         var clientURL = getURLParameter("c0");
         var competitor1 = getURLParameter("c1");
         var competitor2 = getURLParameter("c2");
@@ -330,32 +331,42 @@
         var competitor4 = getURLParameter("c4");
         var competitor5 = getURLParameter("c5");
         
-        if(typeof projectID !== "undefined")
+        if(typeof projectURL !== "undefined" || projectURL !== null)
+        {
+            clientURL = projectURL;
+        }
+        
+        if(typeof projectID !== "undefined" || projectID !== null)
         {
             $("#close-button").attr("href", khURL+"keywordhacker.html?pid="+projectID);
         }
+        if(typeof clientURL !== "undefined" || clientURL !== null)
+        {
+            $("#close-button").attr("href", khURL+"dashboard.html");
+        }
         
-        if(typeof clientURL !== "undefined")
+        
+        if(typeof clientURL !== "undefined" && clientURL !== null)
         {
             $("#client-url").val(decodeURIComponent(clientURL));
         }
-        if(typeof competitor1 !== "undefined")
+        if(typeof competitor1 !== "undefined" && competitor1 !== null)
         {
             $("#competitor-url-1").val(decodeURIComponent(competitor1));
         }
-        if(typeof competitor2 !== "undefined")
+        if(typeof competitor2 !== "undefined" && competitor2 !== null)
         {
             $("#competitor-url-2").val(decodeURIComponent(competitor2));
         }
-        if(typeof competitor3 !== "undefined")
+        if(typeof competitor3 !== "undefined" && competitor3 !== null)
         {
             $("#competitor-url-3").val(decodeURIComponent(competitor3));
         }
-        if(typeof competitor4 !== "undefined")
+        if(typeof competitor4 !== "undefined" && competitor4 !== null)
         {
             $("#competitor-url-4").val(decodeURIComponent(competitor4));
         }
-        if(typeof competitor5 !== "undefined")
+        if(typeof competitor5 !== "undefined" && competitor5 !== null)
         {
             $("#competitor-url-5").val(decodeURIComponent(competitor5));
         }

@@ -9,11 +9,6 @@ function authorizeUser()
     var userFullName = getURLParameter("fullname");
     var destURL = getURLParameter("destination");
     var projectURL = getURLParameter("projecturl");
-    var qs = "";
-    if(typeof projectURL !== "undefined")
-    {
-        qs = "?purl="+projectURL;
-    }
     
     var projectID = getURLParameter("pid");
     var clientURL = getURLParameter("client");
@@ -23,7 +18,16 @@ function authorizeUser()
     var competitor4 = getURLParameter("c4");
     var competitor5 = getURLParameter("c5");
     
-    if(typeof projectID !== "undefined")
+    var qs = "";
+    if(typeof projectURL !== "undefined" && projectURL !== "null" && projectURL !== null)
+    {
+        qs = "?purl="+projectURL;
+    }
+    if(typeof clientURL !== "undefined" && clientURL !== "null" && clientURL !== null)
+    {
+        qs = "?purl="+clientURL;
+    }
+    if(typeof projectID !== "undefined" && projectID !== "null" && projectID !== null)
     {
         qs = "?pid="+projectID+"&c0="+clientURL+"&c1="+competitor1+"&c2="+competitor2+"&c3="+competitor3+"&c4="+competitor4+"&c5="+competitor5;
     }
