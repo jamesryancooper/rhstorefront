@@ -144,7 +144,7 @@
                     <h3 class="bread-comb-outer"><a href="dashboard.html" style="color:#000000;">YOUR REPORTS</a> <span>&gt;  NEW REPORT</span></h3>
 
                     <div class="row-v-spacing create-new-report">
-                        <div class="close-btn"><a href="dashboard.html">X</a></div>
+                        <div class="close-btn"><a id="close-button" href="dashboard.html">X</a></div>
                         <h2 class="text-center new-report-heading">Create a new comparison report</h2>
 
                         <div class="inventory-inputs-outer">
@@ -322,6 +322,44 @@
     function run()
     {
         var userFullName = getCookie("userFullName");
+        var projectID = getURLParameter("pid");
+        var clientURL = getURLParameter("c0");
+        var competitor1 = getURLParameter("c1");
+        var competitor2 = getURLParameter("c2");
+        var competitor3 = getURLParameter("c3");
+        var competitor4 = getURLParameter("c4");
+        var competitor5 = getURLParameter("c5");
+        
+        if(typeof projectID !== "undefined")
+        {
+            $("#close-button").attr("href", khURL+"keywordhacker.html?pid="+projectID);
+        }
+        
+        if(typeof clientURL !== "undefined")
+        {
+            $("#client-url").val(decodeURIComponent(clientURL));
+        }
+        if(typeof competitor1 !== "undefined")
+        {
+            $("#competitor-url-1").val(decodeURIComponent(competitor1));
+        }
+        if(typeof competitor2 !== "undefined")
+        {
+            $("#competitor-url-2").val(decodeURIComponent(competitor2));
+        }
+        if(typeof competitor3 !== "undefined")
+        {
+            $("#competitor-url-3").val(decodeURIComponent(competitor3));
+        }
+        if(typeof competitor4 !== "undefined")
+        {
+            $("#competitor-url-4").val(decodeURIComponent(competitor4));
+        }
+        if(typeof competitor5 !== "undefined")
+        {
+            $("#competitor-url-5").val(decodeURIComponent(competitor5));
+        }
+        
         $('#create-report-user-full-name').html(userFullName);
     }
 
