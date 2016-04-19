@@ -26,8 +26,8 @@
     ============================== -->
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet">
     <link href="css/rankhacker.css" rel="stylesheet" type="text/css">
-    <link href="css/custom-style.css?v=1" rel="stylesheet" type="text/css">
-    <link href="css/1520.css?v=1" rel="stylesheet" type="text/css">
+    <link href="css/custom-style.css?v=2" rel="stylesheet" type="text/css">
+    <link href="css/1520.css?v=2" rel="stylesheet" type="text/css">
 
     <!-- =========================
          INTERNET EXPLORER FIXES
@@ -261,7 +261,7 @@
 <script type="text/javascript" src="js/rankhacker.scripts.js"></script>
 
 <!-- FIFTEEN TWENTY HOLDINGS SCRIPTS -->
-<script type="text/javascript" src="js/1520.js?v=1"></script>
+<script type="text/javascript" src="js/1520.js?v=2"></script>
 <!--<script type="text/javascript" src="https://api.userinfo.io/userinfos?jsonp_callback=userInfoCallback"></script>-->
 
 <script src="js/jquery.matchHeight-min.js"></script>
@@ -336,11 +336,14 @@
             clientURL = projectURL;
         }
         
-        if(typeof projectID !== "undefined" || projectID !== null)
+        console.log(projectID);
+        
+        if(typeof projectID !== "undefined" && projectID !== null)
         {
             $("#close-button").attr("href", khURL+"keywordhacker.html?pid="+projectID);
         }
-        if(typeof clientURL !== "undefined" || clientURL !== null)
+        //if(typeof clientURL !== "undefined" || clientURL !== null)
+        else
         {
             $("#close-button").attr("href", khURL+"dashboard.html");
         }
