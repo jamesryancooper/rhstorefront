@@ -925,6 +925,7 @@ function loadProjectDashboard()
     {
         urlToFilter = decodeURIComponent(projectURL);
     }
+    console.log(urlToFilter);
     
     if(username != '')
     {
