@@ -1,7 +1,7 @@
 var restURL = "http://fairmarketing.cloudapp.net/rest1.0/endpoint.jsp?"
 var downloadURL = "http://fairmarketing.cloudapp.net/rest1.0/servlet/ssd.DownloadInventoryReport?"
-var khURL = "http://fairmarketing.cloudapp.net/rhkeywordhacker/";
-//var khURL = "http://localhost:8383/rhkeywordhacker/";
+//var khURL = "http://fairmarketing.cloudapp.net/rhkeywordhacker/";
+var khURL = "http://localhost:8383/rhkeywordhacker/";
 //var restURL = "http://localhost:8084/rest1.0/endpoint.jsp?"
 //var downloadURL = "http://localhost:8084/rest1.0/servlet/ssd.DownloadInventoryReport"
 
@@ -920,10 +920,15 @@ function loadProjectDashboard()
 {
     var username = getCookie("username");
     var projectURL = getURLParameter("purl");
+    var paramString = "";
     var urlToFilter = "";
     if(typeof projectURL !== "undefined")
     {
-        urlToFilter = decodeURIComponent(projectURL);
+        if(projectURL !== "")
+        {
+            urlToFilter = decodeURIComponent(projectURL);
+            paramString = "&purl="+projectURL;
+        }
     }
     
     if(username != '')
@@ -1015,7 +1020,7 @@ function loadProjectDashboard()
                             cardHTML += "<li class=\"col-lg-4 matchheight\">\n";
                             cardHTML += "<div class=\"project-cart-box box-shadow-ot\">\n";
                             cardHTML += "<div class=\"card-header\">\n";
-                            cardHTML += "<h1 class=\"project_name_sort\"><a href=\"report.html?pid="+projectID+"\">"+projectTitle+"</a></h1><br/><br/><div style='text-align:right;float:right;'><a style='cursor:pointer;color:#ec1c24;' onclick=\"confirmDelete('"+projectID+"');\">Delete</a></div>\n";
+                            cardHTML += "<h1 class=\"project_name_sort\"><a href=\"report.html?pid="+projectID+paramString+"\">"+projectTitle+"</a></h1><br/><br/><div style='text-align:right;float:right;'><a style='cursor:pointer;color:#ec1c24;' onclick=\"confirmDelete('"+projectID+"');\">Delete</a></div>\n";
                             cardHTML += "</div>\n";
                             cardHTML += "<div class=\"card-box-detail card-box-detail-outer\">\n";
                             cardHTML += "<ul class=\"you-v-them\">\n";
@@ -1030,7 +1035,7 @@ function loadProjectDashboard()
                             cardHTML += "<div class=\"card-box-bottom\">\n";
                             cardHTML += "<div style=\"color:#ffffff;\">&nbsp;</div>";
                             cardHTML += "<div class=\"project-date-card date_sort\"><i class=\"eagle-icon\"></i>"+runDate+"</div>\n";
-                            cardHTML += "<a href=\"report.html?pid="+projectID+"\" class=\"project-status-card  project_status_sort\"> VIEW REPORT </a>\n";
+                            cardHTML += "<a href=\"report.html?pid="+projectID+paramString+"\" class=\"project-status-card  project_status_sort\"> VIEW REPORT </a>\n";
                             cardHTML += "</div>\n";
                             cardHTML += "</div>\n";
                             cardHTML += "</li>\n";
@@ -1170,6 +1175,14 @@ function createNewReport()
 function loadProjectData()
 {
     var projectID = getURLParameter("pid");
+    var projectURL = getURLParameter("purl");
+    var paramString = "";
+    
+    if(typeof projectURL !== "undefined")
+    {
+        paramString = "&purl="+projectURL;
+    }
+    
     if(projectID != '')
     {
         $.ajax({url: restURL, data: {'command':'getProjectData','projectid':projectID}, type: 'post', async: true, success: function postResponse(returnData){
@@ -1600,9 +1613,7 @@ function refreshReport()
     $('#refresh-div').html("Working...");
     var deleteList = $('#delete-url-list').val();
     var addList = $('#add-url-list').val();
-    
-    console.log("delete: "+deleteList);
-    console.log("add: "+addList);
+    var projectURL = getURLParameter("purl");
     
     var projectID = getURLParameter("pid");
     if(projectID != '')
@@ -1612,7 +1623,14 @@ function refreshReport()
 
                 if(info.status == "success")
                 {
-                    window.location = "dashboard.html";
+                    if(typeof projectURL !== "undefined")
+                    {
+                        window.location = "dashboard.html?purl="+projectURL;
+                    }
+                    else
+                    {
+                        window.location = "dashboard.html";
+                    }
                 }
             }
         });
@@ -1675,6 +1693,8 @@ function shareReport()
 
 function deleteProject(projectID)
 {
+    var purl = getURLParameter("purl");
+    
     if(projectID != '')
     {   
         $.ajax({url: restURL, data: {'command':'deleteProject','projectid':projectID}, type: 'post', async: true, success: function postResponse(returnData){
@@ -1682,7 +1702,22 @@ function deleteProject(projectID)
 
                 if(info.status == "success")
                 {
-                    window.location = "dashboard.html";
+                    if(typeof purl !== "undefined")
+                    {
+                        if(purl !== "")
+                        {
+                            window.location = "dashboard.html?purl="+purl;
+                        }
+                        else
+                        {
+                            window.location = "dashboard.html";
+                        }
+                    }
+                    else
+                    {
+                        window.location = "dashboard.html";
+                    }
+                    
                 }
             }
         });
@@ -1742,4 +1777,17 @@ function gotoKHDashboard(projectURL)
     var fullname = getCookie("userFullName");
     var destination = "dashboard";
     window.location = khURL+"auto_auth.html?username="+username+"&fullname="+fullname+"&destination="+destination;
+}
+
+function closeReport()
+{
+    var projectURL = getURLParameter("purl");
+    if(typeof projectURL !== "undefined")
+    {
+        window.location = "dashboard.html?purl="+projectURL;
+    }
+    else
+    {
+        window.location = "dashboard.html";
+    }
 }
