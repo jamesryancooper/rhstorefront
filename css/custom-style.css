@@ -1103,8 +1103,8 @@ transform:skew(8deg) rotate(3deg);
 }
 
 .active-link-outer {display: table;float: left;height: 100%;text-align: center;width: 100%;}
-.active-new-project-link  {display: table-cell;height: 100%;vertical-align: middle;}
-.active-new-project-link  a{color: #9cc0cf !important;font-size:36px;font-weight: bold;height: 100%;text-transform:none;}
+.active-new-project-link  {display: table-cell;height: 100%;vertical-align: middle;background: url("../images/watermark-eagle-icon-125.png"); z-index:-1; background-repeat:no-repeat; background-position:center;}
+.active-new-project-link  a{color: #9cc0cf !important;font-size:32px;font-weight: bold;height: 100%;text-transform:none;}
 .active-new-project-link  a:hover{color: #005FC3;}
 
 .add-more-url {
