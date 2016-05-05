@@ -145,7 +145,7 @@
 
                     <div class="row-v-spacing create-new-report">
                         <div class="close-btn"><a id="close-button" href="dashboard.html">X</a></div>
-                        <h2 class="text-center new-report-heading">Create a content marketing blueprint<span id="associated-keyword"></span></h2>
+                        <h2 class="text-center new-report-heading">Create a content marketing blueprint<div id="associated-keyword"></div></h2>
 
                         <div class="inventory-inputs-outer">
 
@@ -330,13 +330,12 @@
         var competitor3 = getURLParameter("c3");
         var competitor4 = getURLParameter("c4");
         var competitor5 = getURLParameter("c5");
+        var keywordPhrase = getURLParameter("phrase");
         
         if(typeof projectURL !== "undefined" || projectURL !== null)
         {
             clientURL = projectURL;
         }
-        
-        console.log(projectID);
         
         if(typeof projectID !== "undefined" && projectID !== null)
         {
@@ -373,6 +372,11 @@
         {
             $("#competitor-url-5").val(decodeURIComponent(competitor5));
         }
+        if(typeof keywordPhrase !== "undefined" && keywordPhrase !== null)
+        {
+            $("#associated-keyword").html(" for <font style='color:#005cb9;'>" + decodeURIComponent(keywordPhrase) + "</font>");
+        }
+        
         
         $('#create-report-user-full-name').html(userFullName);
     }
