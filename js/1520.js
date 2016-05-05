@@ -988,7 +988,7 @@ function loadProjectDashboard()
                     //Create the Activate New Report card
                     cardHTML += "<li class=\"col-lg-4 matchheight\">\n";
                     cardHTML += "<div class=\"project-cart-box box-shadow-ot\">\n";
-                    cardHTML += "<div class=\"active-link-outer\"><span class=\"active-new-project-link\" style=\"padding-top:210px;padding-bottom:178px;\"> <a style=\"cursor:pointer;\" onclick=\"javascript:window.location='create-report.html';\">[ Activate New Mission ]</a> </span></div>";
+                    cardHTML += "<div class=\"active-link-outer\"><span class=\"active-new-project-link\" style=\"padding-top:210px;padding-bottom:178px;\"> <a style=\"cursor:pointer;\" onclick=\"javascript:window.location='create-report.html';\">[ Activate New Blueprint ]</a> </span></div>";
                     cardHTML += "</div>\n";
                     cardHTML += "</li>";
 
