@@ -1,8 +1,8 @@
-var restURL = "http://fairmarketing.cloudapp.net/rest1.0/endpoint.jsp?"
+//var restURL = "http://fairmarketing.cloudapp.net/rest1.0/endpoint.jsp?"
 var downloadURL = "http://fairmarketing.cloudapp.net/rest1.0/servlet/ssd.DownloadInventoryReport?"
-var khURL = "http://fairmarketing.cloudapp.net/rhkeywordhacker/";
-//var khURL = "http://localhost:8383/rhkeywordhacker/";
-//var restURL = "http://localhost:8084/rest1.0/endpoint.jsp?"
+//var khURL = "http://fairmarketing.cloudapp.net/rhkeywordhacker/";
+var khURL = "http://localhost:8383/rhkeywordhacker/";
+var restURL = "http://localhost:8084/rest1.0/endpoint.jsp?"
 //var downloadURL = "http://localhost:8084/rest1.0/servlet/ssd.DownloadInventoryReport"
 
 function getURLParameter(name)
@@ -718,7 +718,23 @@ function createRankHackerProjectFromDashboard(clientURL,competitorURL1,competito
 
                 if(info.status == "success")
                 {
-                    window.location = "dashboard.html";
+                    var purl = getURLParameter("purl");
+                    
+                    if(typeof purl !== "undefined")
+                    {
+                        if(purl !== "" && purl !== null)
+                        {
+                            window.location = "dashboard.html?purl="+purl;
+                        }
+                        else
+                        {
+                            window.location = "dashboard.html";
+                        }
+                    }
+                    else
+                    {
+                        window.location = "dashboard.html";
+                    }
                 }
             }
         });
@@ -972,7 +988,7 @@ function loadProjectDashboard()
                     //Create the Activate New Report card
                     cardHTML += "<li class=\"col-lg-4 matchheight\">\n";
                     cardHTML += "<div class=\"project-cart-box box-shadow-ot\">\n";
-                    cardHTML += "<div class=\"active-link-outer\"><span class=\"active-new-project-link\" style=\"padding-top:210px;padding-bottom:178px;\"> <a style=\"cursor:pointer;\" onclick=\"javascript:window.location='create-report.html';\">[ Activate Content Hacker ]</a> </span></div>";
+                    cardHTML += "<div class=\"active-link-outer\"><span class=\"active-new-project-link\" style=\"padding-top:210px;padding-bottom:178px;\"> <a style=\"cursor:pointer;\" onclick=\"javascript:window.location='create-report.html';\">[ Activate New Mission ]</a> </span></div>";
                     cardHTML += "</div>\n";
                     cardHTML += "</li>";
 
@@ -1309,7 +1325,7 @@ function loadProjectData()
                     
                     
                     //Update the elements on the report
-                    if( $('#reportTitleSmall').length ) { $('#reportTitleSmall').html('> '+projectTitle); }
+                    if( $('#reportTitleSmall').length ) { $('#reportTitleSmall').html(projectTitle); }
                     if( $('#welcomeUser').length ) { $('#welcomeUser').html(userFullName); }
                     
                     $('#preparedFor').html(userFullName);
